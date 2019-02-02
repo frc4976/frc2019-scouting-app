@@ -1,13 +1,14 @@
 import 'dart:io';
 import 'package:path_provider/path_provider.dart';
 
+List<String> titles = List<String>(36);
 List<String> row1 = List<String>(36);
 List<String> row2 = List<String>(36);
 List<String> row3 = List<String>(36);
 List<String> row4 = List<String>(36);
 List<String> row5 = List<String>(36);
 List<String> row6 = List<String>(36);
-List<List<String>> data = List<List<String>>(6);
+List<List<String>> data = List<List<String>>(7);
 
 void addData(int column, int row, String toAdd) {
   if (row == 1) {
@@ -36,6 +37,7 @@ Future<File> get _localFile async {
 }
 
 Future<File> writeFile() async {
+  data.add(titles);
   data.add(row1);
   data.add(row2);
   data.add(row3);

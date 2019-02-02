@@ -276,12 +276,7 @@ class TeamState extends State<Team>{
               RaisedButton(
                 child: new Text('Done'),
                 onPressed: () {
-                  row1[0] = teamNumber1;
-                  row2[0] = teamNumber2;
-                  row3[0] = teamNumber3;
-                  row4[0] = teamNumber4;
-                  row5[0] = teamNumber5;
-                  row6[0] = teamNumber6;
+                  addTeamInfo();
                   writeFile();
                 },
               )
@@ -290,4 +285,13 @@ class TeamState extends State<Team>{
         )
     );
   }
+}
+
+void addTeamInfo(){
+  row1[0] = teamNumber1;
+  row2[0] = teamNumber2;
+  row3[0] = teamNumber3;
+  row4[0] = teamNumber4;
+  row5[0] = teamNumber5;
+  row6[0] = teamNumber6;
 }
