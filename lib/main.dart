@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:scouting_app/saveFile.dart';
+import 'package:scouting_app/aLotOfVariables.dart';
 import 'package:csv/csv.dart';
 
-String teamNumber1 = '';
-String teamNumber2 = '';
-String teamNumber3 = '';
-String teamNumber4 = '';
-String teamNumber5 = '';
-String teamNumber6 = '';
+int numberOfTeams = 0;
+
+double team1Opacity = 0.0;
+double team2Opacity = 0.0;
+double team3Opacity = 0.0;
+double team4Opacity = 0.0;
+double team5Opacity = 0.0;
+double team6Opacity = 0.0;
 
 bool checkValue = false;
 
@@ -16,6 +20,11 @@ void main() => runApp(MyApp());
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    readCounter();
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
     return MaterialApp(
       title: 'Scouting App',
       theme: ThemeData(
@@ -148,6 +157,13 @@ class CreateMatch extends StatefulWidget{
 }
 
 class MatchPageState extends State<CreateMatch>{
+  RaisedButton btn1 = new RaisedButton(onPressed: null, color: Color.fromARGB(0, 100, 100, 100), child: new Text(teamNumber1));
+  RaisedButton btn2 = new RaisedButton(onPressed: null, color: Color.fromARGB(0, 100, 100, 100), child: new Text(teamNumber2));
+  RaisedButton btn3 = new RaisedButton(onPressed: null, color: Color.fromARGB(0, 100, 100, 100), child: new Text(teamNumber3));
+  RaisedButton btn4 = new RaisedButton(onPressed: null, color: Color.fromARGB(0, 100, 100, 100), child: new Text(teamNumber4));
+  RaisedButton btn5 = new RaisedButton(onPressed: null, color: Color.fromARGB(0, 100, 100, 100), child: new Text(teamNumber5));
+  RaisedButton btn6 = new RaisedButton(onPressed: null, color: Color.fromARGB(0, 100, 100, 100), child: new Text(teamNumber6));
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -161,18 +177,80 @@ class MatchPageState extends State<CreateMatch>{
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
+                new Opacity(opacity: team1Opacity, child: new Padding(
+                  padding: const EdgeInsets.only(
+                    left: 16.0,
+                  ),
+                  child: Center(child: btn1),
+                )),
+                new Opacity(opacity: team2Opacity, child: new Padding(
+                  padding: const EdgeInsets.only(
+                    left: 16.0,
+                  ),
+                  child: Center(child: btn2),
+                )),
+                new Opacity(opacity: team3Opacity, child: new Padding(
+                  padding: const EdgeInsets.only(
+                    left: 16.0,
+                  ),
+                  child: Center(child: btn3),
+                )),
+                new Opacity(opacity: team4Opacity, child: new Padding(
+                  padding: const EdgeInsets.only(
+                    left: 16.0,
+                  ),
+                  child: Center(child: btn4),
+                )),
+                new Opacity(opacity: team5Opacity, child: new Padding(
+                  padding: const EdgeInsets.only(
+                    left: 16.0,
+                  ),
+                  child: Center(child: btn5),
+                )),
+                new Opacity(opacity: team6Opacity, child: new Padding(
+                  padding: const EdgeInsets.only(
+                    left: 16.0,
+                  ),
+                  child: Center(child: btn6),
+                )),
+
                 Center(
                   child: RaisedButton(
                       child: Text(
                         'New Team',
                       ),
                       onPressed: () {
+                        setState(() {
+                          numberOfTeams++;
+                          if (numberOfTeams == 1){
+                            team1Opacity = 1.0;
+                          }else if (numberOfTeams == 2){
+                            team2Opacity = 1.0;
+                          }else if (numberOfTeams == 3){
+                            team3Opacity = 1.0;
+                          }else if (numberOfTeams == 4){
+                            team4Opacity = 1.0;
+                          }else if (numberOfTeams == 5){
+                            team5Opacity = 1.0;
+                          }else if (numberOfTeams == 6){
+                            team6Opacity = 1.0;
+                          }
+                        });
                         Navigator.push(
                             context,
                             MaterialPageRoute(builder: (context) => Team())
-                        );
+                        ) ;
                       }
                   ),
+                ),
+                Center(
+                  child: RaisedButton(
+                    child: new Text('Done'),
+                    onPressed: (){
+                      addTeamInfo();
+                      writeFile();
+                    }
+                  )
                 ),
               ],
             ),
@@ -270,22 +348,30 @@ class TeamState extends State<Team>{
           child: Column(
             children: <Widget>[
 
-              TextField (
-                onChanged: null, //TODO
+              TextField(
+                onChanged: (text) {
+                  setState(() {
+                    if (numberOfTeams == 1){
+                      teamNumber1 = text;
+                    }else if (numberOfTeams == 2){
+                      teamNumber2 = text;
+                    }else if (numberOfTeams == 3){
+                      teamNumber3 = text;
+                    }else if (numberOfTeams == 4){
+                      teamNumber4 = text;
+                    }else if (numberOfTeams == 5){
+                      teamNumber5 = text;
+                    }else if (numberOfTeams == 6){
+                      teamNumber6 = text;
+                    }
+                  });
+                },
               ),
-              TextField (
-                onChanged: null, //TODO
-              ),
-              Switch(
-               value: null,
-                onChanged: null,
-                activeColor: Colors.teal[600],
-              ),
+
               CheckboxListTile(
                   value: false,
-                  title: new Text('Sandstorm Moved?'),
-                activeColor: Colors.teal[600],
-                onChanged: (bool val) {
+                  title: new Text('Match win?'),
+              ),
 
                 },
               ),
@@ -303,8 +389,10 @@ class TeamState extends State<Team>{
               RaisedButton(
                 child: new Text('Done'),
                 onPressed: () {
-                  addTeamInfo();
-                  writeFile();
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => CreateMatch())
+                  );
                 },
               )
             ],
@@ -316,9 +404,16 @@ class TeamState extends State<Team>{
 
 void addTeamInfo(){
   row1[0] = teamNumber1;
+  row1[1] =
+
   row2[0] = teamNumber2;
+
   row3[0] = teamNumber3;
+
   row4[0] = teamNumber4;
+
   row5[0] = teamNumber5;
+
   row6[0] = teamNumber6;
+
 }

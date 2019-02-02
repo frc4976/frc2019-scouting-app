@@ -37,14 +37,29 @@ Future<File> get _localFile async {
 }
 
 Future<File> writeFile() async {
-  data.add(titles);
-  data.add(row1);
-  data.add(row2);
-  data.add(row3);
-  data.add(row4);
-  data.add(row5);
-  data.add(row6);
+  data[0] = titles;
+  data[1] = row1;
+  data[2] = row2;
+  data[3] = row3;
+  data[4] = row4;
+  data[5] = row5;
+  data[6] = row6;
 
   final file = await _localFile;
+  print(file.path);
   return file.writeAsString(data.toString());
+}
+
+Future<int> readCounter() async {
+  try {
+    final file = await _localFile;
+
+    // Read the file
+    String contents = await file.readAsString();
+    print(contents);
+
+  } catch (e) {
+    // If we encounter an error, return 0
+    return 0;
+  }
 }
