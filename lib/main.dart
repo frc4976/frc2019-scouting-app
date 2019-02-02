@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:scouting_app/saveFile.dart';
+import 'package:csv/csv.dart';
 
 String teamNumber1 = '';
 String teamNumber2 = '';
@@ -7,6 +8,8 @@ String teamNumber3 = '';
 String teamNumber4 = '';
 String teamNumber5 = '';
 String teamNumber6 = '';
+
+bool checkValue = false;
 
 void main() => runApp(MyApp());
 
@@ -164,7 +167,10 @@ class MatchPageState extends State<CreateMatch>{
                         'New Team',
                       ),
                       onPressed: () {
-
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => Team())
+                        );
                       }
                   ),
                 ),
@@ -263,14 +269,35 @@ class TeamState extends State<Team>{
         body: new Center(
           child: Column(
             children: <Widget>[
+
+              TextField (
+                onChanged: null, //TODO
+              ),
+              TextField (
+                onChanged: null, //TODO
+              ),
+              Switch(
+               value: null,
+                onChanged: null,
+                activeColor: Colors.teal[600],
+              ),
               CheckboxListTile(
                   value: false,
-                  title: new Text('Match win?'),
-              ),
+                  title: new Text('Sandstorm Moved?'),
+                activeColor: Colors.teal[600],
+                onChanged: (bool val) {
 
+                },
+              ),
               CheckboxListTile(
-                value: false,
+                value: checkValue,
                 title: new Text('Completed rocket?'),
+                activeColor: Colors.teal[600],
+                onChanged: (bool boolean) {
+                  setState(() {
+                    checkValue = boolean;
+                  });
+                },
               ),
 
               RaisedButton(
