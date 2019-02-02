@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:scouting_app/csvControl.dart';
-import 'package:csv/csv.dart';
+import 'package:scouting_app/saveFile.dart';
 
 void main() => runApp(MyApp());
 
@@ -67,7 +66,6 @@ void initState(){
                   child: RaisedButton(
                       child: Text('New Match', style: TextStyle(color: Colors.white)),
                       onPressed: () {
-                        startUp();
                         Navigator.push(
                             context,
                             MaterialPageRoute(builder: (context) => CreateMatch())
