@@ -35,7 +35,7 @@ Future<File> get _localFile async {
   return File('$path/data.csv');
 }
 
-Future<File> writeFile(int counter) async {
+Future<File> writeFile() async {
   data.add(row1);
   data.add(row2);
   data.add(row3);
