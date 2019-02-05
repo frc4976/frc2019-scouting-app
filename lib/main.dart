@@ -351,6 +351,10 @@ class TeamState extends State<Team>{
             children: <Widget>[
 
               TextField(
+                decoration: new InputDecoration(
+              labelText: 'Team Number'
+          ),
+                keyboardType: TextInputType.number,
                 onChanged: (text) {
                   setState(() {
                     if (numberOfTeams == 1){
@@ -370,6 +374,14 @@ class TeamState extends State<Team>{
                 },
               ),
 
+              TextField(
+               decoration: new InputDecoration(
+                  labelText: 'Match Number'
+                ),
+                keyboardType: TextInputType.number,
+                onChanged: (text2){
+                },  //TODO help im confused
+              ),
 
               CheckboxListTile(
                   value: checkValue,
