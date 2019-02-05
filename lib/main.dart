@@ -343,6 +343,7 @@ class TeamState extends State<Team>{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.blueGrey[200],
         appBar: AppBar(
           title: Text('New Team'),
         ),
@@ -380,7 +381,7 @@ class TeamState extends State<Team>{
                 ),
                 keyboardType: TextInputType.number,
                 onChanged: (text2){
-                },  //TODO help im confused
+                },  //TODO
               ),
 
               CheckboxListTile(
@@ -395,7 +396,7 @@ class TeamState extends State<Team>{
               ),
               CheckboxListTile(
                 value: checkValue2,
-                title: new Text('Completed rocket?'),
+                title: new Text('Moved during sandstorm?'),
                 activeColor: Colors.teal[600],
       onChanged: (bool changed2) {
         setState(() {
