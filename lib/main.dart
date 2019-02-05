@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:scouting_app/saveFile.dart';
 import 'package:scouting_app/aLotOfVariables.dart';
-import 'package:csv/csv.dart';
+import 'package:flutter/services.dart';
 
 int numberOfTeams = 0;
 
@@ -14,6 +13,7 @@ double team5Opacity = 0.0;
 double team6Opacity = 0.0;
 
 bool checkValue = false;
+bool checkValue2 = false;
 
 void main() => runApp(MyApp());
 
@@ -368,23 +368,28 @@ class TeamState extends State<Team>{
                 },
               ),
 
-              CheckboxListTile(
-                  value: false,
-                  title: new Text('Match win?'),
-              ),
 
-                },
-              ),
               CheckboxListTile(
-                value: checkValue,
-                title: new Text('Completed rocket?'),
+                  value: checkValue,
+                  title: new Text('Match win?'),
                 activeColor: Colors.teal[600],
                 onChanged: (bool boolean) {
-                  setState(() {
-                    checkValue = boolean;
-                  });
+                    setState( () {
+                      checkValue = boolean;
+                    });
                 },
               ),
+              CheckboxListTile(
+                value: checkValue2,
+                title: new Text('Completed rocket?'),
+                activeColor: Colors.teal[600],
+      onChanged: (bool boolean2) {
+        setState(() {
+          checkValue2 = boolean2;
+        });
+      },
+    ),
+
 
               RaisedButton(
                 child: new Text('Done'),
