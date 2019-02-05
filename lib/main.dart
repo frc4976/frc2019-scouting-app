@@ -382,7 +382,7 @@ class TeamState extends State<Team>{
                 ),
                 keyboardType: TextInputType.number,
                 onChanged: (text2){
-                },  //TODO
+                },  //TODO move
               ),
 
               CheckboxListTile(
