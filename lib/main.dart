@@ -14,6 +14,8 @@ double team6Opacity = 0.0;
 
 bool checkValue = false;
 bool checkValue2 = false;
+bool checkValue3 = false;
+bool checkValue4 = false;
 
 void main() => runApp(MyApp());
 
@@ -373,9 +375,9 @@ class TeamState extends State<Team>{
                   value: checkValue,
                   title: new Text('Match win?'),
                 activeColor: Colors.teal[600],
-                onChanged: (bool boolean) {
+                onChanged: (bool changed) {
                     setState( () {
-                      checkValue = boolean;
+                      checkValue = changed;
                     });
                 },
               ),
@@ -383,12 +385,37 @@ class TeamState extends State<Team>{
                 value: checkValue2,
                 title: new Text('Completed rocket?'),
                 activeColor: Colors.teal[600],
-      onChanged: (bool boolean2) {
+      onChanged: (bool changed2) {
         setState(() {
-          checkValue2 = boolean2;
+          checkValue2 = changed2;
         });
       },
     ),
+
+              CheckboxListTile(
+                  value: checkValue3,
+                title: new Text('red?'), //TODO odd wording
+                activeColor: Colors.teal[600],
+                onChanged: (bool changed3) {
+                 setState(() {
+                   checkValue3 = changed3;
+                   checkValue4 = !changed3;
+                 });
+                },
+              ),
+
+              CheckboxListTile(
+                  value: checkValue4,
+                  title: new Text('blue?'), //TODO odd wording
+                  activeColor: Colors.teal[600],
+                  onChanged: (bool changed4) {
+                    setState(() {
+                      checkValue4 = changed4;
+                      checkValue3 = !changed4;
+                    });
+                  }
+              ),
+
 
 
               RaisedButton(
