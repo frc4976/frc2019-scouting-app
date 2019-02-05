@@ -16,6 +16,7 @@ bool checkValue = false;
 bool checkValue2 = false;
 bool checkValue3 = false;
 bool checkValue4 = false;
+bool checkValue5 = false;
 
 void main() => runApp(MyApp());
 
@@ -404,6 +405,16 @@ class TeamState extends State<Team>{
         });
       },
     ),
+              CheckboxListTile(
+                value: checkValue5,
+                title: new Text('Crossed Line?'),
+                activeColor: Colors.teal[600],
+                onChanged: (bool changed5) {
+                  setState(() {
+                    checkValue5 = changed5;
+                  });
+                },
+              ),
 
               CheckboxListTile(
                   value: checkValue3,
