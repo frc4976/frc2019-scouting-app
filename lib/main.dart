@@ -12,11 +12,16 @@ double team4Opacity = 0.0;
 double team5Opacity = 0.0;
 double team6Opacity = 0.0;
 
+
+
 bool checkValue = false;
 bool checkValue2 = false;
 bool checkValue3 = false;
 bool checkValue4 = false;
-bool checkValue5 = false;
+bool checkValue5 = false; //--
+bool checkValue6 = false;
+bool checkValue7 = false;
+bool checkValue8 = false;
 
 void main() => runApp(MyApp());
 
@@ -388,7 +393,7 @@ class TeamState extends State<Team>{
               CheckboxListTile(
                   value: checkValue,
                   title: new Text('Match win?'),
-                activeColor: Colors.teal[600],
+                activeColor: Colors.teal[200],
                 onChanged: (bool changed) {
                     setState( () {
                       checkValue = changed;
@@ -398,7 +403,7 @@ class TeamState extends State<Team>{
               CheckboxListTile(
                 value: checkValue2,
                 title: new Text('Moved during sandstorm?'),
-                activeColor: Colors.teal[600],
+                activeColor: Colors.teal[200],
       onChanged: (bool changed2) {
         setState(() {
           checkValue2 = changed2;
@@ -408,7 +413,7 @@ class TeamState extends State<Team>{
               CheckboxListTile(
                 value: checkValue5,
                 title: new Text('Crossed Line?'),
-                activeColor: Colors.teal[600],
+                activeColor: Colors.teal[200],
                 onChanged: (bool changed5) {
                   setState(() {
                     checkValue5 = changed5;
@@ -419,7 +424,7 @@ class TeamState extends State<Team>{
               CheckboxListTile(
                   value: checkValue3,
                 title: new Text('red?'), //TODO odd wording
-                activeColor: Colors.teal[600],
+                activeColor: Colors.red[600],
                 onChanged: (bool changed3) {
                  setState(() {
                    checkValue3 = changed3;
@@ -431,23 +436,31 @@ class TeamState extends State<Team>{
               CheckboxListTile(
                   value: checkValue4,
                   title: new Text('blue?'), //TODO odd wording
-                  activeColor: Colors.teal[600],
+                  activeColor: Colors.blue[600],
                   onChanged: (bool changed4) {
                     setState(() {
                       checkValue4 = changed4;
-                      checkValue3 = !changed4;
+                      checkValue3 = !changed4;  //should stop user from pressing both red and blue
                     });
                   }
               ),
 
-
+              CheckboxListTile(
+                  value: checkValue6,
+                  title: new Text('placeholder'), //TODO
+                activeColor: Colors.teal[200],
+                  onChanged: (bool changed6) {
+                    setState(() {
+                      checkValue6 = changed6;
+                    });
+                  },
+              ),
 
               RaisedButton(
                 child: new Text('Done'),
                 onPressed: () {
-                  Navigator.push(
+                  Navigator.pop(
                       context,
-                      MaterialPageRoute(builder: (context) => CreateMatch())
                   );
                 },
               )
@@ -473,3 +486,6 @@ void addTeamInfo(){
   row6[0] = teamNumber6;
 
 }
+
+//TODO: change placeholders to functioning checkboxes and textfields
+//TODO: colors with variables, use setState
