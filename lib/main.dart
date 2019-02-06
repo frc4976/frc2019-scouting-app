@@ -393,7 +393,7 @@ class TeamState extends State<Team>{
               CheckboxListTile(
                   value: checkValue,
                   title: new Text('Match win?'),
-                activeColor: Colors.teal[200],
+                activeColor: Colors.teal[300],
                 onChanged: (bool changed) {
                     setState( () {
                       checkValue = changed;
@@ -487,5 +487,5 @@ void addTeamInfo(){
 
 }
 
-//TODO: change placeholders to functioning checkboxes and textfields
+//TODO: change placeholders to functioning checkboxes and text fields
 //TODO: colors with variables, use setState
