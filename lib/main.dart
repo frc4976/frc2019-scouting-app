@@ -23,6 +23,13 @@ bool checkValue6 = false;
 bool checkValue7 = false;
 bool checkValue8 = false;
 
+String colour1;
+String colour2;
+String colour3;
+String colour4;
+String colour5;
+String colour6;
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -423,24 +430,27 @@ class TeamState extends State<Team>{
 
               CheckboxListTile(
                   value: checkValue3,
-                title: new Text('red?'), //TODO odd wording
+                title: new Text('Red?'), //TODO odd wording
                 activeColor: Colors.red[600],
                 onChanged: (bool changed3) {
                  setState(() {
                    checkValue3 = changed3;
                    checkValue4 = !changed3;
+                   if (numberOfTeams == 1){
+                     colour1 = "b";
+                   }
                  });
                 },
               ),
 
               CheckboxListTile(
                   value: checkValue4,
-                  title: new Text('blue?'), //TODO odd wording
+                  title: new Text('Blue?'), //TODO odd wording
                   activeColor: Colors.blue[600],
                   onChanged: (bool changed4) {
                     setState(() {
                       checkValue4 = changed4;
-                      checkValue3 = !changed4;  //should stop user from pressing both red and blue
+                      checkValue3 = !changed4;  //stops user from pressing both red and blue
                     });
                   }
               ),
@@ -484,7 +494,8 @@ void addTeamInfo(){
   row5[0] = teamNumber5;
 
   row6[0] = teamNumber6;
-
+  
+  addData(3, 3, colour1);
 }
 
 //TODO: change placeholders to functioning checkboxes and text fields
