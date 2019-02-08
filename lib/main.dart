@@ -30,6 +30,10 @@ String colour4;
 String colour5;
 String colour6;
 
+String text;
+String text2;
+
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -192,6 +196,14 @@ class MatchPageState extends State<CreateMatch>{
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
+                TextField(
+                  decoration: new InputDecoration(
+                      labelText: 'Match Number'
+                  ),
+                  keyboardType: TextInputType.number,
+                  onChanged: (text2){
+                  },  //TODO move
+                ),
                 new Opacity(opacity: team1Opacity, child: new Padding(
                   padding: const EdgeInsets.only(
                     left: 16.0,
@@ -388,14 +400,7 @@ class TeamState extends State<Team>{
                 },
               ),
 
-              TextField(
-               decoration: new InputDecoration(
-                  labelText: 'Match Number'
-                ),
-                keyboardType: TextInputType.number,
-                onChanged: (text2){
-                },  //TODO move
-              ),
+
 
               CheckboxListTile(
                   value: checkValue,
@@ -424,13 +429,16 @@ class TeamState extends State<Team>{
                 onChanged: (bool changed5) {
                   setState(() {
                     checkValue5 = changed5;
+
+
                   });
+
                 },
               ),
 
               CheckboxListTile(
                   value: checkValue3,
-                title: new Text('Red?'), //TODO odd wording
+                title: new Text('Red?'), //TODO
                 activeColor: Colors.red[600],
                 onChanged: (bool changed3) {
                  setState(() {
@@ -445,7 +453,7 @@ class TeamState extends State<Team>{
 
               CheckboxListTile(
                   value: checkValue4,
-                  title: new Text('Blue?'), //TODO odd wording
+                  title: new Text('Blue?'), //TODO
                   activeColor: Colors.blue[600],
                   onChanged: (bool changed4) {
                     setState(() {
@@ -473,17 +481,20 @@ class TeamState extends State<Team>{
                       context,
                   );
                 },
-              )
+              ),
             ],
           ),
-        )
+        ),
     );
   }
 }
 
 void addTeamInfo(){
+  String crossed = checkValue5?'1':'0';
+  String moved = checkValue?'1':'0';
+
+
   row1[0] = teamNumber1;
-  row1[1] =
 
   row2[0] = teamNumber2;
 
@@ -496,7 +507,22 @@ void addTeamInfo(){
   row6[0] = teamNumber6;
   
   addData(3, 3, colour1);
+
+  addData(5,4,moved);
+  addData(6,4,crossed);
+  addData(0,4,text);
+  addData(2,4,text2);
+
+
+  if (checkValue3==true&&checkValue4==false){
+    addData(3,4,'red');
+  }else if(checkValue4==true&&checkValue3==false){
+    addData(3,4,'blue');
+  }
+
 }
 
 //TODO: change placeholders to functioning checkboxes and text fields
 //TODO: colors with variables, use setState
+
+// 1=true 0=false
