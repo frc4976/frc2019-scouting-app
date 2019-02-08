@@ -465,11 +465,22 @@ class TeamState extends State<Team>{
 
               CheckboxListTile(
                   value: checkValue6,
-                  title: new Text('placeholder'), //TODO
+                  title: new Text('Breakdown?'), //TODO
                 activeColor: Colors.teal[200],
                   onChanged: (bool changed6) {
                     setState(() {
                       checkValue6 = changed6;
+                    });
+                  },
+              ),
+
+              CheckboxListTile(
+                  value: checkValue7,
+                  title: new Text('Recovered?'),
+                  activeColor: Colors.teal[200],
+                  onChanged: (bool changed7) {
+                    setState(() {
+                      checkValue7 = changed7;
                     });
                   },
               ),
@@ -492,6 +503,8 @@ class TeamState extends State<Team>{
 void addTeamInfo(){
   String crossed = checkValue5?'1':'0';
   String moved = checkValue?'1':'0';
+  String breakdown = checkValue6?'1':'0';
+  String recover = checkValue7?'1':'0';
 
 
   row1[0] = teamNumber1;
@@ -510,6 +523,8 @@ void addTeamInfo(){
 
   addData(5,4,moved);
   addData(6,4,crossed);
+  addData(30,4,breakdown);
+  addData(31,4,recover);
   addData(0,4,text);
   addData(2,4,text2);
 
