@@ -202,7 +202,7 @@ class MatchPageState extends State<CreateMatch>{
                   ),
                   keyboardType: TextInputType.number,
                   onChanged: (text2){
-                  },  //TODO move
+                  },
                 ),
                 new Opacity(opacity: team1Opacity, child: new Padding(
                   padding: const EdgeInsets.only(
@@ -438,7 +438,7 @@ class TeamState extends State<Team>{
 
               CheckboxListTile(
                   value: checkValue3,
-                title: new Text('Red?'), //TODO
+                title: new Text('Red?'),
                 activeColor: Colors.red[600],
                 onChanged: (bool changed3) {
                  setState(() {
@@ -453,7 +453,7 @@ class TeamState extends State<Team>{
 
               CheckboxListTile(
                   value: checkValue4,
-                  title: new Text('Blue?'), //TODO
+                  title: new Text('Blue?'),
                   activeColor: Colors.blue[600],
                   onChanged: (bool changed4) {
                     setState(() {
@@ -465,7 +465,7 @@ class TeamState extends State<Team>{
 
               CheckboxListTile(
                   value: checkValue6,
-                  title: new Text('Breakdown?'), //TODO
+                  title: new Text('Breakdown?'),
                 activeColor: Colors.teal[200],
                   onChanged: (bool changed6) {
                     setState(() {
@@ -536,8 +536,6 @@ void addTeamInfo(){
   }
 
 }
-
-//TODO: change placeholders to functioning checkboxes and text fields
 //TODO: colors with variables, use setState
 
 // 1=true 0=false
