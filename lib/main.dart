@@ -537,5 +537,6 @@ void addTeamInfo(){
 
 }
 //TODO: colors with variables, use setState
+//TODO: team specific data logging
 
 // 1=true 0=false
