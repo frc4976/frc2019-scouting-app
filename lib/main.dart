@@ -15,20 +15,15 @@ double team5Opacity = 0.0;
 double team6Opacity = 0.0;
 
 
+
 bool checkValue = false;
 bool checkValue2 = false;
 bool checkValue3 = false;
 bool checkValue4 = false;
-bool checkValue5 = false;
+bool checkValue5 = false; //--
 bool checkValue6 = false;
 bool checkValue7 = false;
 bool checkValue8 = false;
-bool checkValue9 = false;
-bool checkValue10 = false;
-bool checkValue11 = false;
-bool checkValue12 = false;
-bool checkValue13 = false;
-
 
 String colour1;
 String colour2;
@@ -58,6 +53,7 @@ class MyApp extends StatelessWidget {
       ),
       home: MyHomePage(),
     );
+
   }
 }
 
@@ -70,17 +66,12 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   Color c = new Color.fromARGB(100, 156, 39, 39);
-  CrossFadeState state = CrossFadeState.showSecond;
-
-  @override
-  void initState() {
-    Future.delayed(Duration(seconds: 2), () =>
-        setState(() {
-          state = CrossFadeState.showFirst;
-        }));
-    super.initState();
-  }
-
+CrossFadeState state=CrossFadeState.showSecond;
+@override
+void initState(){
+  Future.delayed(Duration(seconds: 2),()=>setState((){state=CrossFadeState.showFirst;}));
+  super.initState();
+}
   @override
   Widget build(BuildContext context) {
     return AnimatedCrossFade(
@@ -93,122 +84,106 @@ class _MyHomePageState extends State<MyHomePage> {
           title: Text(widget.title),
         ),
         body: Center(
-            child: Container(
-              width: double.infinity,
-              decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                      begin: Alignment.topLeft,
-                      end: Alignment.bottomRight,
-                      colors: [
-                        Colors.grey[200],
-                        Colors.grey[800]
-                      ]
-                  )
-              ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: <Widget>[
-                  ButtonTheme(
-                    minWidth: 200.0,
-                    height: 75.0,
-                    child: RaisedButton(
-                        child: Text(
-                            'New Match', style: TextStyle(color: Colors.white)),
-                        onPressed: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => CreateMatch())
-                          );
-                        },
-                        color: Colors.indigo[900]
-                    ),
-                  ),
-
-                  RaisedButton(
-                      child: Text(
-                        'Help',
-                        style: TextStyle(color: Colors.white),
-                      ),
+          child: Container(
+            width: double.infinity,
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  colors: [
+                    Colors.grey[200],
+                    Colors.grey[800]
+                  ]
+              )
+            ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                ButtonTheme(
+                  minWidth: 200.0,
+                  height: 75.0,
+                  child: RaisedButton(
+                      child: Text('New Match', style: TextStyle(color: Colors.white)),
                       onPressed: () {
                         Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => HelpPage())
+                            MaterialPageRoute(builder: (context) => CreateMatch())
                         );
                       },
                       color: Colors.indigo[900]
                   ),
-                  FlatButton(
-                      child: Text(
-                        '.',
-                        style: TextStyle(fontSize: 5.0),
-                      ),
-                      onPressed: () {
-                        Navigator.pop(context);
-                      }
+                ),
+
+                RaisedButton(
+                    child: Text(
+                      'Help',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => HelpPage())
+                      ) ;
+                    },
+                    color: Colors.indigo[900]
+                ),
+                FlatButton(
+                  child: Text(
+                    '.',
+                      style: TextStyle(fontSize: 5.0),
                   ),
-                  FlatButton(
-                      child: Text(
-                        '.',
-                        style: TextStyle(fontSize: 5.0),
-                      ),
-                      onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) =>
-                                Scaffold(
-                                  body: SizedBox(
-                                    width: 400,
-                                    child: Container(
-                                        decoration: BoxDecoration(
-                                            image: DecorationImage(
-                                                fit: BoxFit.fitWidth,
-                                                image: AssetImage(
-                                                    "assets/WillieTheWizard.bmp")
-                                            )
-                                        )
-                                    ),
-                                  ),
-                                ))
-                        );
-                      }
-                  ),
-                ],
-              ),
-            )
+                  onPressed: () {
+                   Navigator.pop(context);
+                  }
+                ),
+                FlatButton(
+                    child: Text(
+                      '.',
+                      style: TextStyle(fontSize: 5.0),
+                    ),
+                    onPressed: () {
+                     Navigator.push(
+                       context,
+                       MaterialPageRoute(builder: (context)=>Scaffold(
+                         body: SizedBox(
+                           width: 400,
+                           child: Container(
+                             decoration: BoxDecoration(
+                             image: DecorationImage(
+                                 fit: BoxFit.fitWidth,
+                                 image:   AssetImage("assets/WillieTheWizard.bmp")
+                               )
+                             )
+                             ),
+                           ),
+                       ))
+                     );
+                    }
+                ),
+              ],
+            ),
+          )
         ),
       ),
     );
   }
 }
 
-class CreateMatch extends StatefulWidget {
+class CreateMatch extends StatefulWidget{
   final String title = 'Create Match';
 
   @override
   MatchPageState createState() => MatchPageState();
 }
 
-class MatchPageState extends State<CreateMatch> {
-  RaisedButton btn1 = new RaisedButton(onPressed: null,
-      color: Color.fromARGB(0, 100, 100, 100),
-      child: new Text(teamNumber1));
-  RaisedButton btn2 = new RaisedButton(onPressed: null,
-      color: Color.fromARGB(0, 100, 100, 100),
-      child: new Text(teamNumber2));
-  RaisedButton btn3 = new RaisedButton(onPressed: null,
-      color: Color.fromARGB(0, 100, 100, 100),
-      child: new Text(teamNumber3));
-  RaisedButton btn4 = new RaisedButton(onPressed: null,
-      color: Color.fromARGB(0, 100, 100, 100),
-      child: new Text(teamNumber4));
-  RaisedButton btn5 = new RaisedButton(onPressed: null,
-      color: Color.fromARGB(0, 100, 100, 100),
-      child: new Text(teamNumber5));
-  RaisedButton btn6 = new RaisedButton(onPressed: null,
-      color: Color.fromARGB(0, 100, 100, 100),
-      child: new Text(teamNumber6));
+class MatchPageState extends State<CreateMatch>{
+  RaisedButton btn1 = new RaisedButton(onPressed: null, color: Color.fromARGB(0, 100, 100, 100), child: new Text(teamNumber1));
+  RaisedButton btn2 = new RaisedButton(onPressed: null, color: Color.fromARGB(0, 100, 100, 100), child: new Text(teamNumber2));
+  RaisedButton btn3 = new RaisedButton(onPressed: null, color: Color.fromARGB(0, 100, 100, 100), child: new Text(teamNumber3));
+  RaisedButton btn4 = new RaisedButton(onPressed: null, color: Color.fromARGB(0, 100, 100, 100), child: new Text(teamNumber4));
+  RaisedButton btn5 = new RaisedButton(onPressed: null, color: Color.fromARGB(0, 100, 100, 100), child: new Text(teamNumber5));
+  RaisedButton btn6 = new RaisedButton(onPressed: null, color: Color.fromARGB(0, 100, 100, 100), child: new Text(teamNumber6));
 
   @override
   Widget build(BuildContext context) {
@@ -218,103 +193,104 @@ class MatchPageState extends State<CreateMatch> {
       ),
       body: Center(
         child: SingleChildScrollView(
-            child: Container(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  TextField(
-                    decoration: new InputDecoration(
-                        labelText: 'Match Number'
-                    ),
-                    keyboardType: TextInputType.number,
-                    onChanged: (text2) {},
+          child: Container(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                TextField(
+                  decoration: new InputDecoration(
+                      labelText: 'Match Number'
                   ),
-                  new Opacity(opacity: team1Opacity, child: new Padding(
-                    padding: const EdgeInsets.only(
-                      left: 16.0,
-                    ),
-                    child: Center(child: btn1),
-                  )),
-                  new Opacity(opacity: team2Opacity, child: new Padding(
-                    padding: const EdgeInsets.only(
-                      left: 16.0,
-                    ),
-                    child: Center(child: btn2),
-                  )),
-                  new Opacity(opacity: team3Opacity, child: new Padding(
-                    padding: const EdgeInsets.only(
-                      left: 16.0,
-                    ),
-                    child: Center(child: btn3),
-                  )),
-                  new Opacity(opacity: team4Opacity, child: new Padding(
-                    padding: const EdgeInsets.only(
-                      left: 16.0,
-                    ),
-                    child: Center(child: btn4),
-                  )),
-                  new Opacity(opacity: team5Opacity, child: new Padding(
-                    padding: const EdgeInsets.only(
-                      left: 16.0,
-                    ),
-                    child: Center(child: btn5),
-                  )),
-                  new Opacity(opacity: team6Opacity, child: new Padding(
-                    padding: const EdgeInsets.only(
-                      left: 16.0,
-                    ),
-                    child: Center(child: btn6),
-                  )),
+                  keyboardType: TextInputType.number,
+                  onChanged: (text2){
+                  },
+                ),
+                new Opacity(opacity: team1Opacity, child: new Padding(
+                  padding: const EdgeInsets.only(
+                    left: 16.0,
+                  ),
+                  child: Center(child: btn1),
+                )),
+                new Opacity(opacity: team2Opacity, child: new Padding(
+                  padding: const EdgeInsets.only(
+                    left: 16.0,
+                  ),
+                  child: Center(child: btn2),
+                )),
+                new Opacity(opacity: team3Opacity, child: new Padding(
+                  padding: const EdgeInsets.only(
+                    left: 16.0,
+                  ),
+                  child: Center(child: btn3),
+                )),
+                new Opacity(opacity: team4Opacity, child: new Padding(
+                  padding: const EdgeInsets.only(
+                    left: 16.0,
+                  ),
+                  child: Center(child: btn4),
+                )),
+                new Opacity(opacity: team5Opacity, child: new Padding(
+                  padding: const EdgeInsets.only(
+                    left: 16.0,
+                  ),
+                  child: Center(child: btn5),
+                )),
+                new Opacity(opacity: team6Opacity, child: new Padding(
+                  padding: const EdgeInsets.only(
+                    left: 16.0,
+                  ),
+                  child: Center(child: btn6),
+                )),
 
-                  Center(
-                    child: RaisedButton(
-                        child: Text(
-                          'New Team',
-                        ),
-                        onPressed: () {
-                          setState(() {
-                            numberOfTeams++;
-                            if (numberOfTeams == 1) {
-                              team1Opacity = 1.0;
-                            } else if (numberOfTeams == 2) {
-                              team2Opacity = 1.0;
-                            } else if (numberOfTeams == 3) {
-                              team3Opacity = 1.0;
-                            } else if (numberOfTeams == 4) {
-                              team4Opacity = 1.0;
-                            } else if (numberOfTeams == 5) {
-                              team5Opacity = 1.0;
-                            } else if (numberOfTeams == 6) {
-                              team6Opacity = 1.0;
-                            }
-                          });
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(builder: (context) => Team())
-                          );
-                        }
-                    ),
-                  ),
-                  Center(
-                      child: RaisedButton(
-                          child: new Text('Done'),
-                          onPressed: () {
-                            addTeamInfo();
-                            writeFile();
+                Center(
+                  child: RaisedButton(
+                      child: Text(
+                        'New Team',
+                      ),
+                      onPressed: () {
+                        setState(() {
+                          numberOfTeams++;
+                          if (numberOfTeams == 1){
+                            team1Opacity = 1.0;
+                          }else if (numberOfTeams == 2){
+                            team2Opacity = 1.0;
+                          }else if (numberOfTeams == 3){
+                            team3Opacity = 1.0;
+                          }else if (numberOfTeams == 4){
+                            team4Opacity = 1.0;
+                          }else if (numberOfTeams == 5){
+                            team5Opacity = 1.0;
+                          }else if (numberOfTeams == 6){
+                            team6Opacity = 1.0;
                           }
-                      )
+                        });
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => Team())
+                        ) ;
+                      }
                   ),
-                ],
-              ),
-            )
+                ),
+                Center(
+                  child: RaisedButton(
+                    child: new Text('Done'),
+                    onPressed: (){
+                      addTeamInfo();
+                      writeFile();
+                    }
+                  )
+                ),
+              ],
+            ),
+          )
         ),
       ),
     );
   }
 }
 
-class HelpPage extends StatefulWidget {
+class HelpPage extends StatefulWidget{
   final String title = 'Help';
 
   @override
@@ -342,31 +318,31 @@ class HelpPageState extends State<HelpPage> {
 
               ),
             ),
-            RaisedButton(
-              child: Text(
-                  'Thank you app, very cool!',
-                  style: TextStyle(color: Colors.white)),
-              onPressed: () {
-                Navigator.pop(
-                    context
-                );
-              },
-              color: Colors.indigo[900],
-            ),
-          ],
-        ),
-      ),
-    );
-  }
+RaisedButton(
+child: Text(
+'Thank you app, very cool!',
+style: TextStyle(color: Colors.white)),
+onPressed: () {
+Navigator.pop(
+context
+);
+},
+color: Colors.indigo[900],
+),
+],
+),
+),
+);
+}
 }
 
-class Splash extends StatefulWidget {
+class Splash extends StatefulWidget{
 
   @override
   SplashState createState() => SplashState();
 }
 
-class SplashState extends State<Splash> {
+class SplashState extends State<Splash>{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -384,26 +360,26 @@ class SplashState extends State<Splash> {
   }
 }
 
-class Team extends StatefulWidget {
+class Team extends StatefulWidget{
 
   @override
   TeamState createState() => TeamState();
 }
 
-class TeamState extends State<Team> {
+class TeamState extends State<Team>{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.blueGrey[200],
+      backgroundColor: Colors.blueGrey[200],
         appBar: AppBar(
-        title: Text('New Team'),
+          title: Text('New Team'),
         ),
-    body: new Center(
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-         children: <Widget>[
-            TextField(
-              decoration: new InputDecoration(
+        body: new Center(
+          child: Column(
+            children: <Widget>[
+
+              TextField(
+                decoration: new InputDecoration(
               labelText: 'Team Number'
           ),
                 keyboardType: TextInputType.number,
@@ -461,231 +437,82 @@ class TeamState extends State<Team> {
                 onChanged: (bool changed5) {
                   setState(() {
                     checkValue5 = changed5;
+
+
+                  });
+
+                },
               ),
-            keyboardType: TextInputType.number,
-            onChanged: (text) {
-              setState(() {
 
-              if (numberOfTeams == 1) {
-                teamNumber1 = text;
-              } else if (numberOfTeams == 2) {
-                teamNumber2 = text;
-              } else if (numberOfTeams == 3) {
-                teamNumber3 = text;
-              } else if (numberOfTeams == 4) {
-                teamNumber4 = text;
-            } else if (numberOfTeams == 5) {
-              teamNumber5 = text;
-            } else if (numberOfTeams == 6) {
-              teamNumber6 = text;
-            }
-          });
-        }
-        ,
-      ),
-      CheckboxListTile(
-        value: checkValue,
-        title: new Text('Match win?'),
-        activeColor: Colors.teal[300],
-        onChanged:
-            (bool changed)
-        {setState( () {
-            checkValue = changed;
-          });
-        },
-      ),
-      CheckboxListTile(
-        value: checkValue2,
-        title: new Text('Moved during sandstorm?'),
-        activeColor: Colors.teal[200],
-        onChanged:
-            (bool changed2)
-        {
-          setState(() {
-            checkValue2 = changed2;
-          });
-        }
-        ,
-      ),
-      CheckboxListTile(
-        value: checkValue5,
-        title
-            : new Text('Crossed Line?'),
-        activeColor
-            : Colors.teal[200],
-        onChanged:
-            (bool changed5)
-        {
-          setState(() {
-            checkValue5 = changed5;
+              CheckboxListTile(
+                  value: checkValue3,
+                title: new Text('Red?'),
+                activeColor: Colors.red[600],
+                onChanged: (bool changed3) {
+                 setState(() {
+                   checkValue3 = changed3;
+                   checkValue4 = !changed3;
+                   if (numberOfTeams == 1){
+                     colour1 = "b";
+                   }
+                 });
+                },
+              ),
 
+              CheckboxListTile(
+                  value: checkValue4,
+                  title: new Text('Blue?'),
+                  activeColor: Colors.blue[600],
+                  onChanged: (bool changed4) {
+                    setState(() {
+                      checkValue4 = changed4;
+                      checkValue3 = !changed4;  //stops user from pressing both red and blue
+                    });
+                  }
+              ),
 
-          });
+              CheckboxListTile(
+                  value: checkValue6,
+                  title: new Text('Breakdown?'),
+                activeColor: Colors.teal[200],
+                  onChanged: (bool changed6) {
+                    setState(() {
+                      checkValue6 = changed6;
+                    });
+                  },
+              ),
 
-        }
-        ,
-      ),
+              CheckboxListTile(
+                  value: checkValue7,
+                  title: new Text('Recovered?'),
+                  activeColor: Colors.teal[200],
+                  onChanged: (bool changed7) {
+                    setState(() {
+                      checkValue7 = changed7;
+                    });
+                  },
+              ),
 
-      CheckboxListTile(
-        value: checkValue3,
-        title
-            : new Text('Red?'),
-        activeColor
-            : Colors.red[600],
-        onChanged:
-            (bool changed3)
-        {
-          setState(() {
-            checkValue3 = changed3;
-            checkValue4 = !changed3;
-            if (numberOfTeams == 1){
-              colour1 = "b";
-            }
-          });
-        }
-        ,
-      ),
-
-      CheckboxListTile(
-          value: checkValue4,
-          title
-              : new Text('Blue?'),
-          activeColor
-              : Colors.blue[600],
-          onChanged:
-              (bool changed4)
-          {
-            setState(() {
-              checkValue4 = changed4;
-              checkValue3 = !changed4; //stops user from pressing both red and blue
-            });
-          }
-      ),
-
-      CheckboxListTile(
-        value: checkValue6,
-        title:
-        new Text('Breakdown?'),
-        activeColor:
-        Colors.teal[200],
-        onChanged: (
-            bool changed6)
-        {
-          setState(() {
-            checkValue6 = changed6;
-          });
-        }
-        ,
-      )
-      ,
-
-      CheckboxListTile(
-        value: checkValue7,
-        title: new Text('Recovered?'),
-        activeColor: Colors.teal[200],
-        onChanged: (bool changed7) {
-          setState(() {
-            checkValue7 = changed7;
-          });
-        },
-      ),
-
-      Row(children: <Widget>[
-        Checkbox(
-          value: checkValue8,
-          activeColor: Colors.blueGrey[900],
-          onChanged: (bool changed8) {
-            setState(() {
-              checkValue8 = true;
-              checkValue9 = false;
-              checkValue10 = false;
-              checkValue11 = false;
-              checkValue12 = false;
-            });
-          },
+              RaisedButton(
+                child: new Text('Done'),
+                onPressed: () {
+                  Navigator.pop(
+                      context,
+                  );
+                },
+              ),
+            ],
+          ),
         ),
-        Checkbox(
-          value: false,
-          activeColor: Colors.blueGrey[900],
-          onChanged: null,
-        ),
-        Checkbox(
-            value: checkValue9,
-            activeColor: Colors.blueGrey[900],
-            onChanged: (bool changed9){
-              setState(() {
-                checkValue9 = true;
-                checkValue10 = false;
-                checkValue11 = false;
-                checkValue12 = false;
-                checkValue8 = false;
-              });
-            }
-        ),
-      ],
-      ),
-      Row(children: <Widget>[
-       Checkbox(
-           value:checkValue10,
-           activeColor: Colors.blueGrey[900],
-           onChanged: (bool changed10){
-             setState(() {
-               checkValue10 = true;
-               checkValue11 = false;
-               checkValue12 = false;
-               checkValue8 = false;
-               checkValue9 = false;
-             });
-           }
-       ),
-        Checkbox(
-            value: checkValue11,
-            activeColor: Colors.blueGrey[900],
-            onChanged: (bool changed11){
-              setState(() {
-                checkValue11 = true;
-                checkValue12 = false;
-                checkValue8 = false;
-                checkValue9 = false;
-                checkValue10 = false;
-
-
-              });
-            }
-        ),
-        Checkbox(
-          value: checkValue12,
-          activeColor: Colors.blueGrey[900],
-          onChanged: (bool changed12){
-            setState(() {
-              checkValue12 = true;
-              checkValue8 = false;
-              checkValue9 = false;
-              checkValue10 = false;
-              checkValue11 = false;
-            });
-          },
-        )
-      ],
-      ),
-    ],
-    ),
-    ),
     );
-    }
-
-
-
-
-
-
+  }
 }
 
-void addTeamInfo() {
-  String crossed = checkValue5 ? '1' : '0';
-  String moved = checkValue2? '1' : '0';
-  String breakdown = checkValue6 ? '1' : '0';
-  String recover = checkValue7 ? '1' : '0';
+void addTeamInfo(){
+  String crossed = checkValue5?'1':'0';
+  String moved = checkValue?'1':'0';
+  String breakdown = checkValue6?'1':'0';
+  String recover = checkValue7?'1':'0';
 
 
   row1[0] = teamNumber1;
@@ -702,34 +529,21 @@ void addTeamInfo() {
 
   addData(3, 3, colour1);
 
-  addData(5, 4, moved);
-  addData(6, 4, crossed);
-  addData(30, 4, breakdown);
-  addData(31, 4, recover);
-
-  addData(0, 4, text);
-  addData(2, 4, text2);
-
+  addData(5,4,moved);
+  addData(6,4,crossed);
+  addData(30,4,breakdown);
+  addData(31,4,recover);
+  addData(0,4,text);
+  addData(2,4,text2);
 
 
-  if (checkValue3 == true && checkValue4 == false) {
-    addData(3, 4, 'red');
-  } else if (checkValue4 == true && checkValue3 == false) {
-    addData(3, 4, 'blue');
+  if (checkValue3==true&&checkValue4==false){
+    addData(3,4,'red');
+  }else if(checkValue4==true&&checkValue3==false){
+    addData(3,4,'blue');
   }
-  if (checkValue8==true){
-    addData(4,4,'21');
-  }else if(checkValue9==true){
-    addData(4,4,'23');
-  }else if(checkValue10==true){
-    addData(4,4,'11');
-  }else if(checkValue11==true){
-    addData(4,4,'12');
-  }else if(checkValue12==true){
-    addData(4,4,'13');
-  }
+
 }
-
 //TODO: colors with variables, use setState
 //TODO: team specific data logging
 
