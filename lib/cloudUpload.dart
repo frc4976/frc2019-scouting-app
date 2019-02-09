@@ -4,6 +4,7 @@ import 'package:path_provider/path_provider.dart';
 import 'dart:async';
 import 'dart:io';
 import 'package:firebase_storage/firebase_storage.dart';
+import 'package:scouting_app/aLotOfVariables.dart';
 
 
 String email = "";
@@ -25,7 +26,7 @@ Future<int> push() async {
     File dataPath = new File(file.path);
 
     final StorageReference firebaseStorageRef =
-    FirebaseStorage.instance.ref().child('test.csv');
+    FirebaseStorage.instance.ref().child('Match$matchNum.csv');
     final StorageUploadTask task =
     firebaseStorageRef.putFile(dataPath);
 

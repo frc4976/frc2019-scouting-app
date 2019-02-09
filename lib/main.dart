@@ -204,6 +204,7 @@ class MatchPageState extends State<CreateMatch>{
                   ),
                   keyboardType: TextInputType.number,
                   onChanged: (text2){
+                    matchNum = text2;
                   },
                 ),
                 new Opacity(opacity: team1Opacity, child: new Padding(
