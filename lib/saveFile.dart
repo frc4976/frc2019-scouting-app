@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:path_provider/path_provider.dart';
+import 'package:scouting_app/cloudUpload.dart';
 
 List<String> titles = List<String>(36);
 List<String> row1 = List<String>(36);
@@ -45,9 +46,30 @@ Future<File> writeFile() async {
   data[5] = row5;
   data[6] = row6;
 
+  String dataStr0 = data[0].join(",");
+  String dataStr1 = data[1].join(",");
+  String dataStr2 = data[2].join(",");
+  String dataStr3 = data[3].join(",");
+  String dataStr4 = data[4].join(",");
+  String dataStr5 = data[5].join(",");
+  String dataStr6 = data[6].join(",");
+
+  List<String> csvDataStrings = List<String>(7);
+  csvDataStrings[0] = dataStr0;
+  csvDataStrings[1] = dataStr1;
+  csvDataStrings[2] = dataStr2;
+  csvDataStrings[3] = dataStr3;
+  csvDataStrings[4] = dataStr4;
+  csvDataStrings[5] = dataStr5;
+  csvDataStrings[6] = dataStr6;
+
+  String csvData = csvDataStrings.join("\n");
+
   final file = await _localFile;
   print(file.path);
-  return file.writeAsString(data.toString());
+  var result = file.writeAsString(csvData);
+  push();
+  return result;
 }
 
 Future<int> readCounter() async {

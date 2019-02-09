@@ -5,6 +5,8 @@ import 'package:flutter/services.dart';
 
 int numberOfTeams = 0;
 
+bool whateverYouWant = false;
+
 double team1Opacity = 0.0;
 double team2Opacity = 0.0;
 double team3Opacity = 0.0;
@@ -403,6 +405,62 @@ class TeamState extends State<Team> {
             TextField(
               decoration: new InputDecoration(
               labelText: 'Team Number'
+          ),
+                keyboardType: TextInputType.number,
+                onChanged: (text) {
+                  setState(() {
+                    if (numberOfTeams == 1){
+                      teamNumber1 = text;
+                    }else if (numberOfTeams == 2){
+                      teamNumber2 = text;
+                    }else if (numberOfTeams == 3){
+                      teamNumber3 = text;
+                    }else if (numberOfTeams == 4){
+                      teamNumber4 = text;
+                    }else if (numberOfTeams == 5){
+                      teamNumber5 = text;
+                    }else if (numberOfTeams == 6){
+                      teamNumber6 = text;
+                    }
+                  });
+                },
+              ),
+
+
+
+              CheckboxListTile(
+                  value: checkValue,
+                  title: new Text('Match win?'),
+                activeColor: Colors.teal[300],
+                onChanged: (bool changed) {
+                    setState( () {
+                      checkValue = changed;
+                    });
+                },
+              ),
+              TextField(
+                onChanged: (text) {
+
+                },
+              ),
+
+              CheckboxListTile(
+                value: checkValue2,
+                title: new Text('Moved during sandstorm?'),
+                activeColor: Colors.teal[200],
+      onChanged: (bool changed2) {
+        setState(() {
+          checkValue2 = changed2;
+        });
+      },
+    ),
+              CheckboxListTile(
+                value: checkValue5,
+                title: new Text('Crossed Line?'),
+                activeColor: Colors.teal[200],
+                onChanged: (bool changed5) {
+                  setState(() {
+                    checkValue5 = changed5;
               ),
             keyboardType: TextInputType.number,
             onChanged: (text) {
@@ -650,7 +708,7 @@ void addTeamInfo() {
 
   addData(0, 4, text);
   addData(2, 4, text2);
-  
+
 
 
   if (checkValue3 == true && checkValue4 == false) {
