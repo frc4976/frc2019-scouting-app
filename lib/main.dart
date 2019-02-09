@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:scouting_app/saveFile.dart';
 import 'package:scouting_app/aLotOfVariables.dart';
+import 'package:flutter/services.dart';
 
 int numberOfTeams = 0;
 
@@ -13,6 +13,28 @@ double team3Opacity = 0.0;
 double team4Opacity = 0.0;
 double team5Opacity = 0.0;
 double team6Opacity = 0.0;
+
+
+
+bool checkValue = false;
+bool checkValue2 = false;
+bool checkValue3 = false;
+bool checkValue4 = false;
+bool checkValue5 = false; //--
+bool checkValue6 = false;
+bool checkValue7 = false;
+bool checkValue8 = false;
+
+String colour1;
+String colour2;
+String colour3;
+String colour4;
+String colour5;
+String colour6;
+
+String text;
+String text2;
+
 
 void main() => runApp(MyApp());
 
@@ -176,6 +198,14 @@ class MatchPageState extends State<CreateMatch>{
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
+                TextField(
+                  decoration: new InputDecoration(
+                      labelText: 'Match Number'
+                  ),
+                  keyboardType: TextInputType.number,
+                  onChanged: (text2){
+                  },
+                ),
                 new Opacity(opacity: team1Opacity, child: new Padding(
                   padding: const EdgeInsets.only(
                     left: 16.0,
@@ -340,6 +370,7 @@ class TeamState extends State<Team>{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.blueGrey[200],
         appBar: AppBar(
           title: Text('New Team'),
         ),
@@ -348,6 +379,10 @@ class TeamState extends State<Team>{
             children: <Widget>[
 
               TextField(
+                decoration: new InputDecoration(
+              labelText: 'Team Number'
+          ),
+                keyboardType: TextInputType.number,
                 onChanged: (text) {
                   setState(() {
                     if (numberOfTeams == 1){
@@ -367,6 +402,18 @@ class TeamState extends State<Team>{
                 },
               ),
 
+
+
+              CheckboxListTile(
+                  value: checkValue,
+                  title: new Text('Match win?'),
+                activeColor: Colors.teal[300],
+                onChanged: (bool changed) {
+                    setState( () {
+                      checkValue = changed;
+                    });
+                },
+              ),
               TextField(
                 onChanged: (text) {
 
@@ -374,48 +421,100 @@ class TeamState extends State<Team>{
               ),
 
               CheckboxListTile(
-                  value: false,
-                  activeColor: Colors.blue,
-                  title: new Text('Moved during sandstorm?'),
-                  onChanged: (bool val){
-                    int toNum;
-                    if (val = false){
-                      toNum = 0;
-                    }else{
-                      toNum = 1;
-                    }
-                    RefreshIndicatorState();
+                value: checkValue2,
+                title: new Text('Moved during sandstorm?'),
+                activeColor: Colors.teal[200],
+      onChanged: (bool changed2) {
+        setState(() {
+          checkValue2 = changed2;
+        });
+      },
+    ),
+              CheckboxListTile(
+                value: checkValue5,
+                title: new Text('Crossed Line?'),
+                activeColor: Colors.teal[200],
+                onChanged: (bool changed5) {
+                  setState(() {
+                    checkValue5 = changed5;
+
+
+                  });
+
+                },
+              ),
+
+              CheckboxListTile(
+                  value: checkValue3,
+                title: new Text('Red?'),
+                activeColor: Colors.red[600],
+                onChanged: (bool changed3) {
+                 setState(() {
+                   checkValue3 = changed3;
+                   checkValue4 = !changed3;
+                   if (numberOfTeams == 1){
+                     colour1 = "b";
+                   }
+                 });
+                },
+              ),
+
+              CheckboxListTile(
+                  value: checkValue4,
+                  title: new Text('Blue?'),
+                  activeColor: Colors.blue[600],
+                  onChanged: (bool changed4) {
+                    setState(() {
+                      checkValue4 = changed4;
+                      checkValue3 = !changed4;  //stops user from pressing both red and blue
+                    });
+                  }
+              ),
+
+              CheckboxListTile(
+                  value: checkValue6,
+                  title: new Text('Breakdown?'),
+                activeColor: Colors.teal[200],
+                  onChanged: (bool changed6) {
+                    setState(() {
+                      checkValue6 = changed6;
+                    });
                   },
               ),
 
               CheckboxListTile(
-                activeColor: Colors.blue,
-                value: whateverYouWant,
-                title: new Text('Completed rocket?'),
-                onChanged: (bool boolean) {
-                  setState(() {
-                    whateverYouWant = boolean;
-                  });
-                },
+                  value: checkValue7,
+                  title: new Text('Recovered?'),
+                  activeColor: Colors.teal[200],
+                  onChanged: (bool changed7) {
+                    setState(() {
+                      checkValue7 = changed7;
+                    });
+                  },
               ),
 
               RaisedButton(
                 child: new Text('Done'),
                 onPressed: () {
-                  Navigator.push(
+                  Navigator.pop(
                       context,
-                      MaterialPageRoute(builder: (context) => CreateMatch())
                   );
                 },
-              )
+              ),
             ],
           ),
-        )
+        ),
     );
   }
 }
 
 void addTeamInfo(){
+  String crossed = checkValue5?'1':'0';
+  String moved = checkValue?'1':'0';
+  String breakdown = checkValue6?'1':'0';
+  String recover = checkValue7?'1':'0';
+
+
   row1[0] = teamNumber1;
 
   row2[0] = teamNumber2;
@@ -428,4 +527,24 @@ void addTeamInfo(){
 
   row6[0] = teamNumber6;
 
+  addData(3, 3, colour1);
+
+  addData(5,4,moved);
+  addData(6,4,crossed);
+  addData(30,4,breakdown);
+  addData(31,4,recover);
+  addData(0,4,text);
+  addData(2,4,text2);
+
+
+  if (checkValue3==true&&checkValue4==false){
+    addData(3,4,'red');
+  }else if(checkValue4==true&&checkValue3==false){
+    addData(3,4,'blue');
+  }
+
 }
+//TODO: colors with variables, use setState
+//TODO: team specific data logging
+
+// 1=true 0=false
