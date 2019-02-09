@@ -465,6 +465,7 @@ class TeamState extends State<Team> {
             keyboardType: TextInputType.number,
             onChanged: (text) {
               setState(() {
+
               if (numberOfTeams == 1) {
                 teamNumber1 = text;
               } else if (numberOfTeams == 2) {
@@ -716,8 +717,18 @@ void addTeamInfo() {
   } else if (checkValue4 == true && checkValue3 == false) {
     addData(3, 4, 'blue');
   }
+  if (checkValue8==true){
+    addData(4,4,'21');
+  }else if(checkValue9==true){
+    addData(4,4,'23');
+  }else if(checkValue10==true){
+    addData(4,4,'11');
+  }else if(checkValue11==true){
+    addData(4,4,'12');
+  }else if(checkValue12==true){
+    addData(4,4,'13');
+  }
 }
-
 
 //TODO: colors with variables, use setState
 //TODO: team specific data logging
