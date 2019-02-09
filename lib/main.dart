@@ -5,6 +5,8 @@ import 'package:scouting_app/aLotOfVariables.dart';
 
 int numberOfTeams = 0;
 
+bool whateverYouWant = false;
+
 double team1Opacity = 0.0;
 double team2Opacity = 0.0;
 double team3Opacity = 0.0;
@@ -365,6 +367,12 @@ class TeamState extends State<Team>{
                 },
               ),
 
+              TextField(
+                onChanged: (text) {
+
+                },
+              ),
+
               CheckboxListTile(
                   value: false,
                   activeColor: Colors.blue,
@@ -382,8 +390,13 @@ class TeamState extends State<Team>{
 
               CheckboxListTile(
                 activeColor: Colors.blue,
-                value: false,
+                value: whateverYouWant,
                 title: new Text('Completed rocket?'),
+                onChanged: (bool boolean) {
+                  setState(() {
+                    whateverYouWant = boolean;
+                  });
+                },
               ),
 
               RaisedButton(
@@ -404,7 +417,6 @@ class TeamState extends State<Team>{
 
 void addTeamInfo(){
   row1[0] = teamNumber1;
-  row1[1] =
 
   row2[0] = teamNumber2;
 

@@ -1,5 +1,11 @@
-String teamNumber1 = '';
 String team1Pos;
+String team2Pos;
+String team3Pos;
+String team4Pos;
+String team5Pos;
+String team6Pos;
+
+String teamNumber1 = '';
 
 String teamNumber2 = '';
 

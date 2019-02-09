@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "597040656032",
+    "firebase_url": "https://socuting-app.firebaseio.com",
+    "project_id": "socuting-app",
+    "storage_bucket": "socuting-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:597040656032:android:e0cb553aa7f56b60",
+        "android_client_info": {
+          "package_name": "com.frc4976.scoutingapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "597040656032-rp3kktluqfj98ev1sb57timsc5725cjt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBrT1AdwEvrSwCmddocwZ49kIXY_4pG6GU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
