@@ -602,7 +602,7 @@ void addTeamInfo(){
   row6[0] = teamNumber6;
 
   addData(0,numberOfTeams,text);
-  addData(2,numberOfTeams,text2);
+  addData(1,numberOfTeams,text2);
   addData(5, numberOfTeams,moved);
   addData(6,numberOfTeams,crossed);
 
