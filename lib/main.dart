@@ -500,6 +500,9 @@ class TeamState extends State<Team>{
                   Navigator.pop(
                       context,
                   );
+                  setState(() {
+
+                  });
                 },
               ),
             ],
@@ -522,13 +525,14 @@ void addTeamInfo(){
   row5[0] = teamNumber5;
   row6[0] = teamNumber6;
 
+  addData(0,numberOfTeams,text);
+  addData(2,numberOfTeams,text2);
   addData(3, numberOfTeams, colour1);
   addData(5, numberOfTeams,moved);
   addData(6,numberOfTeams,crossed);
+
   addData(30,numberOfTeams,breakdown);
   addData(31,numberOfTeams,recover);
-  addData(0,numberOfTeams,text);
-  addData(2,numberOfTeams,text2);
 
 
   if (checkValue3==true&&checkValue4==false){
