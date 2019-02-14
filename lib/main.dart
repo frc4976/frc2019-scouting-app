@@ -459,9 +459,6 @@ class TeamState extends State<Team>{
                  setState(() {
                    checkValue3 = changed3;
                    checkValue4 = !changed3;
-                   if (numberOfTeams == 1){
-                     colour1 = "b";
-                   }
                  });
                 },
               ),
@@ -606,7 +603,6 @@ void addTeamInfo(){
 
   addData(0,numberOfTeams,text);
   addData(2,numberOfTeams,text2);
-  addData(3, numberOfTeams, colour1);
   addData(5, numberOfTeams,moved);
   addData(6,numberOfTeams,crossed);
 
@@ -615,9 +611,21 @@ void addTeamInfo(){
 
 
   if (checkValue3==true&&checkValue4==false){
-    addData(3,numberOfTeams,'red');
+    addData(2,numberOfTeams,'red');
   }else if(checkValue4==true&&checkValue3==false){
-    addData(3,numberOfTeams,'blue');
+    addData(2,numberOfTeams,'blue');
+  }
+
+  if (checkValue8==true){
+    addData(3,numberOfTeams,'21');
+  }else if(checkValue9==true){
+    addData(3,numberOfTeams,'23');
+  }else if(checkValue10==true){
+    addData(3,numberOfTeams,'11');
+  }else if(checkValue11==true){
+    addData(3,numberOfTeams,'12');
+  }else if(checkValue12==true){
+    addData(3,numberOfTeams,'13');
   }
 
 }
