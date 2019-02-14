@@ -277,7 +277,6 @@ class MatchPageState extends State<CreateMatch>{
                   child: RaisedButton(
                     child: new Text('Done'),
                     onPressed: (){
-                      addTeamInfo();
                       writeFile();
                     }
                   )
@@ -497,12 +496,11 @@ class TeamState extends State<Team>{
               RaisedButton(
                 child: new Text('Done'),
                 onPressed: () {
+                  addTeamInfo();
                   Navigator.pop(
                       context,
                   );
-                  setState(() {
-
-                  });
+                  setState(() {});
                 },
               ),
             ],
