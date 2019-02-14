@@ -20,7 +20,7 @@ bool checkValue = false;
 bool checkValue2 = false;
 bool checkValue3 = false;
 bool checkValue4 = false;
-bool checkValue5 = false; //--
+bool checkValue5 = false;
 bool checkValue6 = false;
 bool checkValue7 = false;
 bool checkValue8 = false;
@@ -515,37 +515,26 @@ void addTeamInfo(){
   String breakdown = checkValue6?'1':'0';
   String recover = checkValue7?'1':'0';
 
-
   row1[0] = teamNumber1;
-
   row2[0] = teamNumber2;
-
   row3[0] = teamNumber3;
-
   row4[0] = teamNumber4;
-
   row5[0] = teamNumber5;
-
   row6[0] = teamNumber6;
 
-  addData(3, 3, colour1);
-
-  addData(5,4,moved);
-  addData(6,4,crossed);
-  addData(30,4,breakdown);
-  addData(31,4,recover);
-  addData(0,4,text);
-  addData(2,4,text2);
+  addData(3, numberOfTeams, colour1);
+  addData(5, numberOfTeams,moved);
+  addData(6,numberOfTeams,crossed);
+  addData(30,numberOfTeams,breakdown);
+  addData(31,numberOfTeams,recover);
+  addData(0,numberOfTeams,text);
+  addData(2,numberOfTeams,text2);
 
 
   if (checkValue3==true&&checkValue4==false){
-    addData(3,4,'red');
+    addData(3,numberOfTeams,'red');
   }else if(checkValue4==true&&checkValue3==false){
-    addData(3,4,'blue');
+    addData(3,numberOfTeams,'blue');
   }
 
 }
-//TODO: colors with variables, use setState
-//TODO: team specific data logging
-
-// 1=true 0=false
