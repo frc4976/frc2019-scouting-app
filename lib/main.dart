@@ -22,8 +22,15 @@ bool checkValue3 = false;
 bool checkValue4 = false;
 bool checkValue5 = false;
 bool checkValue6 = false;
-bool checkValue7 = false;
+bool checkValue7 = false; //--
 bool checkValue8 = false;
+bool checkValue9 = false;
+bool checkValue10 = false;
+bool checkValue11 = false;
+bool checkValue12 = false;
+
+
+
 
 String colour1;
 String colour2;
@@ -493,6 +500,80 @@ class TeamState extends State<Team>{
                   },
               ),
 
+              Row(
+                children: <Widget>[
+                  Checkbox(
+                      value: checkValue8,
+                      onChanged: (bool changed8){
+                        setState(() {
+                          checkValue8 = true;
+                          checkValue9 = false;
+                          checkValue10 = false;
+                          checkValue11 = false;
+                          checkValue12 = false;
+                        });
+                      },
+                  ),
+                  Checkbox(
+                    value: null,
+                    onChanged: (bool changed8){
+
+                    },
+                  ),
+                  Checkbox(
+                    value: checkValue9,
+                    onChanged: (bool changed9){
+                      setState(() {
+                        checkValue9 = true;
+                        checkValue8 = false;
+                        checkValue10 = false;
+                        checkValue11 = false;
+                        checkValue12 = false;
+                      });
+                    },
+                  ),
+                ],
+              ),
+                 Row(
+                   children: <Widget>[
+                     Checkbox(
+                       value: checkValue10,
+                       onChanged: (bool changed10){
+                         setState(() {
+                           checkValue10 = true;
+                           checkValue9 = false;
+                           checkValue8 = false;
+                           checkValue11 = false;
+                           checkValue12 = false;
+                         });
+                       },
+                     ),
+                     Checkbox(
+                       value: checkValue11,
+                       onChanged: (bool changed11){
+                         setState(() {
+                           checkValue11 = true;
+                           checkValue9 = false;
+                           checkValue10 = false;
+                           checkValue8 = false;
+                           checkValue12 = false;
+                         });
+                       },
+                     ),
+                     Checkbox(
+                       value: checkValue12,
+                       onChanged: (bool changed12){
+                         setState(() {
+                           checkValue12 = true;
+                           checkValue9 = false;
+                           checkValue10 = false;
+                           checkValue11 = false;
+                           checkValue8 = false;
+                         });
+                       },
+                     ),
+                   ],
+                 ),
               RaisedButton(
                 child: new Text('Done'),
                 onPressed: () {
