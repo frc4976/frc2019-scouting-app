@@ -431,11 +431,7 @@ class TeamState extends State<Team>{
                     });
                   },
                 ),
-                TextField(
-                  onChanged: (text) {
 
-                  },
-                ),
 
                 CheckboxListTile(
                   value: checkValue2,
