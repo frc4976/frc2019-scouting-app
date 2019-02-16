@@ -391,129 +391,130 @@ class TeamState extends State<Team>{
           title: Text('New Team'),
         ),
         body: new Center(
-          child: Column(
-            children: <Widget>[
+          child: SingleChildScrollView(
+            child: Column(
+              children: <Widget>[
 
-              TextField(
-                decoration: new InputDecoration(
-              labelText: 'Team Number'
-          ),
-                keyboardType: TextInputType.number,
-                onChanged: (text) {
-                  setState(() {
-                    if (numberOfTeams == 1){
-                      teamNumber1 = text;
-                    }else if (numberOfTeams == 2){
-                      teamNumber2 = text;
-                    }else if (numberOfTeams == 3){
-                      teamNumber3 = text;
-                    }else if (numberOfTeams == 4){
-                      teamNumber4 = text;
-                    }else if (numberOfTeams == 5){
-                      teamNumber5 = text;
-                    }else if (numberOfTeams == 6){
-                      teamNumber6 = text;
-                    }
-                  });
-                },
-              ),
+                TextField(
+                  decoration: new InputDecoration(
+                      labelText: 'Team Number'
+                  ),
+                  keyboardType: TextInputType.number,
+                  onChanged: (text) {
+                    setState(() {
+                      if (numberOfTeams == 1){
+                        teamNumber1 = text;
+                      }else if (numberOfTeams == 2){
+                        teamNumber2 = text;
+                      }else if (numberOfTeams == 3){
+                        teamNumber3 = text;
+                      }else if (numberOfTeams == 4){
+                        teamNumber4 = text;
+                      }else if (numberOfTeams == 5){
+                        teamNumber5 = text;
+                      }else if (numberOfTeams == 6){
+                        teamNumber6 = text;
+                      }
+                    });
+                  },
+                ),
 
 
 
-              CheckboxListTile(
+                CheckboxListTile(
                   value: checkValue,
                   title: new Text('Match win?'),
-                activeColor: Colors.teal[300],
-                onChanged: (bool changed) {
+                  activeColor: Colors.teal[300],
+                  onChanged: (bool changed) {
                     setState( () {
                       checkValue = changed;
                     });
-                },
-              ),
-              TextField(
-                onChanged: (text) {
+                  },
+                ),
+                TextField(
+                  onChanged: (text) {
 
-                },
-              ),
+                  },
+                ),
 
-              CheckboxListTile(
-                value: checkValue2,
-                title: new Text('Moved during sandstorm?'),
-                activeColor: Colors.teal[200],
-      onChanged: (bool changed2) {
-        setState(() {
-          checkValue2 = changed2;
-        });
-      },
-    ),
-              CheckboxListTile(
-                value: checkValue5,
-                title: new Text('Crossed Line?'),
-                activeColor: Colors.teal[200],
-                onChanged: (bool changed5) {
-                  setState(() {
-                    checkValue5 = changed5;
-
-
-                  });
-
-                },
-              ),
-
-              CheckboxListTile(
-                  value: checkValue3,
-                title: new Text('Red?'),
-                activeColor: Colors.red[600],
-                onChanged: (bool changed3) {
-                 setState(() {
-                   checkValue3 = changed3;
-                   checkValue4 = !changed3;
-                 });
-                },
-              ),
-
-              CheckboxListTile(
-                  value: checkValue4,
-                  title: new Text('Blue?'),
-                  activeColor: Colors.blue[600],
-                  onChanged: (bool changed4) {
+                CheckboxListTile(
+                  value: checkValue2,
+                  title: new Text('Moved during sandstorm?'),
+                  activeColor: Colors.teal[200],
+                  onChanged: (bool changed2) {
                     setState(() {
-                      checkValue4 = changed4;
-                      checkValue3 = !changed4;  //stops user from pressing both red and blue
+                      checkValue2 = changed2;
                     });
-                  }
-              ),
+                  },
+                ),
+                CheckboxListTile(
+                  value: checkValue5,
+                  title: new Text('Crossed Line?'),
+                  activeColor: Colors.teal[200],
+                  onChanged: (bool changed5) {
+                    setState(() {
+                      checkValue5 = changed5;
 
-              CheckboxListTile(
-                  value: checkValue13,
-                  title: new Text('pre-H'),
-                  onChanged: (bool changed13) {
-                    checkValue13 = changed13;
-                    checkValue14 = !changed13;
-                  }
-              ),
 
-              CheckboxListTile(
-                  value: checkValue14,
-                  title: new Text('pre-C'),
-                  onChanged: (bool changed14){
-                    checkValue14 = changed14;
-                    checkValue13 = !changed14;
-                  }
-              ),
+                    });
 
-              CheckboxListTile(
+                  },
+                ),
+
+                CheckboxListTile(
+                  value: checkValue3,
+                  title: new Text('Red?'),
+                  activeColor: Colors.red[600],
+                  onChanged: (bool changed3) {
+                    setState(() {
+                      checkValue3 = changed3;
+                      checkValue4 = !changed3;
+                    });
+                  },
+                ),
+
+                CheckboxListTile(
+                    value: checkValue4,
+                    title: new Text('Blue?'),
+                    activeColor: Colors.blue[600],
+                    onChanged: (bool changed4) {
+                      setState(() {
+                        checkValue4 = changed4;
+                        checkValue3 = !changed4;  //stops user from pressing both red and blue
+                      });
+                    }
+                ),
+
+                CheckboxListTile(
+                    value: checkValue13,
+                    title: new Text('pre-H'),
+                    onChanged: (bool changed13) {
+                      checkValue13 = changed13;
+                      checkValue14 = !changed13;
+                    }
+                ),
+
+                CheckboxListTile(
+                    value: checkValue14,
+                    title: new Text('pre-C'),
+                    onChanged: (bool changed14){
+                      checkValue14 = changed14;
+                      checkValue13 = !changed14;
+                    }
+                ),
+
+                CheckboxListTile(
                   value: checkValue6,
                   title: new Text('Breakdown?'),
-                activeColor: Colors.teal[200],
+                  activeColor: Colors.teal[200],
                   onChanged: (bool changed6) {
                     setState(() {
                       checkValue6 = changed6;
                     });
                   },
-              ),
+                ),
 
-              CheckboxListTile(
+                CheckboxListTile(
                   value: checkValue7,
                   title: new Text('Recovered?'),
                   activeColor: Colors.teal[200],
@@ -522,11 +523,11 @@ class TeamState extends State<Team>{
                       checkValue7 = changed7;
                     });
                   },
-              ),
+                ),
 
-              Row(
-                children: <Widget>[
-                  Checkbox(
+                Row(
+                  children: <Widget>[
+                    Checkbox(
                       value: checkValue8,
                       onChanged: (bool changed8){
                         setState(() {
@@ -537,223 +538,219 @@ class TeamState extends State<Team>{
                           checkValue12 = false;
                         });
                       },
-                  ),
-                  Checkbox(
-                    value: null,
-                    onChanged: (bool changed8){
+                    ),
 
-                    },
-                  ),
-                  Checkbox(
-                    value: checkValue9,
-                    onChanged: (bool changed9){
-                      setState(() {
-                        checkValue9 = true;
-                        checkValue8 = false;
-                        checkValue10 = false;
-                        checkValue11 = false;
-                        checkValue12 = false;
-                      });
-                    },
-                  ),
-                ],
-              ),
-                 Row(
-                   children: <Widget>[
-                     Checkbox(
-                       value: checkValue10,
-                       onChanged: (bool changed10){
-                         setState(() {
-                           checkValue10 = true;
-                           checkValue9 = false;
-                           checkValue8 = false;
-                           checkValue11 = false;
-                           checkValue12 = false;
-                         });
-                       },
-                     ),
-                     Checkbox(
-                       value: checkValue11,
-                       onChanged: (bool changed11){
-                         setState(() {
-                           checkValue11 = true;
-                           checkValue9 = false;
-                           checkValue10 = false;
-                           checkValue8 = false;
-                           checkValue12 = false;
-                         });
-                       },
-                     ),
-                     Checkbox(
-                       value: checkValue12,
-                       onChanged: (bool changed12){
-                         setState(() {
-                           checkValue12 = true;
-                           checkValue9 = false;
-                           checkValue10 = false;
-                           checkValue11 = false;
-                           checkValue8 = false;
-                         });
-                       },
-                     ),
-                   ],
-                 ),
-
-              Row(
-                children: <Widget>[
-
-                  Checkbox(
-                      value: firstMove,
-                      onChanged: (bool changed){
+                    Checkbox(
+                      value: checkValue9,
+                      onChanged: (bool changed9){
                         setState(() {
-                          firstMove = true;
-                          firstMove2 = false;
-                          firstMove3 = false;
-                          firstMove4 = false;
-                          firstMove5 = false;
-                          firstMove6 = false;
-                          firstMove7 = false;
-                          firstMove8 = false;
+                          checkValue9 = true;
+                          checkValue8 = false;
+                          checkValue10 = false;
+                          checkValue11 = false;
+                          checkValue12 = false;
                         });
-                      }
-                  ),
-                  Checkbox(
-                      value: firstMove2,
-                      onChanged: (bool changed){
-                        setState(() {
-                          firstMove2 = true;
-                          firstMove = false;
-                          firstMove3 = false;
-                          firstMove4 = false;
-                          firstMove5 = false;
-                          firstMove6 = false;
-                          firstMove7 = false;
-                          firstMove8 = false;
-                        });
-                      }
-                  ),
-                ],
-              ),
-
-              Row(
-                children: <Widget>[
-
-                  Checkbox(
-                      value: firstMove3,
-                      onChanged: (bool changed){
-                        setState(() {
-                          firstMove3 = true;
-                          firstMove2 = false;
-                          firstMove = false;
-                          firstMove4 = false;
-                          firstMove5 = false;
-                          firstMove6 = false;
-                          firstMove7 = false;
-                          firstMove8 = false;
-                        });
-                      }
-                  ),
-                  Checkbox(
-                      value: firstMove4,
-                      onChanged: (bool changed){
-                        setState(() {
-                          firstMove4 = true;
-                          firstMove2 = false;
-                          firstMove3 = false;
-                          firstMove = false;
-                          firstMove5 = false;
-                          firstMove6 = false;
-                          firstMove7 = false;
-                          firstMove8 = false;
-                        });
-                      }
-                  )
-                ],
-              ),
-
-              Row(
-                children: <Widget>[
-                Checkbox(
-                    value: firstMove5,
-                    onChanged: (bool changed){
-                      setState(() {
-                        firstMove5 = true;
-                        firstMove2 = false;
-                        firstMove3 = false;
-                        firstMove4 = false;
-                        firstMove = false;
-                        firstMove6 = false;
-                        firstMove7 = false;
-                        firstMove8 = false;
-                      });
-                    }
+                      },
+                    ),
+                  ],
                 ),
-                  Checkbox(
-                      value: firstMove6,
-                      onChanged: (bool changed){
+                Row(
+                  children: <Widget>[
+                    Checkbox(
+                      value: checkValue10,
+                      onChanged: (bool changed10){
                         setState(() {
-                          firstMove6 = true;
-                          firstMove2 = false;
-                          firstMove3 = false;
-                          firstMove4 = false;
-                          firstMove5 = false;
-                          firstMove = false;
-                          firstMove7 = false;
-                          firstMove8 = false;
+                          checkValue10 = true;
+                          checkValue9 = false;
+                          checkValue8 = false;
+                          checkValue11 = false;
+                          checkValue12 = false;
                         });
-                      }
-                  ),
-                ],
-              ),
-
-              Row(
-                children: <Widget>[
-
-                  Checkbox(
-                      value: firstMove7,
-                      onChanged: (bool changed){
+                      },
+                    ),
+                    Checkbox(
+                      value: checkValue11,
+                      onChanged: (bool changed11){
                         setState(() {
-                          firstMove7 = true;
-                          firstMove2 = false;
-                          firstMove3 = false;
-                          firstMove4 = false;
-                          firstMove5 = false;
-                          firstMove6 = false;
-                          firstMove = false;
-                          firstMove8 = false;
+                          checkValue11 = true;
+                          checkValue9 = false;
+                          checkValue10 = false;
+                          checkValue8 = false;
+                          checkValue12 = false;
                         });
-                      }
-                  ),
-                  Checkbox(
-                      value: firstMove8,
-                      onChanged: (bool changed){
+                      },
+                    ),
+                    Checkbox(
+                      value: checkValue12,
+                      onChanged: (bool changed12){
                         setState(() {
-                          firstMove8 = true;
-                          firstMove2 = false;
-                          firstMove3 = false;
-                          firstMove4 = false;
-                          firstMove5 = false;
-                          firstMove6 = false;
-                          firstMove7 = false;
-                          firstMove = false;
+                          checkValue12 = true;
+                          checkValue9 = false;
+                          checkValue10 = false;
+                          checkValue11 = false;
+                          checkValue8 = false;
                         });
-                      }
-                  ),
-                ],
-              ),
+                      },
+                    ),
+                  ],
+                ),
 
-              RaisedButton(
-                child: new Text('Done'),
-                onPressed: () {
-                  addTeamInfo();
-                  Navigator.pop(
+                Row(
+                  children: <Widget>[
+
+                    Checkbox(
+                        value: firstMove,
+                        onChanged: (bool changed){
+                          setState(() {
+                            firstMove = true;
+                            firstMove2 = false;
+                            firstMove3 = false;
+                            firstMove4 = false;
+                            firstMove5 = false;
+                            firstMove6 = false;
+                            firstMove7 = false;
+                            firstMove8 = false;
+                          });
+                        }
+                    ),
+                    Checkbox(
+                        value: firstMove2,
+                        onChanged: (bool changed){
+                          setState(() {
+                            firstMove2 = true;
+                            firstMove = false;
+                            firstMove3 = false;
+                            firstMove4 = false;
+                            firstMove5 = false;
+                            firstMove6 = false;
+                            firstMove7 = false;
+                            firstMove8 = false;
+                          });
+                        }
+                    ),
+                  ],
+                ),
+
+                Row(
+                  children: <Widget>[
+
+                    Checkbox(
+                        value: firstMove3,
+                        onChanged: (bool changed){
+                          setState(() {
+                            firstMove3 = true;
+                            firstMove2 = false;
+                            firstMove = false;
+                            firstMove4 = false;
+                            firstMove5 = false;
+                            firstMove6 = false;
+                            firstMove7 = false;
+                            firstMove8 = false;
+                          });
+                        }
+                    ),
+                    Checkbox(
+                        value: firstMove4,
+                        onChanged: (bool changed){
+                          setState(() {
+                            firstMove4 = true;
+                            firstMove2 = false;
+                            firstMove3 = false;
+                            firstMove = false;
+                            firstMove5 = false;
+                            firstMove6 = false;
+                            firstMove7 = false;
+                            firstMove8 = false;
+                          });
+                        }
+                    )
+                  ],
+                ),
+
+                Row(
+                  children: <Widget>[
+                    Checkbox(
+                        value: firstMove5,
+                        onChanged: (bool changed){
+                          setState(() {
+                            firstMove5 = true;
+                            firstMove2 = false;
+                            firstMove3 = false;
+                            firstMove4 = false;
+                            firstMove = false;
+                            firstMove6 = false;
+                            firstMove7 = false;
+                            firstMove8 = false;
+                          });
+                        }
+                    ),
+                    Checkbox(
+                        value: firstMove6,
+                        onChanged: (bool changed){
+                          setState(() {
+                            firstMove6 = true;
+                            firstMove2 = false;
+                            firstMove3 = false;
+                            firstMove4 = false;
+                            firstMove5 = false;
+                            firstMove = false;
+                            firstMove7 = false;
+                            firstMove8 = false;
+                          });
+                        }
+                    ),
+                  ],
+                ),
+
+                Row(
+                  children: <Widget>[
+
+                    Checkbox(
+                        value: firstMove7,
+                        onChanged: (bool changed){
+                          setState(() {
+                            firstMove7 = true;
+                            firstMove2 = false;
+                            firstMove3 = false;
+                            firstMove4 = false;
+                            firstMove5 = false;
+                            firstMove6 = false;
+                            firstMove = false;
+                            firstMove8 = false;
+                          });
+                        }
+                    ),
+                    Checkbox(
+                        value: firstMove8,
+                        onChanged: (bool changed){
+                          setState(() {
+                            firstMove8 = true;
+                            firstMove2 = false;
+                            firstMove3 = false;
+                            firstMove4 = false;
+                            firstMove5 = false;
+                            firstMove6 = false;
+                            firstMove7 = false;
+                            firstMove = false;
+                          });
+                        }
+                    ),
+                  ],
+                ),
+
+                RaisedButton(
+                  child: new Text('Done'),
+                  onPressed: () {
+                    addTeamInfo();
+                    Navigator.pop(
                       context,
-                  );
-                  setState(() {});
-                },
-              ),
-            ],
-          ),
+                    );
+                    setState(() {});
+                  },
+                ),
+              ],
+            ),
+          )
         ),
     );
   }
@@ -826,3 +823,4 @@ void addTeamInfo(){
   }
 
 }
+
