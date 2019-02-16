@@ -485,8 +485,11 @@ class TeamState extends State<Team>{
                     value: checkValue13,
                     title: new Text('pre-H'),
                     onChanged: (bool changed13) {
-                      checkValue13 = changed13;
-                      checkValue14 = !changed13;
+                      setState(() {
+                        checkValue13 = changed13;
+                        checkValue14 = !changed13;
+                      });
+
                     }
                 ),
 
@@ -494,8 +497,10 @@ class TeamState extends State<Team>{
                     value: checkValue14,
                     title: new Text('pre-C'),
                     onChanged: (bool changed14){
-                      checkValue14 = changed14;
-                      checkValue13 = !changed14;
+                      setState(() {
+                        checkValue14 = changed14;
+                        checkValue13 = !changed14;
+                      });
                     }
                 ),
 
