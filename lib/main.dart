@@ -525,6 +525,8 @@ class TeamState extends State<Team>{
                   },
                 ),
 
+                Text('Bot Positon'),
+
                 Row(
                   children: <Widget>[
                     Checkbox(
@@ -538,6 +540,10 @@ class TeamState extends State<Team>{
                           checkValue12 = false;
                         });
                       },
+                    ),
+
+                    Checkbox(value: false,
+                        onChanged: null
                     ),
 
                     Checkbox(
@@ -594,6 +600,8 @@ class TeamState extends State<Team>{
                     ),
                   ],
                 ),
+
+                Text('First Move'),
 
                 Row(
                   children: <Widget>[
