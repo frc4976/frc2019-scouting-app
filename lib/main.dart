@@ -31,14 +31,14 @@ bool checkValue12 = false;
 bool checkValue13 = false;
 bool checkValue14 = false;
 
-bool FirstMove = false;
-bool FirstMove2 = false;
-bool FirstMove3 = false;
-bool FirstMove4 = false;
-bool FirstMove5 = false;
-bool FirstMove6 = false;
-bool FirstMove7 = false;
-bool FirstMove8 = false;
+bool firstMove = false;
+bool firstMove2 = false;
+bool firstMove3 = false;
+bool firstMove4 = false;
+bool firstMove5 = false;
+bool firstMove6 = false;
+bool firstMove7 = false;
+bool firstMove8 = false;
 
 
 String colour1;
@@ -603,32 +603,32 @@ class TeamState extends State<Team>{
                 children: <Widget>[
 
                   Checkbox(
-                      value: FirstMove,
+                      value: firstMove,
                       onChanged: (bool changed){
                         setState(() {
-                          FirstMove = true;
-                          FirstMove2 = false;
-                          FirstMove3 = false;
-                          FirstMove4 = false;
-                          FirstMove5 = false;
-                          FirstMove6 = false;
-                          FirstMove7 = false;
-                          FirstMove8 = false;
+                          firstMove = true;
+                          firstMove2 = false;
+                          firstMove3 = false;
+                          firstMove4 = false;
+                          firstMove5 = false;
+                          firstMove6 = false;
+                          firstMove7 = false;
+                          firstMove8 = false;
                         });
                       }
                   ),
                   Checkbox(
-                      value: FirstMove2,
+                      value: firstMove2,
                       onChanged: (bool changed){
                         setState(() {
-                          FirstMove2 = true;
-                          FirstMove = false;
-                          FirstMove3 = false;
-                          FirstMove4 = false;
-                          FirstMove5 = false;
-                          FirstMove6 = false;
-                          FirstMove7 = false;
-                          FirstMove8 = false;
+                          firstMove2 = true;
+                          firstMove = false;
+                          firstMove3 = false;
+                          firstMove4 = false;
+                          firstMove5 = false;
+                          firstMove6 = false;
+                          firstMove7 = false;
+                          firstMove8 = false;
                         });
                       }
                   ),
@@ -639,32 +639,32 @@ class TeamState extends State<Team>{
                 children: <Widget>[
 
                   Checkbox(
-                      value: FirstMove3,
+                      value: firstMove3,
                       onChanged: (bool changed){
                         setState(() {
-                          FirstMove3 = true;
-                          FirstMove2 = false;
-                          FirstMove = false;
-                          FirstMove4 = false;
-                          FirstMove5 = false;
-                          FirstMove6 = false;
-                          FirstMove7 = false;
-                          FirstMove8 = false;
+                          firstMove3 = true;
+                          firstMove2 = false;
+                          firstMove = false;
+                          firstMove4 = false;
+                          firstMove5 = false;
+                          firstMove6 = false;
+                          firstMove7 = false;
+                          firstMove8 = false;
                         });
                       }
                   ),
                   Checkbox(
-                      value: FirstMove4,
+                      value: firstMove4,
                       onChanged: (bool changed){
                         setState(() {
-                          FirstMove4 = true;
-                          FirstMove2 = false;
-                          FirstMove3 = false;
-                          FirstMove = false;
-                          FirstMove5 = false;
-                          FirstMove6 = false;
-                          FirstMove7 = false;
-                          FirstMove8 = false;
+                          firstMove4 = true;
+                          firstMove2 = false;
+                          firstMove3 = false;
+                          firstMove = false;
+                          firstMove5 = false;
+                          firstMove6 = false;
+                          firstMove7 = false;
+                          firstMove8 = false;
                         });
                       }
                   )
@@ -674,32 +674,32 @@ class TeamState extends State<Team>{
               Row(
                 children: <Widget>[
                 Checkbox(
-                    value: FirstMove5,
+                    value: firstMove5,
                     onChanged: (bool changed){
                       setState(() {
-                        FirstMove5 = true;
-                        FirstMove2 = false;
-                        FirstMove3 = false;
-                        FirstMove4 = false;
-                        FirstMove = false;
-                        FirstMove6 = false;
-                        FirstMove7 = false;
-                        FirstMove8 = false;
+                        firstMove5 = true;
+                        firstMove2 = false;
+                        firstMove3 = false;
+                        firstMove4 = false;
+                        firstMove = false;
+                        firstMove6 = false;
+                        firstMove7 = false;
+                        firstMove8 = false;
                       });
                     }
                 ),
                   Checkbox(
-                      value: FirstMove6,
+                      value: firstMove6,
                       onChanged: (bool changed){
                         setState(() {
-                          FirstMove6 = true;
-                          FirstMove2 = false;
-                          FirstMove3 = false;
-                          FirstMove4 = false;
-                          FirstMove5 = false;
-                          FirstMove = false;
-                          FirstMove7 = false;
-                          FirstMove8 = false;
+                          firstMove6 = true;
+                          firstMove2 = false;
+                          firstMove3 = false;
+                          firstMove4 = false;
+                          firstMove5 = false;
+                          firstMove = false;
+                          firstMove7 = false;
+                          firstMove8 = false;
                         });
                       }
                   ),
@@ -710,32 +710,32 @@ class TeamState extends State<Team>{
                 children: <Widget>[
 
                   Checkbox(
-                      value: FirstMove7,
+                      value: firstMove7,
                       onChanged: (bool changed){
                         setState(() {
-                          FirstMove7 = true;
-                          FirstMove2 = false;
-                          FirstMove3 = false;
-                          FirstMove4 = false;
-                          FirstMove5 = false;
-                          FirstMove6 = false;
-                          FirstMove = false;
-                          FirstMove8 = false;
+                          firstMove7 = true;
+                          firstMove2 = false;
+                          firstMove3 = false;
+                          firstMove4 = false;
+                          firstMove5 = false;
+                          firstMove6 = false;
+                          firstMove = false;
+                          firstMove8 = false;
                         });
                       }
                   ),
                   Checkbox(
-                      value: FirstMove8,
+                      value: firstMove8,
                       onChanged: (bool changed){
                         setState(() {
-                          FirstMove8 = true;
-                          FirstMove2 = false;
-                          FirstMove3 = false;
-                          FirstMove4 = false;
-                          FirstMove5 = false;
-                          FirstMove6 = false;
-                          FirstMove7 = false;
-                          FirstMove = false;
+                          firstMove8 = true;
+                          firstMove2 = false;
+                          firstMove3 = false;
+                          firstMove4 = false;
+                          firstMove5 = false;
+                          firstMove6 = false;
+                          firstMove7 = false;
+                          firstMove = false;
                         });
                       }
                   ),
@@ -798,6 +798,24 @@ void addTeamInfo(){
   }else if(checkValue12==true){
     addData(3,numberOfTeams,'13');
   }
+
+  if(firstMove==true){
+
+  }else if(firstMove2==true){
+
+  }else if(firstMove3==true){
+
+  }else if(firstMove4==true){
+
+  }else if(firstMove5==true){
+
+  }else if(firstMove6==true){
+
+  }else if(firstMove7==true){
+
+  }else if(firstMove8==true){
+
+  }//TODO
 
   if (checkValue13==true&&checkValue14==false){
     addData(7, numberOfTeams, '1');
