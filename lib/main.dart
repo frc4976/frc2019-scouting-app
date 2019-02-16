@@ -30,6 +30,7 @@ bool checkValue11 = false;
 bool checkValue12 = false;
 bool checkValue13 = false;
 bool checkValue14 = false;
+bool successful = false;
 
 bool firstMove = false;
 bool firstMove2 = false;
@@ -39,6 +40,21 @@ bool firstMove5 = false;
 bool firstMove6 = false;
 bool firstMove7 = false;
 bool firstMove8 = false;
+
+bool lRocket = false;
+bool lRocket2 = false;
+bool lRocket3 = false;
+bool lRocket4 = false;
+bool lRocket5 = false;
+bool lRocket6 = false;
+
+bool rRocket = false;
+bool rRocket2 = false;
+bool rRocket3 = false;
+bool rRocket4 = false;
+bool rRocket5 = false;
+bool rRocket6 = false;
+
 
 
 String colour1;
@@ -50,6 +66,25 @@ String colour6;
 
 String text;
 String text2;
+String text3;
+
+String lRocketText;
+String lRocketText2;
+String lRocketText3;
+
+String rRocketText;
+String rRocketText2;
+String rRocketText3;
+
+String rocketT;
+String rocketT2;
+String rocketT3;
+String rocketT4;
+String rocketT5;
+String rocketT6;
+
+
+String nullHatches;
 
 
 void main() => runApp(MyApp());
@@ -419,6 +454,16 @@ class TeamState extends State<Team>{
                   },
                 ),
 
+                TextField(
+                  decoration: new InputDecoration(
+                    labelText: '# of null hatches(0-6)'
+                  ),
+                  keyboardType: TextInputType.number,
+                  onChanged: (text3) {
+                    nullHatches = text3;
+                  },
+                ),
+
 
 
                 CheckboxListTile(
@@ -747,6 +792,188 @@ class TeamState extends State<Team>{
                   ],
                 ),
 
+                CheckboxListTile(
+                    value: successful,
+                    title: new Text('were they successful?'),
+                    onChanged: (changed) {
+                      setState(() {
+                        successful = changed;
+                      });
+                    },
+                ),
+                
+                Text('Left Rocket'),
+
+                Row(
+                  children: <Widget>[
+                    Checkbox(
+                        value: lRocket,
+                        onChanged: (bool changed){
+                          setState(() {
+                            lRocket = changed;
+                          });
+                        }
+                    ),
+                    TextField(
+                      keyboardType: TextInputType.number,
+                      onChanged: (lRocketText){
+                        rocketT = lRocketText;
+                      },
+                    ),
+                    Checkbox(
+                        value: lRocket2,
+                        onChanged: (bool changed){
+                          setState(() {
+                            lRocket2 = changed;
+                          });
+                        }
+                    ),
+                  ],
+                ),
+
+                Row(
+                  children: <Widget>[
+                    Checkbox(
+                        value: lRocket3,
+                        onChanged: (bool changed){
+                          setState(() {
+                            lRocket3 = changed;
+                          });
+                        }
+                    ),
+                    TextField(
+                      keyboardType: TextInputType.number,
+                      onChanged: (lRocketText2){
+                       rocketT2 = lRocketText2;
+        },
+                    ),
+                    Checkbox(
+                        value: lRocket4,
+                        onChanged: (bool changed){
+                          setState(() {
+                            lRocket4 = changed;
+                          });
+                        }
+                    ),
+                  ],
+                ),
+
+                Row(
+                  children: <Widget>[
+                    Checkbox(
+                        value: lRocket5,
+                        onChanged: (bool changed){
+                          setState(() {
+                            lRocket5 = changed;
+                          });
+                        }
+                    ),
+                    TextField(
+                      keyboardType: TextInputType.number,
+                      onChanged: (lRocketText3){
+                        setState(() {
+                          rocketT3 = lRocketText3;
+                        });
+                      },
+                    ),
+                    Checkbox(
+                        value: lRocket6,
+                        onChanged: (bool changed){
+                          setState(() {
+                            lRocket6= changed;
+                          });
+                        }
+                    ),
+                  ],
+                ),
+
+                Text('Right Rocket'),
+
+                Row(
+                  children: <Widget>[
+                    Checkbox(
+                        value: rRocket,
+                        onChanged: (bool changed){
+                          setState(() {
+                            rRocket = changed;
+                          });
+                        }
+                    ),
+                    TextField(
+                      keyboardType: TextInputType.number,
+                      onChanged: (rRocketText){
+                        rocketT4 = rRocketText;
+                      },
+                    ),
+                    Checkbox(
+                        value: rRocket2,
+                        onChanged: (bool changed){
+                          setState(() {
+                            rRocket2 = changed;
+                          });
+                        }
+                    ),
+                  ],
+                ),
+
+                Row(
+                  children: <Widget>[
+                    Checkbox(
+                        value: rRocket3,
+                        onChanged: (bool changed){
+                          setState(() {
+                            rRocket3 = changed;
+                          });
+                        }
+                    ),
+                    TextField(
+                      keyboardType: TextInputType.number,
+                      onChanged: (rRocketText2){
+                        rocketT5 = rRocketText2;
+                      },
+                    ),
+                    Checkbox(
+                        value: rRocket4,
+                        onChanged: (bool changed){
+                          setState(() {
+                            rRocket4 = changed;
+                          });
+                        }
+                    ),
+                  ],
+                ),
+
+                Row(
+                  children: <Widget>[
+                    Checkbox(
+                        value: rRocket5,
+                        onChanged: (bool changed){
+                          setState(() {
+                            rRocket5 = changed;
+                          });
+                        }
+                    ),
+                    TextField(
+                      keyboardType: TextInputType.number,
+                      onChanged: (rRocketText3){
+                        setState(() {
+                          rocketT6 = rRocketText3;
+                        });
+                      },
+                    ),
+                    Checkbox(
+                        value: rRocket6,
+                        onChanged: (bool changed){
+                          setState(() {
+                            rRocket6= changed;
+                          });
+                        }
+                    ),
+                  ],
+                ),
+
+
+
                 RaisedButton(
                   child: new Text('Done'),
                   onPressed: () {
@@ -770,6 +997,22 @@ void addTeamInfo(){
   String moved = checkValue?'1':'0';
   String breakdown = checkValue6?'1':'0';
   String recover = checkValue7?'1':'0';
+  String success = successful?'1':'0';
+
+  String lRocketlog1 = lRocket?'1':'0';
+  String lRocketlog2 = lRocket2?'1':'0';
+  String lRocketlog3 = lRocket3?'1':'0';
+  String lRocketlog4 = lRocket4?'1':'0';
+  String lRocketlog5 = lRocket5?'1':'0';
+  String lRocketlog6 = lRocket6?'1':'0';
+
+  String rRocketlog1 = rRocket?'1':'0';
+  String rRocketlog2 = rRocket2?'1':'0';
+  String rRocketlog3 = rRocket3?'1':'0';
+  String rRocketlog4 = rRocket4?'1':'0';
+  String rRocketlog5 = rRocket5?'1':'0';
+  String rRocketlog6 = rRocket6?'1':'0';
+
 
   row1[0] = teamNumber1;
   row2[0] = teamNumber2;
@@ -780,11 +1023,34 @@ void addTeamInfo(){
 
   addData(0,numberOfTeams,text);
   addData(1,numberOfTeams,text2);
+  addData(4, numberOfTeams, nullHatches);
   addData(5, numberOfTeams,moved);
   addData(6,numberOfTeams,crossed);
+  addData(10,numberOfTeams,success);
 
-  addData(30,numberOfTeams,breakdown);
-  addData(31,numberOfTeams,recover);
+  addData(11,numberOfTeams,lRocketlog1);
+  addData(17,numberOfTeams,lRocketlog2);
+  addData(12,numberOfTeams,lRocketlog3);
+  addData(18,numberOfTeams,lRocketlog4);
+  addData(13,numberOfTeams,lRocketlog5);
+  addData(19,numberOfTeams,lRocketlog6);
+  addData(14,numberOfTeams,rocketT);
+  addData(15,numberOfTeams,rocketT2);
+  addData(16,numberOfTeams,rocketT3);
+
+  addData(22,numberOfTeams,rRocketlog1);
+  addData(28,numberOfTeams,rRocketlog2);
+  addData(23,numberOfTeams,rRocketlog3);
+  addData(29,numberOfTeams,rRocketlog4);
+  addData(24,numberOfTeams,rRocketlog5);
+  addData(30,numberOfTeams,rRocketlog6);
+  addData(25,numberOfTeams,rocketT4);
+  addData(26,numberOfTeams,rocketT5);
+  addData(27,numberOfTeams,rocketT6);
+  //todo numbers
+
+  addData(31,numberOfTeams,breakdown);
+  addData(32,numberOfTeams,recover);
 
 
   if (checkValue3==true&&checkValue4==false){
@@ -806,22 +1072,22 @@ void addTeamInfo(){
   }
 
   if(firstMove==true){
-
+    addData(9,numberOfTeams,'a');
   }else if(firstMove2==true){
-
+    addData(9,numberOfTeams,'b');
   }else if(firstMove3==true){
-
+    addData(9,numberOfTeams,'c');
   }else if(firstMove4==true){
-
+    addData(9,numberOfTeams,'d');
   }else if(firstMove5==true){
-
+    addData(9, numberOfTeams,'e');
   }else if(firstMove6==true){
-
+    addData(9,numberOfTeams,'f');
   }else if(firstMove7==true){
-
+    addData(9,numberOfTeams,'g');
   }else if(firstMove8==true){
-
-  }//TODO
+    addData(9,numberOfTeams,'h');
+  }
 
   if (checkValue13==true&&checkValue14==false){
     addData(7, numberOfTeams, '1');
