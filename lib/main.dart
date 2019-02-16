@@ -30,6 +30,15 @@ bool checkValue11 = false;
 bool checkValue12 = false;
 bool checkValue13 = false;
 bool checkValue14 = false;
+bool pickup = false;
+int self = 0;
+int supported = 0;
+int helped = 0;
+int defense = 0;
+int fouls = 0;
+bool yellow = false;
+bool red = false;
+int score = 0;
 bool successful = false;
 
 bool firstMove = false;
@@ -793,6 +802,57 @@ class TeamState extends State<Team>{
                 ),
 
                 CheckboxListTile(
+                    value: pickup,
+                    title: new Text('Bot picked up a piece from the ground?'),
+                    activeColor: Colors.blue[600],
+                    onChanged: (bool changed4) {
+                      setState(() {
+                        pickup = changed4;
+                      });
+                    }
+                ),
+
+                TextField(
+                  decoration: new InputDecoration(labelText: 'Climbed to level...'),
+                  keyboardType: TextInputType.number,
+                  onChanged: (num) {
+                    defense = int.parse(num);
+                  },
+                ),
+
+                TextField(
+                  decoration: new InputDecoration(labelText: 'Supported another bot to level...'),
+                  keyboardType: TextInputType.number,
+                  onChanged: (num) {
+                    defense = int.parse(num);
+                  },
+                ),
+
+                TextField(
+                  decoration: new InputDecoration(labelText: 'Was helped to level...'),
+                  keyboardType: TextInputType.number,
+                  onChanged: (num) {
+                    defense = int.parse(num);
+                  },
+                ),
+
+                TextField(
+                  decoration: new InputDecoration(labelText: 'Defense (Scale 1-3)'),
+                  keyboardType: TextInputType.number,
+                  onChanged: (num) {
+                    defense = int.parse(num);
+                  },
+                ),
+
+                TextField(
+                  decoration: new InputDecoration(labelText: 'Number of Fouls'),
+                  keyboardType: TextInputType.number,
+                  onChanged: (num) {
+                    fouls = int.parse(num);
+                  },
+                ),
+
+                CheckboxListTile(
                     value: successful,
                     title: new Text('were they successful?'),
                     onChanged: (changed) {
@@ -801,7 +861,7 @@ class TeamState extends State<Team>{
                       });
                     },
                 ),
-                
+
                 Text('Left Rocket'),
 
                 Row(
@@ -1070,6 +1130,44 @@ void addTeamInfo(){
   }else if(checkValue12==true){
     addData(3,numberOfTeams,'13');
   }
+
+  if (checkValue6){
+    addData(31, numberOfTeams, "1");
+  }else{
+    addData(31, numberOfTeams, "0");
+  }
+
+  if (checkValue7){
+    addData(32, numberOfTeams, "1");
+  }else{
+    addData(32, numberOfTeams, "0");
+  }
+
+  if (pickup){
+    addData(33, numberOfTeams, "1");
+  }else{
+    addData(33, numberOfTeams, "0");
+  }
+
+  addData(34, numberOfTeams, self.toString());
+  addData(35, numberOfTeams, supported.toString());
+  addData(36, numberOfTeams, helped.toString());
+  addData(37, numberOfTeams, defense.toString());
+  addData(38, numberOfTeams, fouls.toString());
+
+  if (red){
+    addData(39, numberOfTeams, "1");
+  }else{
+    addData(39, numberOfTeams, "0");
+  }
+
+  if (yellow){
+    addData(40, numberOfTeams, "1");
+  }else{
+    addData(40, numberOfTeams, "0");
+  }
+
+  addData(41, numberOfTeams, score.toString());
 
   if(firstMove==true){
     addData(9,numberOfTeams,'a');
