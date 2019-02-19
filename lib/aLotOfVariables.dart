@@ -5,16 +5,46 @@ String team4Pos;
 String team5Pos;
 String team6Pos;
 
+String matchNumber1 = '';
+String matchNumber2 = '';
+String matchNumber3 = '';
+String matchNumber4 = '';
+String matchNumber5 = '';
+String matchNumber6 = '';
+String matchNumber7 = '';
+String matchNumber8 = '';
+String matchNumber9 = '';
+String matchNumber10 = '';
+String matchNumber11 = '';
+String matchNumber12 = '';
+String matchNumber13 = '';
+String matchNumber14 = '';
+String matchNumber15 = '';
+String matchNumber16 = '';
+String matchNumber17 = '';
+String matchNumber18 = '';
+String matchNumber19 = '';
+String matchNumber20 = '';
+
 String teamNumber1 = '';
-
 String teamNumber2 = '';
-
 String teamNumber3 = '';
-
 String teamNumber4 = '';
-
 String teamNumber5 = '';
-
 String teamNumber6 = '';
+String teamNumber7 = '';
+String teamNumber8 = '';
+String teamNumber9 = '';
+String teamNumber10 = '';
+String teamNumber11 = '';
+String teamNumber12 = '';
+String teamNumber13 = '';
+String teamNumber14 = '';
+String teamNumber15 = '';
+String teamNumber16 = '';
+String teamNumber17 = '';
+String teamNumber18 = '';
+String teamNumber19 = '';
+String teamNumber20 = '';
 
-String matchNum = '';
+String sheetName = 'jDoe';

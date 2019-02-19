@@ -26,7 +26,7 @@ Future<int> push() async {
     File dataPath = new File(file.path);
 
     final StorageReference firebaseStorageRef =
-    FirebaseStorage.instance.ref().child('Match$matchNum.csv');
+    FirebaseStorage.instance.ref().child('$sheetName.csv');
     final StorageUploadTask task =
     firebaseStorageRef.putFile(dataPath);
 
