@@ -558,9 +558,9 @@ class TeamState extends State<Team>{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blueGrey[200],
+      backgroundColor: Colors.white,
         appBar: AppBar(
-          title: Text('New Team'),
+          title: Text('Pregame'),
         ),
         body: new Center(
               child: SingleChildScrollView(
@@ -672,54 +672,6 @@ class TeamState extends State<Team>{
                       },
                     ),
 
-                    TextField(
-                      decoration: new InputDecoration(
-                          labelText: 'sandstorm hatch pannels'
-                      ),
-                      keyboardType: TextInputType.number,
-                      onChanged: (text3) {
-                        nullHatches = text3;
-                      },
-                    ),
-
-
-
-                    CheckboxListTile(
-                      value: checkValue,
-                      title: new Text('Match win?'),
-                      activeColor: Colors.teal[300],
-                      onChanged: (bool changed) {
-                        setState( () {
-                          checkValue = changed;
-                        });
-                      },
-                    ),
-
-
-                    CheckboxListTile(
-                      value: checkValue2,
-                      title: new Text('Moved during sandstorm?'),
-                      activeColor: Colors.teal[200],
-                      onChanged: (bool changed2) {
-                        setState(() {
-                          checkValue2 = changed2;
-                        });
-                      },
-                    ),
-                    CheckboxListTile(
-                      value: checkValue5,
-                      title: new Text('Crossed Line?'),
-                      activeColor: Colors.teal[200],
-                      onChanged: (bool changed5) {
-                        setState(() {
-                          checkValue5 = changed5;
-
-
-                        });
-
-                      },
-                    ),
-
                     CheckboxListTile(
                       value: checkValue3,
                       title: new Text('Red?'),
@@ -746,7 +698,7 @@ class TeamState extends State<Team>{
 
                     CheckboxListTile(
                         value: checkValue13,
-                        title: new Text('pre-H'),
+                        title: new Text('Preloaded Hatch Panels'),
                         onChanged: (bool changed13) {
                           setState(() {
                             checkValue13 = changed13;
@@ -758,35 +710,13 @@ class TeamState extends State<Team>{
 
                     CheckboxListTile(
                         value: checkValue14,
-                        title: new Text('pre-C'),
+                        title: new Text('Preloaded Cargo'),
                         onChanged: (bool changed14){
                           setState(() {
                             checkValue14 = changed14;
                             checkValue13 = !changed14;
                           });
                         }
-                    ),
-
-                    CheckboxListTile(
-                      value: checkValue6,
-                      title: new Text('Breakdown?'),
-                      activeColor: Colors.teal[200],
-                      onChanged: (bool changed6) {
-                        setState(() {
-                          checkValue6 = changed6;
-                        });
-                      },
-                    ),
-
-                    CheckboxListTile(
-                      value: checkValue7,
-                      title: new Text('Recovered?'),
-                      activeColor: Colors.teal[200],
-                      onChanged: (bool changed7) {
-                        setState(() {
-                          checkValue7 = changed7;
-                        });
-                      },
                     ),
 
                     Text('Bot starting position'),
@@ -865,202 +795,6 @@ class TeamState extends State<Team>{
                       ],
                     ),
 
-                    Text('First move', style: new TextStyle(fontSize: 20.0),),
-
-                    Row(
-                      children: <Widget>[
-
-                        Checkbox(
-                            value: firstMove,
-                            onChanged: (bool changed){
-                              setState(() {
-                                firstMove = true;
-                                firstMove2 = false;
-                                firstMove3 = false;
-                                firstMove4 = false;
-                                firstMove5 = false;
-                                firstMove6 = false;
-                                firstMove7 = false;
-                                firstMove8 = false;
-                              });
-                            }
-                        ),
-                        Checkbox(
-                            value: firstMove2,
-                            onChanged: (bool changed){
-                              setState(() {
-                                firstMove2 = true;
-                                firstMove = false;
-                                firstMove3 = false;
-                                firstMove4 = false;
-                                firstMove5 = false;
-                                firstMove6 = false;
-                                firstMove7 = false;
-                                firstMove8 = false;
-                              });
-                            }
-                        ),
-                      ],
-                    ),
-
-                    Row(
-                      children: <Widget>[
-
-                        Checkbox(
-                            value: firstMove3,
-                            onChanged: (bool changed){
-                              setState(() {
-                                firstMove3 = true;
-                                firstMove2 = false;
-                                firstMove = false;
-                                firstMove4 = false;
-                                firstMove5 = false;
-                                firstMove6 = false;
-                                firstMove7 = false;
-                                firstMove8 = false;
-                              });
-                            }
-                        ),
-                        Checkbox(
-                            value: firstMove4,
-                            onChanged: (bool changed){
-                              setState(() {
-                                firstMove4 = true;
-                                firstMove2 = false;
-                                firstMove3 = false;
-                                firstMove = false;
-                                firstMove5 = false;
-                                firstMove6 = false;
-                                firstMove7 = false;
-                                firstMove8 = false;
-                              });
-                            }
-                        )
-                      ],
-                    ),
-
-                    Row(
-                      children: <Widget>[
-                        Checkbox(
-                            value: firstMove5,
-                            onChanged: (bool changed){
-                              setState(() {
-                                firstMove5 = true;
-                                firstMove2 = false;
-                                firstMove3 = false;
-                                firstMove4 = false;
-                                firstMove = false;
-                                firstMove6 = false;
-                                firstMove7 = false;
-                                firstMove8 = false;
-                              });
-                            }
-                        ),
-                        Checkbox(
-                            value: firstMove6,
-                            onChanged: (bool changed){
-                              setState(() {
-                                firstMove6 = true;
-                                firstMove2 = false;
-                                firstMove3 = false;
-                                firstMove4 = false;
-                                firstMove5 = false;
-                                firstMove = false;
-                                firstMove7 = false;
-                                firstMove8 = false;
-                              });
-                            }
-                        ),
-                      ],
-                    ),
-
-                    Row(
-                      children: <Widget>[
-
-                        Checkbox(
-                            value: firstMove7,
-                            onChanged: (bool changed){
-                              setState(() {
-                                firstMove7 = true;
-                                firstMove2 = false;
-                                firstMove3 = false;
-                                firstMove4 = false;
-                                firstMove5 = false;
-                                firstMove6 = false;
-                                firstMove = false;
-                                firstMove8 = false;
-                              });
-                            }
-                        ),
-                        Checkbox(
-                            value: firstMove8,
-                            onChanged: (bool changed){
-                              setState(() {
-                                firstMove8 = true;
-                                firstMove2 = false;
-                                firstMove3 = false;
-                                firstMove4 = false;
-                                firstMove5 = false;
-                                firstMove6 = false;
-                                firstMove7 = false;
-                                firstMove = false;
-                              });
-                            }
-                        ),
-                      ],
-                    ),
-
-                    CheckboxListTile(
-                        value: pickup,
-                        title: new Text('Bot picked up a piece from the ground?'),
-                        activeColor: Colors.blue[600],
-                        onChanged: (bool changed4) {
-                          setState(() {
-                            pickup = changed4;
-                          });
-                        }
-                    ),
-
-                    TextField(
-                      decoration: new InputDecoration(labelText: 'Climbed to level...'),
-                      keyboardType: TextInputType.number,
-                      onChanged: (num) {
-                        defense = int.parse(num);
-                      },
-                    ),
-
-                    TextField(
-                      decoration: new InputDecoration(labelText: 'Supported another bot...'),
-                      keyboardType: TextInputType.number,
-                      onChanged: (num) {
-                        defense = int.parse(num);
-                      },
-                    ),
-
-                    TextField(
-                      decoration: new InputDecoration(labelText: 'Was helped to level...'),
-                      keyboardType: TextInputType.number,
-                      onChanged: (num) {
-                        defense = int.parse(num);
-                      },
-                    ),
-
-                    TextField(
-                      decoration: new InputDecoration(labelText: 'Defense (Scale 1-3)'),
-                      keyboardType: TextInputType.number,
-                      onChanged: (num) {
-                        defense = int.parse(num);
-                      },
-                    ),
-
-                    TextField(
-                      decoration: new InputDecoration(labelText: 'Number of Fouls'),
-                      keyboardType: TextInputType.number,
-                      onChanged: (num) {
-                        fouls = int.parse(num);
-                      },
-                    ),
-
                     CheckboxListTile(
                       value: successful,
                       title: new Text('Were they successful?'),
@@ -1071,213 +805,18 @@ class TeamState extends State<Team>{
                       },
                     ),
 
-                    Text('Left Rocket...', style: new TextStyle(fontSize: 20), textAlign: TextAlign.left,),
-
-                    TextField(
-                      keyboardType: TextInputType.number,
-                      onChanged: (lRocketText){
-                        rocketT = lRocketText;
-                      },
-                    ),
-
-                    Row(
-                      children: <Widget>[
-                        Checkbox(
-                            value: lRocket,
-                            onChanged: (bool changed){
-                              setState(() {
-                                lRocket = changed;
-                              });
-                            }
-                        ),
-
-                        Checkbox(
-                            value: lRocket2,
-                            onChanged: (bool changed){
-                              setState(() {
-                                lRocket2 = changed;
-                              });
-                            }
-                        ),
-                      ],
-                    ),
-
-                    TextField(
-                      keyboardType: TextInputType.number,
-                      onChanged: (lRocketText2){
-                        rocketT2 = lRocketText2;
-                      },
-                    ),
-
-                    Row(
-                      children: <Widget>[
-                        Checkbox(
-                            value: lRocket3,
-                            onChanged: (bool changed){
-                              setState(() {
-                                lRocket3 = changed;
-                              });
-                            }
-                        ),
-
-                        Checkbox(
-                            value: lRocket4,
-                            onChanged: (bool changed){
-                              setState(() {
-                                lRocket4 = changed;
-                              });
-                            }
-                        ),
-                      ],
-                    ),
-
-                    TextField(
-                      keyboardType: TextInputType.number,
-                      onChanged: (lRocketText3){
-                        setState(() {
-                          rocketT3 = lRocketText3;
-                        });
-                      },
-                    ),
-
-                    Row(
-                      children: <Widget>[
-                        Checkbox(
-                            value: lRocket5,
-                            onChanged: (bool changed){
-                              setState(() {
-                                lRocket5 = changed;
-                              });
-                            }
-                        ),
-
-                        Checkbox(
-                            value: lRocket6,
-                            onChanged: (bool changed){
-                              setState(() {
-                                lRocket6= changed;
-                              });
-                            }
-                        ),
-                      ],
-                    ),
-
-                    Text('Cargo ship...', style: new TextStyle(fontSize: 20), textAlign: TextAlign.left,),
-
-                    TextField(
-                      keyboardType: TextInputType.number,
-                      onChanged: (rRocketText){
-                        shipCargo = int.parse(rRocketText);
-                      },
-                    ),
-
-                    TextField(
-                      keyboardType: TextInputType.number,
-                      onChanged: (rRocketText){
-                        shipHatches = int.parse(rRocketText);
-                      },
-                    ),
-
-                    Text('Right Rocket...', style: new TextStyle(fontSize: 20), textAlign: TextAlign.left,),
-
-                    TextField(
-                      keyboardType: TextInputType.number,
-                      onChanged: (rRocketText){
-                        rocketT4 = rRocketText;
-                      },
-                    ),
-
-                    Row(
-                      children: <Widget>[
-                        Checkbox(
-                            value: rRocket,
-                            onChanged: (bool changed){
-                              setState(() {
-                                rRocket = changed;
-                              });
-                            }
-                        ),
-
-                        Checkbox(
-                            value: rRocket2,
-                            onChanged: (bool changed){
-                              setState(() {
-                                rRocket2 = changed;
-                              });
-                            }
-                        ),
-                      ],
-                    ),
-
-                    TextField(
-                      keyboardType: TextInputType.number,
-                      onChanged: (rRocketText2){
-                        rocketT5 = rRocketText2;
-                      },
-                    ),
-
-                    Row(
-                      children: <Widget>[
-                        Checkbox(
-                            value: rRocket3,
-                            onChanged: (bool changed){
-                              setState(() {
-                                rRocket3 = changed;
-                              });
-                            }
-                        ),
-
-                        Checkbox(
-                            value: rRocket4,
-                            onChanged: (bool changed){
-                              setState(() {
-                                rRocket4 = changed;
-                              });
-                            }
-                        ),
-                      ],
-                    ),
-
-                    TextField(
-                      keyboardType: TextInputType.number,
-                      onChanged: (rRocketText3){
-                        setState(() {
-                          rocketT6 = rRocketText3;
-                        });
-                      },
-                    ),
-
-                    Row(
-                      children: <Widget>[
-                        Checkbox(
-                            value: rRocket5,
-                            onChanged: (bool changed){
-                              setState(() {
-                                rRocket5 = changed;
-                              });
-                            }
-                        ),
-
-                        Checkbox(
-                            value: rRocket6,
-                            onChanged: (bool changed){
-                              setState(() {
-                                rRocket6= changed;
-                              });
-                            }
-                        ),
-                      ],
-                    ),
-
-                    RaisedButton(
-                      child: new Text('Done'),
-                      onPressed: () {
-                        addTeamInfo();
-                        Navigator.pop(
-                          context,
-                        );
-                        setState(() {});
-                      },
+                    Align(
+                        alignment: Alignment.bottomCenter,
+                        child: new RaisedButton(
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => Team2())
+                              );
+                            },
+                          color: Colors.blue[800],
+                          child: Text('Next', style: TextStyle(color: Colors.white),),
+                        )
                     ),
                   ],
                 ),
@@ -1425,6 +964,680 @@ void addTeamInfo(){
   }
 
 }
+
+class Team2 extends StatefulWidget{
+
+  @override
+  TeamState2 createState() => TeamState2();
+}
+
+class TeamState2 extends State<Team2> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        backgroundColor: Colors.white,
+        appBar: AppBar(
+          title: Text('Sandstorm Period'),
+        ),
+        body: new Center(
+            child: SingleChildScrollView(
+                child: Column(
+                    children: <Widget>[
+                      CheckboxListTile(
+                        value: checkValue2,
+                        title: new Text('Moved?'),
+                        activeColor: Colors.teal[200],
+                        onChanged: (bool changed2) {
+                          setState(() {
+                            checkValue2 = changed2;
+                          });
+                        },
+                      ),
+                      CheckboxListTile(
+                        value: checkValue5,
+                        title: new Text('Crossed Line?'),
+                        activeColor: Colors.teal[200],
+                        onChanged: (bool changed5) {
+                          setState(() {
+                            checkValue5 = changed5;
+                          });
+                        },
+                      ),
+                      TextField(
+                        decoration: new InputDecoration(
+                            labelText: 'Hatch Panels'
+                        ),
+                        keyboardType: TextInputType.number,
+                        onChanged: (text3) {
+                          nullHatches = text3;
+                        },
+                      ),
+
+                      Text('First move', style: new TextStyle(fontSize: 20.0),),
+
+                      Row(
+                        children: <Widget>[
+
+                          Checkbox(
+                              value: firstMove,
+                              onChanged: (bool changed){
+                                setState(() {
+                                  firstMove = true;
+                                  firstMove2 = false;
+                                  firstMove3 = false;
+                                  firstMove4 = false;
+                                  firstMove5 = false;
+                                  firstMove6 = false;
+                                  firstMove7 = false;
+                                  firstMove8 = false;
+                                });
+                              }
+                          ),
+                          Checkbox(
+                              value: firstMove2,
+                              onChanged: (bool changed){
+                                setState(() {
+                                  firstMove2 = true;
+                                  firstMove = false;
+                                  firstMove3 = false;
+                                  firstMove4 = false;
+                                  firstMove5 = false;
+                                  firstMove6 = false;
+                                  firstMove7 = false;
+                                  firstMove8 = false;
+                                });
+                              }
+                          ),
+                        ],
+                      ),
+
+                      Row(
+                        children: <Widget>[
+
+                          Checkbox(
+                              value: firstMove3,
+                              onChanged: (bool changed){
+                                setState(() {
+                                  firstMove3 = true;
+                                  firstMove2 = false;
+                                  firstMove = false;
+                                  firstMove4 = false;
+                                  firstMove5 = false;
+                                  firstMove6 = false;
+                                  firstMove7 = false;
+                                  firstMove8 = false;
+                                });
+                              }
+                          ),
+                          Checkbox(
+                              value: firstMove4,
+                              onChanged: (bool changed){
+                                setState(() {
+                                  firstMove4 = true;
+                                  firstMove2 = false;
+                                  firstMove3 = false;
+                                  firstMove = false;
+                                  firstMove5 = false;
+                                  firstMove6 = false;
+                                  firstMove7 = false;
+                                  firstMove8 = false;
+                                });
+                              }
+                          )
+                        ],
+                      ),
+
+                      Row(
+                        children: <Widget>[
+                          Checkbox(
+                              value: firstMove5,
+                              onChanged: (bool changed){
+                                setState(() {
+                                  firstMove5 = true;
+                                  firstMove2 = false;
+                                  firstMove3 = false;
+                                  firstMove4 = false;
+                                  firstMove = false;
+                                  firstMove6 = false;
+                                  firstMove7 = false;
+                                  firstMove8 = false;
+                                });
+                              }
+                          ),
+                          Checkbox(
+                              value: firstMove6,
+                              onChanged: (bool changed){
+                                setState(() {
+                                  firstMove6 = true;
+                                  firstMove2 = false;
+                                  firstMove3 = false;
+                                  firstMove4 = false;
+                                  firstMove5 = false;
+                                  firstMove = false;
+                                  firstMove7 = false;
+                                  firstMove8 = false;
+                                });
+                              }
+                          ),
+                        ],
+                      ),
+
+                      Row(
+                        children: <Widget>[
+
+                          Checkbox(
+                              value: firstMove7,
+                              onChanged: (bool changed){
+                                setState(() {
+                                  firstMove7 = true;
+                                  firstMove2 = false;
+                                  firstMove3 = false;
+                                  firstMove4 = false;
+                                  firstMove5 = false;
+                                  firstMove6 = false;
+                                  firstMove = false;
+                                  firstMove8 = false;
+                                });
+                              }
+                          ),
+                          Checkbox(
+                              value: firstMove8,
+                              onChanged: (bool changed){
+                                setState(() {
+                                  firstMove8 = true;
+                                  firstMove2 = false;
+                                  firstMove3 = false;
+                                  firstMove4 = false;
+                                  firstMove5 = false;
+                                  firstMove6 = false;
+                                  firstMove7 = false;
+                                  firstMove = false;
+                                });
+                              }
+                          ),
+                        ],
+                      ),
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Align(
+                              alignment: Alignment.bottomCenter,
+                              child: new RaisedButton(
+                                onPressed: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(builder: (context) => Team3())
+                                  );
+                                },
+                                color: Colors.blue[800],
+                                child: Text('Next', style: TextStyle(color: Colors.white),),
+                              )
+                          ),
+
+                        ],
+                      ),
+                    ]
+                )
+            )
+        )
+    );
+  }
+}
+
+class Team3 extends StatefulWidget{
+
+  @override
+  TeamState3 createState() => TeamState3();
+}
+
+class TeamState3 extends State<Team3> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        backgroundColor: Colors.white,
+        appBar: AppBar(
+          title: Text('Tele-Operated Period'),
+        ),
+        body: new Center(
+            child: SingleChildScrollView(
+                child: Column(
+                    children: <Widget>[
+                      TextField(
+                        decoration: new InputDecoration(labelText: 'Cargo added to the ship...'),
+                        keyboardType: TextInputType.number,
+                        onChanged: (rRocketText){
+                          shipCargo = int.parse(rRocketText);
+                        },
+                      ),
+
+                      TextField(
+                        decoration: new InputDecoration(labelText: 'Hatch panels added to the ship...'),
+                        keyboardType: TextInputType.number,
+                        onChanged: (rRocketText){
+                          shipHatches = int.parse(rRocketText);
+                        },
+                      ),
+
+                      CheckboxListTile(
+                          value: pickup,
+                          title: new Text('Bot picked up a piece from the ground?'),
+                          activeColor: Colors.blue[600],
+                          onChanged: (bool changed4) {
+                            setState(() {
+                              pickup = changed4;
+                            });
+                          }
+                      ),
+
+                      CheckboxListTile(
+                        value: checkValue6,
+                        title: new Text('Breakdown?'),
+                        activeColor: Colors.teal[200],
+                        onChanged: (bool changed6) {
+                          setState(() {
+                            checkValue6 = changed6;
+                          });
+                        },
+                      ),
+
+                      CheckboxListTile(
+                        value: checkValue7,
+                        title: new Text('Recovered?'),
+                        activeColor: Colors.teal[200],
+                        onChanged: (bool changed7) {
+                          setState(() {
+                            checkValue7 = changed7;
+                          });
+                        },
+                      ),
+
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Align(
+                              alignment: Alignment.centerLeft,
+                              child: new RaisedButton(
+                                onPressed: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(builder: (context) => Team5())
+                                  );
+                                },
+                                color: Colors.blue[800],
+                                child: Text('LR', style: TextStyle(color: Colors.white),),
+                              )
+                          ),
+
+                          Align(
+                              alignment: Alignment.bottomCenter,
+                              child: new RaisedButton(
+                                onPressed: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(builder: (context) => Team4())
+                                  );
+                                },
+                                color: Colors.blue[800],
+                                child: Text('Next', style: TextStyle(color: Colors.white),),
+                              )
+                          ),
+                          Align(
+                              alignment: Alignment.centerRight,
+                              child: new RaisedButton(
+                                onPressed: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(builder: (context) => Team6())
+                                  );
+                                },
+                                color: Colors.blue[800],
+                                child: Text('RR', style: TextStyle(color: Colors.white),),
+                              )
+                          ),
+                        ],
+                      ),
+                    ]
+                )
+            )
+        )
+    );
+  }
+}
+
+class Team4 extends StatefulWidget{
+
+  @override
+  TeamState4 createState() => TeamState4();
+}
+
+class TeamState4 extends State<Team4> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        backgroundColor: Colors.white,
+        appBar: AppBar(
+          title: Text('Endgame'),
+        ),
+        body: new Center(
+            child: SingleChildScrollView(
+                child: Column(
+                    children: <Widget>[
+                      TextField(
+                        decoration: new InputDecoration(labelText: 'Climbed to level...'),
+                        keyboardType: TextInputType.number,
+                        onChanged: (num) {
+                          defense = int.parse(num);
+                        },
+                      ),
+
+                      TextField(
+                        decoration: new InputDecoration(labelText: 'Supported another bot...'),
+                        keyboardType: TextInputType.number,
+                        onChanged: (num) {
+                          defense = int.parse(num);
+                        },
+                      ),
+
+                      TextField(
+                        decoration: new InputDecoration(labelText: 'Was helped to level...'),
+                        keyboardType: TextInputType.number,
+                        onChanged: (num) {
+                          defense = int.parse(num);
+                        },
+                      ),
+
+                      TextField(
+                        decoration: new InputDecoration(labelText: 'Defense (Scale 1-3)'),
+                        keyboardType: TextInputType.number,
+                        onChanged: (num) {
+                          defense = int.parse(num);
+                        },
+                      ),
+
+                      TextField(
+                        decoration: new InputDecoration(labelText: 'Number of Fouls'),
+                        keyboardType: TextInputType.number,
+                        onChanged: (num) {
+                          fouls = int.parse(num);
+                        },
+                      ),
+                      RaisedButton(
+                        child: new Text('Done', style: TextStyle(color: Colors.white),),
+                        color: Colors.red,
+                        onPressed: () {
+                          addTeamInfo();
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => CreateMatch())
+                          );
+                          setState(() {});
+                        },
+                      ),
+                    ]
+                )
+            )
+        )
+    );
+  }
+}
+
+class Team5 extends StatefulWidget{
+
+  @override
+  TeamState5 createState() => TeamState5();
+}
+
+class TeamState5 extends State<Team5> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        backgroundColor: Colors.white,
+        appBar: AppBar(
+          title: Text('Left Rocket'),
+        ),
+        body: new Center(
+            child: SingleChildScrollView(
+                child: Column(
+                    children: <Widget>[
+                      Align(
+                          alignment: Alignment.topCenter,
+                          child: new RaisedButton(
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => Team3())
+                              );
+                            },
+                            color: Colors.yellow[800],
+                            child: Text('Back to Tele-Op', style: TextStyle(color: Colors.white),),
+                          )
+                      ),
+
+                      TextField(
+                        keyboardType: TextInputType.number,
+                        onChanged: (lRocketText){
+                          rocketT = lRocketText;
+                        },
+                      ),
+
+                      Row(
+                        children: <Widget>[
+                          Checkbox(
+                              value: lRocket,
+                              onChanged: (bool changed){
+                                setState(() {
+                                  lRocket = changed;
+                                });
+                              }
+                          ),
+
+                          Checkbox(
+                              value: lRocket2,
+                              onChanged: (bool changed){
+                                setState(() {
+                                  lRocket2 = changed;
+                                });
+                              }
+                          ),
+                        ],
+                      ),
+
+                      TextField(
+                        keyboardType: TextInputType.number,
+                        onChanged: (lRocketText2){
+                          rocketT2 = lRocketText2;
+                        },
+                      ),
+
+                      Row(
+                        children: <Widget>[
+                          Checkbox(
+                              value: lRocket3,
+                              onChanged: (bool changed){
+                                setState(() {
+                                  lRocket3 = changed;
+                                });
+                              }
+                          ),
+
+                          Checkbox(
+                              value: lRocket4,
+                              onChanged: (bool changed){
+                                setState(() {
+                                  lRocket4 = changed;
+                                });
+                              }
+                          ),
+                        ],
+                      ),
+
+                      TextField(
+                        keyboardType: TextInputType.number,
+                        onChanged: (lRocketText3){
+                          setState(() {
+                            rocketT3 = lRocketText3;
+                          });
+                        },
+                      ),
+
+                      Row(
+                        children: <Widget>[
+                          Checkbox(
+                              value: lRocket5,
+                              onChanged: (bool changed){
+                                setState(() {
+                                  lRocket5 = changed;
+                                });
+                              }
+                          ),
+
+                          Checkbox(
+                              value: lRocket6,
+                              onChanged: (bool changed){
+                                setState(() {
+                                  lRocket6= changed;
+                                });
+                              }
+                          ),
+                        ],
+                      ),
+                    ]
+                )
+            )
+        )
+    );
+  }
+}
+
+class Team6 extends StatefulWidget{
+
+  @override
+  TeamState6 createState() => TeamState6();
+}
+
+class TeamState6 extends State<Team6> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        backgroundColor: Colors.white,
+        appBar: AppBar(
+          title: Text('Right Rocket'),
+        ),
+        body: new Center(
+            child: SingleChildScrollView(
+                child: Column(
+                    children: <Widget>[
+                      Align(
+                          alignment: Alignment.topCenter,
+                          child: new RaisedButton(
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => Team3())
+                              );
+                            },
+                            color: Colors.yellow[800],
+                            child: Text('Back to Tele-Op', style: TextStyle(color: Colors.white),),
+                          )
+                      ),
+
+                      TextField(
+                        keyboardType: TextInputType.number,
+                        onChanged: (rRocketText){
+                          rocketT4 = rRocketText;
+                        },
+                      ),
+
+                      Row(
+                        children: <Widget>[
+                          Checkbox(
+                              value: rRocket,
+                              onChanged: (bool changed){
+                                setState(() {
+                                  rRocket = changed;
+                                });
+                              }
+                          ),
+
+                          Checkbox(
+                              value: rRocket2,
+                              onChanged: (bool changed){
+                                setState(() {
+                                  rRocket2 = changed;
+                                });
+                              }
+                          ),
+                        ],
+                      ),
+
+                      TextField(
+                        keyboardType: TextInputType.number,
+                        onChanged: (rRocketText2){
+                          rocketT5 = rRocketText2;
+                        },
+                      ),
+
+                      Row(
+                        children: <Widget>[
+                          Checkbox(
+                              value: rRocket3,
+                              onChanged: (bool changed){
+                                setState(() {
+                                  rRocket3 = changed;
+                                });
+                              }
+                          ),
+
+                          Checkbox(
+                              value: rRocket4,
+                              onChanged: (bool changed){
+                                setState(() {
+                                  rRocket4 = changed;
+                                });
+                              }
+                          ),
+                        ],
+                      ),
+
+                      TextField(
+                        keyboardType: TextInputType.number,
+                        onChanged: (rRocketText3){
+                          setState(() {
+                            rocketT6 = rRocketText3;
+                          });
+                        },
+                      ),
+
+                      Row(
+                        children: <Widget>[
+                          Checkbox(
+                              value: rRocket5,
+                              onChanged: (bool changed){
+                                setState(() {
+                                  rRocket5 = changed;
+                                });
+                              }
+                          ),
+
+                          Checkbox(
+                              value: rRocket6,
+                              onChanged: (bool changed){
+                                setState(() {
+                                  rRocket6= changed;
+                                });
+                              }
+                          ),
+                        ],
+                      ),
+                    ]
+                )
+            )
+        )
+    );
+  }
+}
+
 
 showAlertDialog(BuildContext context) {
 
