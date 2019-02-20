@@ -674,7 +674,7 @@ class TeamState extends State<Team>{
 
                     TextField(
                       decoration: new InputDecoration(
-                          labelText: '# of null hatches(0-6)'
+                          labelText: 'sandstorm hatch pannels'
                       ),
                       keyboardType: TextInputType.number,
                       onChanged: (text3) {
@@ -789,6 +789,8 @@ class TeamState extends State<Team>{
                       },
                     ),
 
+                    Text('Bot starting position'),
+
                     Row(
                       children: <Widget>[
                         Checkbox(
@@ -862,6 +864,8 @@ class TeamState extends State<Team>{
                         ),
                       ],
                     ),
+
+                    Text('First move', style: new TextStyle(fontSize: 20.0),),
 
                     Row(
                       children: <Widget>[
@@ -1395,21 +1399,21 @@ void addTeamInfo(){
   addData(41, numberOfMatches, score.toString());
 
   if(firstMove==true){
-    addData(9,numberOfMatches,'a');
+    addData(9,numberOfMatches,'D');
   }else if(firstMove2==true){
-    addData(9,numberOfMatches,'b');
+    addData(9,numberOfMatches,'E');
   }else if(firstMove3==true){
-    addData(9,numberOfMatches,'c');
+    addData(9,numberOfMatches,'C');
   }else if(firstMove4==true){
-    addData(9,numberOfMatches,'d');
+    addData(9,numberOfMatches,'F');
   }else if(firstMove5==true){
-    addData(9, numberOfMatches,'e');
+    addData(9, numberOfMatches,'B');
   }else if(firstMove6==true){
-    addData(9,numberOfMatches,'f');
+    addData(9,numberOfMatches,'G');
   }else if(firstMove7==true){
-    addData(9,numberOfMatches,'g');
+    addData(9,numberOfMatches,'A');
   }else if(firstMove8==true){
-    addData(9,numberOfMatches,'h');
+    addData(9,numberOfMatches,'H');
   }
 
   if (checkValue13==true&&checkValue14==false){
