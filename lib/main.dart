@@ -43,6 +43,7 @@ bool checkValue12 = false;
 bool checkValue13 = false;
 bool checkValue14 = false;
 bool pickup = false;
+
 int self = 0;
 int supported = 0;
 int helped = 0;
@@ -78,8 +79,6 @@ bool rRocket4 = false;
 bool rRocket5 = false;
 bool rRocket6 = false;
 
-
-
 String colour1;
 String colour2;
 String colour3;
@@ -106,9 +105,15 @@ String rocketT4;
 String rocketT5;
 String rocketT6;
 
-
 String nullHatches;
 
+int rRocketCargo = 0;
+int rRocketCargo2 = 0;
+int rRocketCargo3 = 0;
+
+int lRocketCargo = 0;
+int lRocketCargo2 = 0;
+int lRocketCargo3 = 0;
 
 void main() => runApp(MyApp());
 
@@ -736,17 +741,25 @@ class TeamState extends State<Team>{
                           },
                         ),
 
-                        Checkbox(value: false,
-                            onChanged: null
+                        Checkbox(value: checkValue9,
+                            onChanged: (bool changed){
+                          setState(() {
+                            checkValue9 = true;
+                            checkValue10 = false;
+                            checkValue8 = false;
+                            checkValue11 = false;
+                            checkValue12 = false;
+                          });
+                            }
                         ),
 
                         Checkbox(
-                          value: checkValue9,
-                          onChanged: (bool changed9){
+                          value: checkValue10,
+                          onChanged: (bool changed){
                             setState(() {
-                              checkValue9 = true;
+                              checkValue10 = true;
                               checkValue8 = false;
-                              checkValue10 = false;
+                              checkValue9 = false;
                               checkValue11 = false;
                               checkValue12 = false;
                             });
@@ -757,29 +770,23 @@ class TeamState extends State<Team>{
                     Row(
                       children: <Widget>[
                         Checkbox(
-                          value: checkValue10,
-                          onChanged: (bool changed10){
-                            setState(() {
-                              checkValue10 = true;
-                              checkValue9 = false;
-                              checkValue8 = false;
-                              checkValue11 = false;
-                              checkValue12 = false;
-                            });
-                          },
-                        ),
-                        Checkbox(
                           value: checkValue11,
-                          onChanged: (bool changed11){
+                          onChanged: (bool changed10){
                             setState(() {
                               checkValue11 = true;
                               checkValue9 = false;
-                              checkValue10 = false;
                               checkValue8 = false;
+                              checkValue10 = false;
                               checkValue12 = false;
                             });
                           },
                         ),
+
+                        Checkbox(
+                          value: false,
+                          onChanged: null
+                        ),
+
                         Checkbox(
                           value: checkValue12,
                           onChanged: (bool changed12){
@@ -885,15 +892,15 @@ void addTeamInfo(){
   }
 
   if (checkValue8==true){
-    addData(3,numberOfMatches,'21');
-  }else if(checkValue9==true){
-    addData(3,numberOfMatches,'23');
-  }else if(checkValue10==true){
     addData(3,numberOfMatches,'11');
-  }else if(checkValue11==true){
+  }else if(checkValue9==true){
     addData(3,numberOfMatches,'12');
-  }else if(checkValue12==true){
+  }else if(checkValue10==true){
     addData(3,numberOfMatches,'13');
+  }else if(checkValue11==true){
+    addData(3,numberOfMatches,'21');
+  }else if(checkValue12==true){
+    addData(3,numberOfMatches,'23');
   }
 
   if (checkValue6){
@@ -1414,12 +1421,7 @@ class TeamState5 extends State<Team5> {
                           )
                       ),
 
-                      TextField(
-                        keyboardType: TextInputType.number,
-                        onChanged: (lRocketText){
-                          rocketT = lRocketText;
-                        },
-                      ),
+
 
                       Row(
                         children: <Widget>[
@@ -1429,6 +1431,18 @@ class TeamState5 extends State<Team5> {
                                 setState(() {
                                   lRocket = changed;
                                 });
+                              }
+                          ),
+
+                          RaisedButton(
+                            child: new Text(lRocketCargo.toString()),
+                              onPressed: () {
+                              setState(() {
+                                lRocketCargo++;
+                                if(lRocketCargo==3){
+                                  lRocketCargo = 0;
+                                }
+                              });
                               }
                           ),
 
@@ -1443,12 +1457,7 @@ class TeamState5 extends State<Team5> {
                         ],
                       ),
 
-                      TextField(
-                        keyboardType: TextInputType.number,
-                        onChanged: (lRocketText2){
-                          rocketT2 = lRocketText2;
-                        },
-                      ),
+
 
                       Row(
                         children: <Widget>[
@@ -1459,6 +1468,18 @@ class TeamState5 extends State<Team5> {
                                   lRocket3 = changed;
                                 });
                               }
+                          ),
+
+                          RaisedButton(
+                            child: new Text(lRocketCargo2.toString()),
+                              onPressed: () {
+                              setState(() {
+                                lRocketCargo2++;
+                                if(lRocketCargo2==3){
+                                  lRocketCargo2 = 0;
+                                }
+                              });
+                              },
                           ),
 
                           Checkbox(
@@ -1472,14 +1493,6 @@ class TeamState5 extends State<Team5> {
                         ],
                       ),
 
-                      TextField(
-                        keyboardType: TextInputType.number,
-                        onChanged: (lRocketText3){
-                          setState(() {
-                            rocketT3 = lRocketText3;
-                          });
-                        },
-                      ),
 
                       Row(
                         children: <Widget>[
@@ -1489,6 +1502,18 @@ class TeamState5 extends State<Team5> {
                                 setState(() {
                                   lRocket5 = changed;
                                 });
+                              }
+                          ),
+
+                          RaisedButton(
+                            child: new Text(lRocketCargo3.toString()),
+                              onPressed: (){
+                              setState(() {
+                                lRocketCargo3++;
+                                if(lRocketCargo3==3){
+                                  lRocketCargo3 = 0;
+                                }
+                              });
                               }
                           ),
 
@@ -1673,3 +1698,5 @@ showAlertDialog(BuildContext context) {
     },
   );
 }
+
+// use interger use int++, if int = 3, int = 0
