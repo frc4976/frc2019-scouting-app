@@ -1567,12 +1567,7 @@ class TeamState6 extends State<Team6> {
                           )
                       ),
 
-                      TextField(
-                        keyboardType: TextInputType.number,
-                        onChanged: (rRocketText){
-                          rocketT4 = rRocketText;
-                        },
-                      ),
+
 
                       Row(
                         children: <Widget>[
@@ -1581,6 +1576,17 @@ class TeamState6 extends State<Team6> {
                               onChanged: (bool changed){
                                 setState(() {
                                   rRocket = changed;
+                                });
+                              }
+                          ),
+                          RaisedButton(
+                              child: new Text(rRocketCargo.toString()),
+                              onPressed: (){
+                                setState(() {
+                                  rRocketCargo++;
+                                  if(rRocketCargo==3){
+                                    rRocketCargo = 0;
+                                  }
                                 });
                               }
                           ),
@@ -1596,12 +1602,7 @@ class TeamState6 extends State<Team6> {
                         ],
                       ),
 
-                      TextField(
-                        keyboardType: TextInputType.number,
-                        onChanged: (rRocketText2){
-                          rocketT5 = rRocketText2;
-                        },
-                      ),
+
 
                       Row(
                         children: <Widget>[
@@ -1610,6 +1611,18 @@ class TeamState6 extends State<Team6> {
                               onChanged: (bool changed){
                                 setState(() {
                                   rRocket3 = changed;
+                                });
+                              }
+                          ),
+
+                          RaisedButton(
+                              child: new Text(rRocketCargo2.toString()),
+                              onPressed: (){
+                                setState(() {
+                                  rRocketCargo2++;
+                                  if(rRocketCargo2==3){
+                                    rRocketCargo2 = 0;
+                                  }
                                 });
                               }
                           ),
@@ -1625,14 +1638,7 @@ class TeamState6 extends State<Team6> {
                         ],
                       ),
 
-                      TextField(
-                        keyboardType: TextInputType.number,
-                        onChanged: (rRocketText3){
-                          setState(() {
-                            rocketT6 = rRocketText3;
-                          });
-                        },
-                      ),
+
 
                       Row(
                         children: <Widget>[
@@ -1641,6 +1647,18 @@ class TeamState6 extends State<Team6> {
                               onChanged: (bool changed){
                                 setState(() {
                                   rRocket5 = changed;
+                                });
+                              }
+                          ),
+
+                          RaisedButton(
+                              child: new Text(rRocketCargo3.toString()),
+                              onPressed: (){
+                                setState(() {
+                                  rRocketCargo3++;
+                                  if(rRocketCargo3==3){
+                                    rRocketCargo3 = 0;
+                                  }
                                 });
                               }
                           ),
