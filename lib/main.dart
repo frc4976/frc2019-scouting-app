@@ -115,6 +115,8 @@ int lRocketCargo = 0;
 int lRocketCargo2 = 0;
 int lRocketCargo3 = 0;
 
+int hatchPannels = 0;
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -1010,14 +1012,41 @@ class TeamState2 extends State<Team2> {
                           });
                         },
                       ),
-                      TextField(
-                        decoration: new InputDecoration(
-                            labelText: 'Hatch Panels'
+
+
+                      new Align(
+                        alignment: Alignment.centerLeft,
+                     child: new RaisedButton(
+                        child: new Text(hatchPannels.toString()),
+                          onPressed: null
+                      ),
+                      ),
+
+                      new Align(
+                        alignment: Alignment.centerRight,
+                        child: new RaisedButton(
+                          child: new Text('+'),
+                            onPressed: (){
+                            setState(() {
+                              hatchPannels++;
+                            });
+                            }
                         ),
-                        keyboardType: TextInputType.number,
-                        onChanged: (text3) {
-                          nullHatches = text3;
-                        },
+                      ),
+
+                      new Align(
+                        alignment: Alignment.centerRight,
+                        child: new RaisedButton(
+                          child: new Text('-'),
+                            onPressed: (){
+                            setState(() {
+                              hatchPannels--;
+                              if(hatchPannels<0){
+                                hatchPannels=0;
+                              }
+                            });
+                            }
+                        ),
                       ),
 
                       Text('First move', style: new TextStyle(fontSize: 20.0),),
@@ -1717,4 +1746,7 @@ showAlertDialog(BuildContext context) {
   );
 }
 
-// use interger use int++, if int = 3, int = 0
+//TODO counter in cargo ship in teliop for hatches AND cargo(hatch as example)
+//TODO climb level use checkboxes for level 1 2 and 3
+//todo supported climb checkboxes level 2 and 3 (they helped someone)
+//todo supported climb checkboxes level 2 and 3 (someone helped them)
