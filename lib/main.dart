@@ -107,6 +107,7 @@ String rocketT6;
 
 String nullHatches;
 
+
 int rRocketCargo = 0;
 int rRocketCargo2 = 0;
 int rRocketCargo3 = 0;
@@ -116,6 +117,8 @@ int lRocketCargo2 = 0;
 int lRocketCargo3 = 0;
 
 int hatchPannels = 0;
+int hatchPannelsteliop = 0;
+int cargoteliop = 0;
 
 void main() => runApp(MyApp());
 
@@ -858,7 +861,7 @@ void addTeamInfo(){
 
   addData(0,numberOfMatches,text);
   addData(1,numberOfMatches, numberOfMatches.toString());
-  addData(4, numberOfMatches, nullHatches);
+  addData(4, numberOfMatches, hatchPannels.toString());
   addData(5, numberOfMatches,moved);
   addData(6,numberOfMatches,crossed);
   addData(10,numberOfMatches,success);
@@ -882,6 +885,10 @@ void addTeamInfo(){
   addData(25,numberOfMatches,rocketT4);
   addData(26,numberOfMatches,rocketT5);
   addData(27,numberOfMatches,rocketT6);
+
+
+
+
 
   addData(31,numberOfMatches,breakdown);
   addData(32,numberOfMatches,recover);
@@ -929,8 +936,8 @@ void addTeamInfo(){
   addData(37, numberOfMatches, defense.toString());
   addData(38, numberOfMatches, fouls.toString());
 
-  addData(20, numberOfMatches, shipHatches.toString());
-  addData(21, numberOfMatches, shipCargo.toString());
+  addData(20, numberOfMatches, hatchPannelsteliop.toString());
+  addData(21, numberOfMatches, cargoteliop.toString());
 
   if (red){
     addData(39, numberOfMatches, "1");
@@ -1239,20 +1246,79 @@ class TeamState3 extends State<Team3> {
             child: SingleChildScrollView(
                 child: Column(
                     children: <Widget>[
-                      TextField(
-                        decoration: new InputDecoration(labelText: 'Cargo added to the ship...'),
-                        keyboardType: TextInputType.number,
-                        onChanged: (rRocketText){
-                          shipCargo = int.parse(rRocketText);
-                        },
+
+                      Text('Cargo added to the cargo ship'),
+
+                      new Align(
+                        alignment: Alignment.centerLeft,
+                        child: new RaisedButton(
+                            child: new Text(cargoteliop.toString()),
+                            onPressed: null
+                        ),
                       ),
 
-                      TextField(
-                        decoration: new InputDecoration(labelText: 'Hatch panels added to the ship...'),
-                        keyboardType: TextInputType.number,
-                        onChanged: (rRocketText){
-                          shipHatches = int.parse(rRocketText);
-                        },
+                      new Align(
+                        alignment: Alignment.centerRight,
+                        child: new RaisedButton(
+                            child: new Text('+'),
+                            onPressed: (){
+                              setState(() {
+                                cargoteliop++;
+                              });
+                            }
+                        ),
+                      ),
+
+                      new Align(
+                        alignment: Alignment.centerRight,
+                        child: new RaisedButton(
+                            child: new Text('-'),
+                            onPressed: (){
+                              setState(() {
+                                cargoteliop--;
+                                if(cargoteliop<0){
+                                  cargoteliop=0;
+                                }
+                              });
+                            }
+                        ),
+                      ),
+
+                      Text('Hatch pannels added to cargo ship'),
+
+                      new Align(
+                        alignment: Alignment.centerLeft,
+                        child: new RaisedButton(
+                            child: new Text(hatchPannelsteliop.toString()),
+                            onPressed: null
+                        ),
+                      ),
+
+                      new Align(
+                        alignment: Alignment.centerRight,
+                        child: new RaisedButton(
+                            child: new Text('+'),
+                            onPressed: (){
+                              setState(() {
+                                hatchPannelsteliop++;
+                              });
+                            }
+                        ),
+                      ),
+
+                      new Align(
+                        alignment: Alignment.centerRight,
+                        child: new RaisedButton(
+                            child: new Text('-'),
+                            onPressed: (){
+                              setState(() {
+                                hatchPannelsteliop--;
+                                if(hatchPannelsteliop<0){
+                                  hatchPannelsteliop=0;
+                                }
+                              });
+                            }
+                        ),
                       ),
 
                       CheckboxListTile(
@@ -1359,45 +1425,183 @@ class TeamState4 extends State<Team4> {
             child: SingleChildScrollView(
                 child: Column(
                     children: <Widget>[
-                      TextField(
-                        decoration: new InputDecoration(labelText: 'Climbed to level...'),
-                        keyboardType: TextInputType.number,
-                        onChanged: (num) {
-                          defense = int.parse(num);
-                        },
+                      new Align(
+                        alignment: Alignment.centerLeft,
+                        child: new RaisedButton(
+                            child: new Text(self.toString()),
+                            onPressed: null
+                        ),
                       ),
 
-                      TextField(
-                        decoration: new InputDecoration(labelText: 'Supported another bot...'),
-                        keyboardType: TextInputType.number,
-                        onChanged: (num) {
-                          defense = int.parse(num);
-                        },
+                      new Align(
+                        alignment: Alignment.centerRight,
+                        child: new RaisedButton(
+                            child: new Text('+'),
+                            onPressed: (){
+                              setState(() {
+                                self++;
+                              });
+                            }
+                        ),
                       ),
 
-                      TextField(
-                        decoration: new InputDecoration(labelText: 'Was helped to level...'),
-                        keyboardType: TextInputType.number,
-                        onChanged: (num) {
-                          defense = int.parse(num);
-                        },
+                      new Align(
+                        alignment: Alignment.centerRight,
+                        child: new RaisedButton(
+                            child: new Text('-'),
+                            onPressed: (){
+                              setState(() {
+                                self--;
+                                if(self<0){
+                                  self=0;
+                                }
+                              });
+                            }
+                        ),
                       ),
 
-                      TextField(
-                        decoration: new InputDecoration(labelText: 'Defense (Scale 1-3)'),
-                        keyboardType: TextInputType.number,
-                        onChanged: (num) {
-                          defense = int.parse(num);
-                        },
+
+                      new Align(
+                        alignment: Alignment.centerLeft,
+                        child: new RaisedButton(
+                            child: new Text(supported.toString()),
+                            onPressed: null
+                        ),
                       ),
 
-                      TextField(
-                        decoration: new InputDecoration(labelText: 'Number of Fouls'),
-                        keyboardType: TextInputType.number,
-                        onChanged: (num) {
-                          fouls = int.parse(num);
-                        },
+                      new Align(
+                        alignment: Alignment.centerRight,
+                        child: new RaisedButton(
+                            child: new Text('+'),
+                            onPressed: (){
+                              setState(() {
+                                supported++;
+                              });
+                            }
+                        ),
                       ),
+
+                      new Align(
+                        alignment: Alignment.centerRight,
+                        child: new RaisedButton(
+                            child: new Text('-'),
+                            onPressed: (){
+                              setState(() {
+                                supported--;
+                                if(supported<0){
+                                  supported=0;
+                                }
+                              });
+                            }
+                        ),
+                      ),
+
+                      new Align(
+                        alignment: Alignment.centerLeft,
+                        child: new RaisedButton(
+                            child: new Text(helped.toString()),
+                            onPressed: null
+                        ),
+                      ),
+
+                      new Align(
+                        alignment: Alignment.centerRight,
+                        child: new RaisedButton(
+                            child: new Text('+'),
+                            onPressed: (){
+                              setState(() {
+                                helped++;
+                              });
+                            }
+                        ),
+                      ),
+
+                      new Align(
+                        alignment: Alignment.centerRight,
+                        child: new RaisedButton(
+                            child: new Text('-'),
+                            onPressed: (){
+                              setState(() {
+                                helped--;
+                                if(helped<0){
+                                  helped=0;
+                                }
+                              });
+                            }
+                        ),
+                      ),
+
+                      new Align(
+                        alignment: Alignment.centerLeft,
+                        child: new RaisedButton(
+                            child: new Text(defense.toString()),
+                            onPressed: null
+                        ),
+                      ),
+
+                      new Align(
+                        alignment: Alignment.centerRight,
+                        child: new RaisedButton(
+                            child: new Text('+'),
+                            onPressed: (){
+                              setState(() {
+                                defense++;
+                              });
+                            }
+                        ),
+                      ),
+
+                      new Align(
+                        alignment: Alignment.centerRight,
+                        child: new RaisedButton(
+                            child: new Text('-'),
+                            onPressed: (){
+                              setState(() {
+                                defense--;
+                                if(defense<0){
+                                  defense=0;
+                                }
+                              });
+                            }
+                        ),
+                      ),
+
+                      new Align(
+                        alignment: Alignment.centerLeft,
+                        child: new RaisedButton(
+                            child: new Text(fouls.toString()),
+                            onPressed: null
+                        ),
+                      ),
+
+                      new Align(
+                        alignment: Alignment.centerRight,
+                        child: new RaisedButton(
+                            child: new Text('+'),
+                            onPressed: (){
+                              setState(() {
+                                fouls++;
+                              });
+                            }
+                        ),
+                      ),
+
+                      new Align(
+                        alignment: Alignment.centerRight,
+                        child: new RaisedButton(
+                            child: new Text('-'),
+                            onPressed: (){
+                              setState(() {
+                                fouls--;
+                                if(fouls<0){
+                                  fouls=0;
+                                }
+                              });
+                            }
+                        ),
+                      ),
+
+
                       RaisedButton(
                         child: new Text('Done', style: TextStyle(color: Colors.white),),
                         color: Colors.red,
@@ -1746,7 +1950,7 @@ showAlertDialog(BuildContext context) {
   );
 }
 
-//TODO counter in cargo ship in teliop for hatches AND cargo(hatch as example)
+
 //TODO climb level use checkboxes for level 1 2 and 3
 //todo supported climb checkboxes level 2 and 3 (they helped someone)
 //todo supported climb checkboxes level 2 and 3 (someone helped them)
