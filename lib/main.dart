@@ -4,7 +4,6 @@ import 'package:scouting_app/aLotOfVariables.dart';
 import 'package:flutter/services.dart';
 
 int numberOfMatches = 0;
-
 bool whateverYouWant = false;
 
 double match1Opacity = 0.0;
@@ -164,9 +163,6 @@ void initState(){
       secondChild: Splash(),
       firstChild: Scaffold(
         backgroundColor: Colors.grey[600],
-        appBar: AppBar(
-          title: Text(widget.title),
-        ),
         body: Center(
           child: Container(
             width: double.infinity,
@@ -175,8 +171,8 @@ void initState(){
                   begin: Alignment.topLeft,
                   end: Alignment.bottomRight,
                   colors: [
-                    Colors.grey[200],
-                    Colors.grey[800]
+                    Colors.red,
+                    Colors.cyan,
                   ]
               )
             ),
@@ -184,6 +180,13 @@ void initState(){
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
+                Image(image: AssetImage("assets/logo.png"), width: 150, height: 150,),
+
+                new Opacity(
+                  opacity: 0.0,
+                  child: RaisedButton(onPressed: null),
+                ),
+
                 ButtonTheme(
                   minWidth: 200.0,
                   height: 75.0,
@@ -278,11 +281,22 @@ class MatchPageState extends State<CreateMatch>{
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.yellow[700],
         title: Text('Your Data Sheet'),
       ),
       body: Center(
         child: SingleChildScrollView(
           child: Container(
+            decoration: BoxDecoration(
+                gradient: LinearGradient(
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                    colors: [
+                      Colors.grey,
+                      Colors.deepOrange,
+                    ]
+                )
+            ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
@@ -568,7 +582,7 @@ class TeamState extends State<Team>{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.grey[350],
         appBar: AppBar(
           title: Text('Pregame'),
         ),
@@ -684,7 +698,7 @@ class TeamState extends State<Team>{
 
                     CheckboxListTile(
                       value: checkValue3,
-                      title: new Text('Red?'),
+                      title: new Text('Red Alliance?'),
                       activeColor: Colors.red[600],
                       onChanged: (bool changed3) {
                         setState(() {
@@ -696,7 +710,7 @@ class TeamState extends State<Team>{
 
                     CheckboxListTile(
                         value: checkValue4,
-                        title: new Text('Blue?'),
+                        title: new Text('Blue Alliance?'),
                         activeColor: Colors.blue[600],
                         onChanged: (bool changed4) {
                           setState(() {
@@ -708,7 +722,7 @@ class TeamState extends State<Team>{
 
                     CheckboxListTile(
                         value: checkValue13,
-                        title: new Text('Preloaded Hatch Panels'),
+                        title: new Text('Preloaded Hatch Panel'),
                         onChanged: (bool changed13) {
                           setState(() {
                             checkValue13 = changed13;
@@ -772,6 +786,7 @@ class TeamState extends State<Team>{
                         ),
                       ],
                     ),
+
                     Row(
                       children: <Widget>[
                         Checkbox(
@@ -991,7 +1006,7 @@ class TeamState2 extends State<Team2> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.grey[300],
         appBar: AppBar(
           title: Text('Sandstorm Period'),
         ),
@@ -1020,45 +1035,52 @@ class TeamState2 extends State<Team2> {
                         },
                       ),
 
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          new Align(
+                            alignment: Alignment.centerRight,
+                            child: new RaisedButton(
+                                child: new Text('-'),
+                                onPressed: (){
+                                  setState(() {
+                                    hatchPannels--;
+                                    if(hatchPannels<0){
+                                      hatchPannels=0;
+                                    }
+                                  });
+                                }
+                            ),
+                          ),
 
-                      new Align(
-                        alignment: Alignment.centerLeft,
-                     child: new RaisedButton(
-                        child: new Text(hatchPannels.toString()),
-                          onPressed: null
-                      ),
-                      ),
+                          new Align(
+                            alignment: Alignment.centerLeft,
+                            child: new RaisedButton(
+                                child: new Text(hatchPannels.toString()),
+                                onPressed: null
+                            ),
+                          ),
 
-                      new Align(
-                        alignment: Alignment.centerRight,
-                        child: new RaisedButton(
-                          child: new Text('+'),
-                            onPressed: (){
-                            setState(() {
-                              hatchPannels++;
-                            });
-                            }
-                        ),
-                      ),
-
-                      new Align(
-                        alignment: Alignment.centerRight,
-                        child: new RaisedButton(
-                          child: new Text('-'),
-                            onPressed: (){
-                            setState(() {
-                              hatchPannels--;
-                              if(hatchPannels<0){
-                                hatchPannels=0;
-                              }
-                            });
-                            }
-                        ),
+                          new Align(
+                            alignment: Alignment.centerRight,
+                            child: new RaisedButton(
+                                child: new Text('+'),
+                                onPressed: (){
+                                  setState(() {
+                                    hatchPannels++;
+                                  });
+                                }
+                            ),
+                          ),
+                        ],
                       ),
 
                       Text('First move', style: new TextStyle(fontSize: 20.0),),
 
+                      Text('Center Line', style: TextStyle(fontStyle: FontStyle.italic),),
+
                       Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
 
                           Checkbox(
@@ -1077,6 +1099,7 @@ class TeamState2 extends State<Team2> {
                               }
                           ),
                           Checkbox(
+                              materialTapTargetSize: MaterialTapTargetSize.padded,
                               value: firstMove2,
                               onChanged: (bool changed){
                                 setState(() {
@@ -1095,6 +1118,7 @@ class TeamState2 extends State<Team2> {
                       ),
 
                       Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
 
                           Checkbox(
@@ -1131,6 +1155,7 @@ class TeamState2 extends State<Team2> {
                       ),
 
                       Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
                           Checkbox(
                               value: firstMove5,
@@ -1166,6 +1191,7 @@ class TeamState2 extends State<Team2> {
                       ),
 
                       Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
 
                           Checkbox(
@@ -1200,6 +1226,9 @@ class TeamState2 extends State<Team2> {
                           ),
                         ],
                       ),
+
+                      Text('Drive Teams', style: TextStyle(fontStyle: FontStyle.italic),),
+
                       Row(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -1238,7 +1267,7 @@ class TeamState3 extends State<Team3> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.grey[250],
         appBar: AppBar(
           title: Text('Tele-Operated Period'),
         ),
@@ -1640,23 +1669,8 @@ class TeamState5 extends State<Team5> {
             child: SingleChildScrollView(
                 child: Column(
                     children: <Widget>[
-                      Align(
-                          alignment: Alignment.topCenter,
-                          child: new RaisedButton(
-                            onPressed: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(builder: (context) => Team3())
-                              );
-                            },
-                            color: Colors.yellow[800],
-                            child: Text('Back to Tele-Op', style: TextStyle(color: Colors.white),),
-                          )
-                      ),
-
-
-
                       Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
                           Checkbox(
                               value: lRocket,
@@ -1693,6 +1707,7 @@ class TeamState5 extends State<Team5> {
 
 
                       Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
                           Checkbox(
                               value: lRocket3,
@@ -1728,6 +1743,7 @@ class TeamState5 extends State<Team5> {
 
 
                       Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
                           Checkbox(
                               value: lRocket5,
@@ -1786,23 +1802,8 @@ class TeamState6 extends State<Team6> {
             child: SingleChildScrollView(
                 child: Column(
                     children: <Widget>[
-                      Align(
-                          alignment: Alignment.topCenter,
-                          child: new RaisedButton(
-                            onPressed: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(builder: (context) => Team3())
-                              );
-                            },
-                            color: Colors.yellow[800],
-                            child: Text('Back to Tele-Op', style: TextStyle(color: Colors.white),),
-                          )
-                      ),
-
-
-
                       Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
                           Checkbox(
                               value: rRocket,
@@ -1838,6 +1839,7 @@ class TeamState6 extends State<Team6> {
 
 
                       Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
                           Checkbox(
                               value: rRocket3,
@@ -1874,6 +1876,7 @@ class TeamState6 extends State<Team6> {
 
 
                       Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
                           Checkbox(
                               value: rRocket5,
@@ -1914,6 +1917,46 @@ class TeamState6 extends State<Team6> {
   }
 }
 
+class Finished extends StatefulWidget{
+
+  @override
+  FinishedState createState() => FinishedState();
+}
+
+class FinishedState extends State<Finished> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        backgroundColor: Colors.white,
+        appBar: AppBar(
+          title: Text('Right Rocket'),
+        ),
+        body: new Center(
+            child: SingleChildScrollView(
+                child: Column(
+                    children: <Widget>[
+                      Text('Thanks for scouting!', style: TextStyle(fontSize: 32),),
+
+                      Text('Your data has been uploaded to the database. Thanks\nfor your help!', textAlign: TextAlign.center,),
+                      RaisedButton(
+                        color: Colors.green,
+                        child: Text('Home'),
+                          textColor: Colors.white,
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => MyHomePage())
+                            );
+                          }
+                      )
+                    ]
+                )
+            )
+        )
+    );
+  }
+}
+
 
 showAlertDialog(BuildContext context) {
 
@@ -1928,6 +1971,10 @@ showAlertDialog(BuildContext context) {
     child: Text("Yes, go away."),
     onPressed:  () {
       writeFile();
+      Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => Finished())
+      );
     },
   );
 
