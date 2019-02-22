@@ -1126,8 +1126,8 @@ class TeamState2 extends State<Team2> {
                               onChanged: (bool changed){
                                 setState(() {
                                   firstMove3 = true;
-                                  firstMove2 = false;
                                   firstMove = false;
+                                  firstMove2 = false;
                                   firstMove4 = false;
                                   firstMove5 = false;
                                   firstMove6 = false;
