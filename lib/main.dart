@@ -115,6 +115,7 @@ int lRocketCargo2 = 0;
 int lRocketCargo3 = 0;
 
 int hatchPannels = 0;
+int cargo = 0;
 int hatchPannelsteliop = 0;
 int cargoteliop = 0;
 
@@ -1036,6 +1037,8 @@ class TeamState2 extends State<Team2> {
                         },
                       ),
 
+                      Text('Autonomous Hatches'),
+
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
@@ -1069,6 +1072,48 @@ class TeamState2 extends State<Team2> {
                                 onPressed: (){
                                   setState(() {
                                     hatchPannels++;
+                                  });
+                                }
+                            ),
+                          ),
+                        ],
+                      ),
+
+                      Text('Autonomous Cargo'),
+
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          new Align(
+                            alignment: Alignment.centerRight,
+                            child: new RaisedButton(
+                                child: new Text('-'),
+                                onPressed: (){
+                                  setState(() {
+                                    cargo--;
+                                    if(cargo<0){
+                                      cargo=0;
+                                    }
+                                  });
+                                }
+                            ),
+                          ),
+
+                          new Align(
+                            alignment: Alignment.centerLeft,
+                            child: new RaisedButton(
+                                child: new Text(cargo.toString()),
+                                onPressed: null
+                            ),
+                          ),
+
+                          new Align(
+                            alignment: Alignment.centerRight,
+                            child: new RaisedButton(
+                                child: new Text('+'),
+                                onPressed: (){
+                                  setState(() {
+                                    cargo++;
                                   });
                                 }
                             ),
