@@ -823,16 +823,6 @@ class TeamState extends State<Team>{
                       ],
                     ),
 
-                    CheckboxListTile(
-                      value: successful,
-                      title: new Text('Were they successful?'),
-                      onChanged: (changed) {
-                        setState(() {
-                          successful = changed;
-                        });
-                      },
-                    ),
-
                     Align(
                         alignment: Alignment.bottomCenter,
                         child: new RaisedButton(
@@ -1326,81 +1316,91 @@ class TeamState3 extends State<Team3> {
 
                       Text('Cargo added to the cargo ship'),
 
-                      new Align(
-                        alignment: Alignment.centerLeft,
-                        child: new RaisedButton(
-                            child: new Text(cargoteliop.toString()),
-                            onPressed: null
-                        ),
-                      ),
-
-                      new Align(
-                        alignment: Alignment.centerRight,
-                        child: new RaisedButton(
-                            child: new Text('+'),
-                            onPressed: (){
-                              setState(() {
-                                cargoteliop++;
-                              });
-                            }
-                        ),
-                      ),
-
-                      new Align(
-                        alignment: Alignment.centerRight,
-                        child: new RaisedButton(
-                            child: new Text('-'),
-                            onPressed: (){
-                              setState(() {
-                                cargoteliop--;
-                                if(cargoteliop<0){
-                                  cargoteliop=0;
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          new Align(
+                            alignment: Alignment.centerRight,
+                            child: new RaisedButton(
+                                child: new Text('-'),
+                                onPressed: (){
+                                  setState(() {
+                                    cargoteliop--;
+                                    if(cargoteliop<0){
+                                      cargoteliop=0;
+                                    }
+                                  });
                                 }
-                              });
-                            }
-                        ),
-                      ),
+                            ),
+                          ),
 
-                      Text('Hatch pannels added to cargo ship'),
+                          new Align(
+                            alignment: Alignment.centerLeft,
+                            child: new RaisedButton(
+                                child: new Text(cargoteliop.toString()),
+                                onPressed: null
+                            ),
+                          ),
 
-                      new Align(
-                        alignment: Alignment.centerLeft,
-                        child: new RaisedButton(
-                            child: new Text(hatchPannelsteliop.toString()),
-                            onPressed: null
-                        ),
-                      ),
-
-                      new Align(
-                        alignment: Alignment.centerRight,
-                        child: new RaisedButton(
-                            child: new Text('+'),
-                            onPressed: (){
-                              setState(() {
-                                hatchPannelsteliop++;
-                              });
-                            }
-                        ),
-                      ),
-
-                      new Align(
-                        alignment: Alignment.centerRight,
-                        child: new RaisedButton(
-                            child: new Text('-'),
-                            onPressed: (){
-                              setState(() {
-                                hatchPannelsteliop--;
-                                if(hatchPannelsteliop<0){
-                                  hatchPannelsteliop=0;
+                          new Align(
+                            alignment: Alignment.centerRight,
+                            child: new RaisedButton(
+                                child: new Text('+'),
+                                onPressed: (){
+                                  setState(() {
+                                    cargoteliop++;
+                                  });
                                 }
-                              });
-                            }
-                        ),
+                            ),
+                          ),
+                        ],
+                      ),
+
+                      Text('Hatch panels added to cargo ship'),
+
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          new Align(
+                            alignment: Alignment.centerRight,
+                            child: new RaisedButton(
+                                child: new Text('-'),
+                                onPressed: (){
+                                  setState(() {
+                                    hatchPannelsteliop--;
+                                    if(hatchPannelsteliop<0){
+                                      hatchPannelsteliop=0;
+                                    }
+                                  });
+                                }
+                            ),
+                          ),
+
+                          new Align(
+                            alignment: Alignment.centerLeft,
+                            child: new RaisedButton(
+                                child: new Text(hatchPannelsteliop.toString()),
+                                onPressed: null
+                            ),
+                          ),
+
+                          new Align(
+                            alignment: Alignment.centerRight,
+                            child: new RaisedButton(
+                                child: new Text('+'),
+                                onPressed: (){
+                                  setState(() {
+                                    hatchPannelsteliop++;
+                                  });
+                                }
+                            ),
+                          ),
+                        ],
                       ),
 
                       CheckboxListTile(
                           value: pickup,
-                          title: new Text('Bot picked up a piece from the ground?'),
+                          title: new Text('Bot picked up a hatch panel from the ground?'),
                           activeColor: Colors.blue[600],
                           onChanged: (bool changed4) {
                             setState(() {
@@ -1502,180 +1502,215 @@ class TeamState4 extends State<Team4> {
             child: SingleChildScrollView(
                 child: Column(
                     children: <Widget>[
-                      new Align(
-                        alignment: Alignment.centerLeft,
-                        child: new RaisedButton(
-                            child: new Text(self.toString()),
-                            onPressed: null
-                        ),
-                      ),
 
-                      new Align(
-                        alignment: Alignment.centerRight,
-                        child: new RaisedButton(
-                            child: new Text('+'),
-                            onPressed: (){
-                              setState(() {
-                                self++;
-                              });
-                            }
-                        ),
-                      ),
+                      Text('What level did the robot climb to?'),
 
-                      new Align(
-                        alignment: Alignment.centerRight,
-                        child: new RaisedButton(
-                            child: new Text('-'),
-                            onPressed: (){
-                              setState(() {
-                                self--;
-                                if(self<0){
-                                  self=0;
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          new Align(
+                            alignment: Alignment.centerRight,
+                            child: new RaisedButton(
+                                child: new Text('-'),
+                                onPressed: (){
+                                  setState(() {
+                                    self--;
+                                    if(self<0){
+                                      self=0;
+                                    }
+                                  });
                                 }
-                              });
-                            }
-                        ),
-                      ),
+                            ),
+                          ),
 
+                          new Align(
+                            alignment: Alignment.centerLeft,
+                            child: new RaisedButton(
+                                child: new Text(self.toString()),
+                                onPressed: null
+                            ),
+                          ),
 
-                      new Align(
-                        alignment: Alignment.centerLeft,
-                        child: new RaisedButton(
-                            child: new Text(supported.toString()),
-                            onPressed: null
-                        ),
-                      ),
-
-                      new Align(
-                        alignment: Alignment.centerRight,
-                        child: new RaisedButton(
-                            child: new Text('+'),
-                            onPressed: (){
-                              setState(() {
-                                supported++;
-                              });
-                            }
-                        ),
-                      ),
-
-                      new Align(
-                        alignment: Alignment.centerRight,
-                        child: new RaisedButton(
-                            child: new Text('-'),
-                            onPressed: (){
-                              setState(() {
-                                supported--;
-                                if(supported<0){
-                                  supported=0;
+                          new Align(
+                            alignment: Alignment.centerRight,
+                            child: new RaisedButton(
+                                child: new Text('+'),
+                                onPressed: (){
+                                  setState(() {
+                                    self++;
+                                  });
                                 }
-                              });
-                            }
-                        ),
+                            ),
+                          ),
+                        ],
                       ),
 
-                      new Align(
-                        alignment: Alignment.centerLeft,
-                        child: new RaisedButton(
-                            child: new Text(helped.toString()),
-                            onPressed: null
-                        ),
-                      ),
+                      Text('What level was the robot supported to? (0 if N/A)'),
 
-                      new Align(
-                        alignment: Alignment.centerRight,
-                        child: new RaisedButton(
-                            child: new Text('+'),
-                            onPressed: (){
-                              setState(() {
-                                helped++;
-                              });
-                            }
-                        ),
-                      ),
-
-                      new Align(
-                        alignment: Alignment.centerRight,
-                        child: new RaisedButton(
-                            child: new Text('-'),
-                            onPressed: (){
-                              setState(() {
-                                helped--;
-                                if(helped<0){
-                                  helped=0;
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          new Align(
+                            alignment: Alignment.centerRight,
+                            child: new RaisedButton(
+                                child: new Text('-'),
+                                onPressed: (){
+                                  setState(() {
+                                    supported--;
+                                    if(supported<0){
+                                      supported=0;
+                                    }
+                                  });
                                 }
-                              });
-                            }
-                        ),
-                      ),
+                            ),
+                          ),
 
-                      new Align(
-                        alignment: Alignment.centerLeft,
-                        child: new RaisedButton(
-                            child: new Text(defense.toString()),
-                            onPressed: null
-                        ),
-                      ),
+                          new Align(
+                            alignment: Alignment.centerLeft,
+                            child: new RaisedButton(
+                                child: new Text(supported.toString()),
+                                onPressed: null
+                            ),
+                          ),
 
-                      new Align(
-                        alignment: Alignment.centerRight,
-                        child: new RaisedButton(
-                            child: new Text('+'),
-                            onPressed: (){
-                              setState(() {
-                                defense++;
-                              });
-                            }
-                        ),
-                      ),
-
-                      new Align(
-                        alignment: Alignment.centerRight,
-                        child: new RaisedButton(
-                            child: new Text('-'),
-                            onPressed: (){
-                              setState(() {
-                                defense--;
-                                if(defense<0){
-                                  defense=0;
+                          new Align(
+                            alignment: Alignment.centerRight,
+                            child: new RaisedButton(
+                                child: new Text('+'),
+                                onPressed: (){
+                                  setState(() {
+                                    supported++;
+                                  });
                                 }
-                              });
-                            }
-                        ),
+                            ),
+                          ),
+                        ],
                       ),
 
-                      new Align(
-                        alignment: Alignment.centerLeft,
-                        child: new RaisedButton(
-                            child: new Text(fouls.toString()),
-                            onPressed: null
-                        ),
-                      ),
+                      Text('What level did the robot help another robot to? (0 if N/A)'),
 
-                      new Align(
-                        alignment: Alignment.centerRight,
-                        child: new RaisedButton(
-                            child: new Text('+'),
-                            onPressed: (){
-                              setState(() {
-                                fouls++;
-                              });
-                            }
-                        ),
-                      ),
-
-                      new Align(
-                        alignment: Alignment.centerRight,
-                        child: new RaisedButton(
-                            child: new Text('-'),
-                            onPressed: (){
-                              setState(() {
-                                fouls--;
-                                if(fouls<0){
-                                  fouls=0;
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          new Align(
+                            alignment: Alignment.centerRight,
+                            child: new RaisedButton(
+                                child: new Text('-'),
+                                onPressed: (){
+                                  setState(() {
+                                    helped--;
+                                    if(helped<0){
+                                      helped=0;
+                                    }
+                                  });
                                 }
-                              });
-                            }
-                        ),
+                            ),
+                          ),
+
+                          new Align(
+                            alignment: Alignment.centerLeft,
+                            child: new RaisedButton(
+                                child: new Text(helped.toString()),
+                                onPressed: null
+                            ),
+                          ),
+
+                          new Align(
+                            alignment: Alignment.centerRight,
+                            child: new RaisedButton(
+                                child: new Text('+'),
+                                onPressed: (){
+                                  setState(() {
+                                    helped++;
+                                  });
+                                }
+                            ),
+                          ),
+                        ],
+                      ),
+
+                      Text('On a scale from 1 to 3, how defensive was their play?'),
+
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          new Align(
+                            alignment: Alignment.centerRight,
+                            child: new RaisedButton(
+                                child: new Text('-'),
+                                onPressed: (){
+                                  setState(() {
+                                    defense--;
+                                    if(defense<0){
+                                      defense=0;
+                                    }
+                                  });
+                                }
+                            ),
+                          ),
+
+                          new Align(
+                            alignment: Alignment.centerLeft,
+                            child: new RaisedButton(
+                                child: new Text(defense.toString()),
+                                onPressed: null
+                            ),
+                          ),
+
+                          new Align(
+                            alignment: Alignment.centerRight,
+                            child: new RaisedButton(
+                                child: new Text('+'),
+                                onPressed: (){
+                                  setState(() {
+                                    defense++;
+                                  });
+                                }
+                            ),
+                          ),
+                        ],
+                      ),
+
+                      Text('How many fouls did the team receive?'),
+
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          new Align(
+                            alignment: Alignment.centerRight,
+                            child: new RaisedButton(
+                                child: new Text('-'),
+                                onPressed: (){
+                                  setState(() {
+                                    fouls--;
+                                    if(fouls<0){
+                                      fouls=0;
+                                    }
+                                  });
+                                }
+                            ),
+                          ),
+
+                          new Align(
+                            alignment: Alignment.centerLeft,
+                            child: new RaisedButton(
+                                child: new Text(fouls.toString()),
+                                onPressed: null
+                            ),
+                          ),
+
+                          new Align(
+                            alignment: Alignment.centerRight,
+                            child: new RaisedButton(
+                                child: new Text('+'),
+                                onPressed: (){
+                                  setState(() {
+                                    fouls++;
+                                  });
+                                }
+                            ),
+                          ),
+                        ],
                       ),
 
                       TextField(
