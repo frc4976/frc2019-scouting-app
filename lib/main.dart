@@ -106,6 +106,7 @@ String rocketT6;
 
 String nullHatches;
 
+
 int rRocketCargo = 0;
 int rRocketCargo2 = 0;
 int rRocketCargo3 = 0;
@@ -2006,8 +2007,3 @@ showAlertDialog(BuildContext context) {
     },
   );
 }
-
-
-//TODO climb level use checkboxes for level 1 2 and 3
-//todo supported climb checkboxes level 2 and 3 (they helped someone)
-//todo supported climb checkboxes level 2 and 3 (someone helped them)
