@@ -50,7 +50,7 @@ int defense = 0;
 int fouls = 0;
 bool yellow = false;
 bool red = false;
-int score = 0;
+String score;
 bool successful = false;
 int shipCargo;
 int shipHatches;
@@ -105,7 +105,6 @@ String rocketT5;
 String rocketT6;
 
 String nullHatches;
-
 
 int rRocketCargo = 0;
 int rRocketCargo2 = 0;
@@ -901,6 +900,8 @@ void addTeamInfo(){
   addData(26,numberOfMatches,rocketT5);
   addData(27,numberOfMatches,rocketT6);
 
+  addData(41,numberOfMatches,score);
+
 
 
 
@@ -1630,6 +1631,15 @@ class TeamState4 extends State<Team4> {
                         ),
                       ),
 
+                      TextField(
+                            decoration: new InputDecoration(
+                                labelText: 'Score'
+                            ),
+                            keyboardType: TextInputType.number,
+                        onChanged: (changed){
+                              score = changed;
+                        },
+                      ),
 
                       RaisedButton(
                         child: new Text('Done', style: TextStyle(color: Colors.white),),
