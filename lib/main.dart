@@ -878,123 +878,124 @@ void addTeamInfo(){
   addData(0,numberOfMatches,text);
   addData(1,numberOfMatches, numberOfMatches.toString());
   addData(4, numberOfMatches, hatchPannels.toString());
-  addData(5, numberOfMatches,moved);
-  addData(6,numberOfMatches,crossed);
-  addData(10,numberOfMatches,success);
+  addData(5,numberOfMatches,cargo.toString());
+  addData(6, numberOfMatches,moved);
+  addData(7,numberOfMatches,crossed);
+  addData(11,numberOfMatches,success);
 
-  addData(11,numberOfMatches,lRocketlog1);
-  addData(17,numberOfMatches,lRocketlog2);
-  addData(12,numberOfMatches,lRocketlog3);
-  addData(18,numberOfMatches,lRocketlog4);
-  addData(13,numberOfMatches,lRocketlog5);
-  addData(19,numberOfMatches,lRocketlog6);
-  addData(14,numberOfMatches,rocketT);
-  addData(15,numberOfMatches,rocketT2);
-  addData(16,numberOfMatches,rocketT3);
+  addData(12,numberOfMatches,lRocketlog1);
+  addData(18,numberOfMatches,lRocketlog2);
+  addData(13,numberOfMatches,lRocketlog3);
+  addData(19,numberOfMatches,lRocketlog4);
+  addData(14,numberOfMatches,lRocketlog5);
+  addData(20,numberOfMatches,lRocketlog6);
+  addData(15,numberOfMatches,rocketT);
+  addData(16,numberOfMatches,rocketT2);
+  addData(17,numberOfMatches,rocketT3);
 
-  addData(22,numberOfMatches,rRocketlog1);
-  addData(28,numberOfMatches,rRocketlog2);
-  addData(23,numberOfMatches,rRocketlog3);
-  addData(29,numberOfMatches,rRocketlog4);
-  addData(24,numberOfMatches,rRocketlog5);
-  addData(30,numberOfMatches,rRocketlog6);
-  addData(25,numberOfMatches,rocketT4);
-  addData(26,numberOfMatches,rocketT5);
-  addData(27,numberOfMatches,rocketT6);
+  addData(23,numberOfMatches,rRocketlog1);
+  addData(29,numberOfMatches,rRocketlog2);
+  addData(24,numberOfMatches,rRocketlog3);
+  addData(30,numberOfMatches,rRocketlog4);
+  addData(25,numberOfMatches,rRocketlog5);
+  addData(31,numberOfMatches,rRocketlog6);
+  addData(26,numberOfMatches,rocketT4);
+  addData(27,numberOfMatches,rocketT5);
+  addData(28,numberOfMatches,rocketT6);
 
-  addData(41,numberOfMatches,score);
-
-
-
+  addData(42,numberOfMatches,score);
 
 
-  addData(31,numberOfMatches,breakdown);
-  addData(32,numberOfMatches,recover);
+
+
+
+  addData(32,numberOfMatches,breakdown);
+  addData(33,numberOfMatches,recover);
 
 
   if (checkValue3==true&&checkValue4==false){
-    addData(2,numberOfMatches,'red');
+    addData(3,numberOfMatches,'red');
   }else if(checkValue4==true&&checkValue3==false){
-    addData(2,numberOfMatches,'blue');
+    addData(3,numberOfMatches,'blue');
   }
 
   if (checkValue8==true){
-    addData(3,numberOfMatches,'11');
+    addData(4,numberOfMatches,'11');
   }else if(checkValue9==true){
-    addData(3,numberOfMatches,'12');
+    addData(4,numberOfMatches,'12');
   }else if(checkValue10==true){
-    addData(3,numberOfMatches,'13');
+    addData(4,numberOfMatches,'13');
   }else if(checkValue11==true){
-    addData(3,numberOfMatches,'21');
+    addData(4,numberOfMatches,'21');
   }else if(checkValue12==true){
-    addData(3,numberOfMatches,'23');
+    addData(4,numberOfMatches,'23');
   }
 
   if (checkValue6){
-    addData(31, numberOfMatches, "1");
-  }else{
-    addData(31, numberOfMatches, "0");
-  }
-
-  if (checkValue7){
     addData(32, numberOfMatches, "1");
   }else{
     addData(32, numberOfMatches, "0");
   }
 
-  if (pickup){
+  if (checkValue7){
     addData(33, numberOfMatches, "1");
   }else{
     addData(33, numberOfMatches, "0");
   }
 
-  addData(34, numberOfMatches, self.toString());
-  addData(35, numberOfMatches, supported.toString());
-  addData(36, numberOfMatches, helped.toString());
-  addData(37, numberOfMatches, defense.toString());
-  addData(38, numberOfMatches, fouls.toString());
-
-  addData(20, numberOfMatches, hatchPannelsteliop.toString());
-  addData(21, numberOfMatches, cargoteliop.toString());
-
-  if (red){
-    addData(39, numberOfMatches, "1");
+  if (pickup){
+    addData(34, numberOfMatches, "1");
   }else{
-    addData(39, numberOfMatches, "0");
+    addData(34, numberOfMatches, "0");
   }
 
-  if (yellow){
+  addData(35, numberOfMatches, self.toString());
+  addData(36, numberOfMatches, supported.toString());
+  addData(37, numberOfMatches, helped.toString());
+  addData(38, numberOfMatches, defense.toString());
+  addData(39, numberOfMatches, fouls.toString());
+
+  addData(21, numberOfMatches, hatchPannelsteliop.toString());
+  addData(22, numberOfMatches, cargoteliop.toString());
+
+  if (red){
     addData(40, numberOfMatches, "1");
   }else{
     addData(40, numberOfMatches, "0");
   }
 
-  addData(41, numberOfMatches, score.toString());
+  if (yellow){
+    addData(41, numberOfMatches, "1");
+  }else{
+    addData(41, numberOfMatches, "0");
+  }
+
+  addData(42, numberOfMatches, score.toString());
 
   if(firstMove==true){
-    addData(9,numberOfMatches,'D');
+    addData(10,numberOfMatches,'D');
   }else if(firstMove2==true){
-    addData(9,numberOfMatches,'E');
+    addData(10,numberOfMatches,'E');
   }else if(firstMove3==true){
-    addData(9,numberOfMatches,'C');
+    addData(10,numberOfMatches,'C');
   }else if(firstMove4==true){
-    addData(9,numberOfMatches,'F');
+    addData(10,numberOfMatches,'F');
   }else if(firstMove5==true){
-    addData(9, numberOfMatches,'B');
+    addData(10, numberOfMatches,'B');
   }else if(firstMove6==true){
-    addData(9,numberOfMatches,'G');
+    addData(10,numberOfMatches,'G');
   }else if(firstMove7==true){
-    addData(9,numberOfMatches,'A');
+    addData(10,numberOfMatches,'A');
   }else if(firstMove8==true){
-    addData(9,numberOfMatches,'H');
+    addData(10,numberOfMatches,'H');
   }
 
   if (checkValue13==true&&checkValue14==false){
-    addData(7, numberOfMatches, '1');
-    addData(8,numberOfMatches,'0');
+    addData(8, numberOfMatches, '1');
+    addData(9,numberOfMatches,'0');
   }else if (checkValue14==true&&checkValue13==false){
-    addData(7, numberOfMatches, '0');
-    addData(8,numberOfMatches,'1');
+    addData(8, numberOfMatches, '0');
+    addData(9,numberOfMatches,'1');
   }
 
 }
