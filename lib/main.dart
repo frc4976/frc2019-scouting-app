@@ -47,7 +47,7 @@ int self = 0;
 int supported = 0;
 int helped = 0;
 int defense = 0;
-int fouls = 0;
+String fouls;
 bool yellow = false;
 bool red = false;
 String score;
@@ -106,6 +106,10 @@ String rocketT6;
 
 String nullHatches;
 
+bool redCard = false;
+bool yellowCard = false;
+bool redCard2;
+bool yellowCard2;
 
 int rRocketCargo = 0;
 int rRocketCargo2 = 0;
@@ -248,6 +252,7 @@ void initState(){
     );
   }
 }
+
 
 class CreateMatch extends StatefulWidget{
   final String title = 'Create Match';
@@ -1671,47 +1676,46 @@ class TeamState4 extends State<Team4> {
                         ],
                       ),
 
-                      Text('How many fouls did the team receive?'),
 
+                      TextField(
+                        decoration: new InputDecoration(
+                          labelText: 'Fouls recived'
+                        ),
+                        keyboardType: TextInputType.number,
+                        onChanged: (changed){
+                          fouls = changed;
+                        },
+                        ),
+                      
                       Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
-                          new Align(
-                            alignment: Alignment.centerRight,
-                            child: new RaisedButton(
-                                child: new Text('-'),
-                                onPressed: (){
-                                  setState(() {
-                                    fouls--;
-                                    if(fouls<0){
-                                      fouls=0;
-                                    }
-                                  });
-                                }
-                            ),
-                          ),
-
-                          new Align(
-                            alignment: Alignment.centerLeft,
-                            child: new RaisedButton(
-                                child: new Text(fouls.toString()),
-                                onPressed: null
-                            ),
-                          ),
-
-                          new Align(
-                            alignment: Alignment.centerRight,
-                            child: new RaisedButton(
-                                child: new Text('+'),
-                                onPressed: (){
-                                  setState(() {
-                                    fouls++;
-                                  });
-                                }
-                            ),
-                          ),
+                          CheckboxListTile(
+                            title: new Text('Yellow carded?'),
+                              value: yellowCard,
+                            onChanged: (changed){
+                                setState(() {
+                                  yellowCard = changed;
+                                });
+                            },
+                          )
                         ],
                       ),
+
+                      Row(
+                        children: <Widget>[
+                          CheckboxListTile(
+                            title: new Text('Red carded'),
+                            value: redCard,
+                            onChanged: (changed){
+                              setState(() {
+                                redCard = changed;
+                              });
+                            },
+                          )
+                        ],
+                      ),
+                      
+                      
 
                       TextField(
                             decoration: new InputDecoration(
