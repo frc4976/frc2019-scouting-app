@@ -46,6 +46,7 @@ bool pickup = false;
 int self = 0;
 int supported = 0;
 int helped = 0;
+int helped2 = 0;
 int defense = 0;
 String fouls;
 bool yellow = false;
@@ -900,12 +901,6 @@ void addTeamInfo(){
   addData(27,numberOfMatches,rocketT5);
   addData(28,numberOfMatches,rocketT6);
 
-  addData(42,numberOfMatches,score);
-
-
-
-
-
   addData(32,numberOfMatches,breakdown);
   addData(33,numberOfMatches,recover);
 
@@ -956,25 +951,25 @@ void addTeamInfo(){
   addData(35, numberOfMatches, self.toString());
   addData(36, numberOfMatches, supported.toString());
   addData(37, numberOfMatches, helped.toString());
-  addData(38, numberOfMatches, defense.toString());
-  addData(39, numberOfMatches, fouls.toString());
+  addData(39, numberOfMatches, defense.toString());
+  addData(40, numberOfMatches, fouls.toString());
 
   addData(21, numberOfMatches, hatchPannelsteliop.toString());
   addData(22, numberOfMatches, cargoteliop.toString());
 
   if (redCard){
+    addData(42, numberOfMatches, "1");
+  }else{
+    addData(42, numberOfMatches, "0");
+  }
+
+  if (yellowCard){
     addData(41, numberOfMatches, "1");
   }else{
     addData(41, numberOfMatches, "0");
   }
 
-  if (yellowCard){
-    addData(40, numberOfMatches, "1");
-  }else{
-    addData(40, numberOfMatches, "0");
-  }
-
-  addData(42, numberOfMatches, score.toString());
+  addData(43, numberOfMatches, score.toString());
 
   if(firstMove==true){
     addData(10,numberOfMatches,'D');
@@ -1668,6 +1663,51 @@ class TeamState4 extends State<Team4> {
                         ],
                       ),
 
+                      Text('What level did the robot help a second robot to? (0 if N/A)'),
+
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          new Align(
+                            alignment: Alignment.centerRight,
+                            child: new RaisedButton(
+                                child: new Text('-'),
+                                onPressed: (){
+                                  setState(() {
+                                    helped2--;
+                                    if(helped2<0){
+                                      helped2=3;
+                                    }
+                                  });
+                                }
+                            ),
+                          ),
+
+                          new Align(
+                            alignment: Alignment.centerLeft,
+                            child: new RaisedButton(
+                                child: new Text(helped2.toString()),
+                                onPressed: null
+                            ),
+                          ),
+
+                          new Align(
+                            alignment: Alignment.centerRight,
+                            child: new RaisedButton(
+                                child: new Text('+'),
+                                onPressed: (){
+                                  setState(() {
+                                    helped2++;
+                                    if(helped2>3){
+                                      helped2=0;
+                                    }
+                                  });
+                                }
+                            ),
+                          ),
+                        ],
+                      ),
+
                       Text('On a scale from 1 to 3, how defensive was their play?'),
 
                       Row(
@@ -2124,6 +2164,3 @@ showAlertDialog(BuildContext context) {
     },
   );
 }
-
-//save to colum 38, therefor write 37 TODO
-// two more checkboxes in row two of first move TODO
