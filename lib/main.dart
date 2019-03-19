@@ -231,19 +231,7 @@ void initState(){
                     onPressed: () {
                      Navigator.push(
                        context,
-                       MaterialPageRoute(builder: (context)=>Scaffold(
-                         body: SizedBox(
-                           width: 400,
-                           child: Container(
-                             decoration: BoxDecoration(
-                             image: DecorationImage(
-                                 fit: BoxFit.fitWidth,
-                                 image:   AssetImage("assets/WillieTheWizard.bmp")
-                               )
-                             )
-                             ),
-                           ),
-                       ))
+                       MaterialPageRoute(builder: (context)=>Wizard())
                      );
                     }
                 ),
@@ -253,6 +241,36 @@ void initState(){
         ),
       ),
     );
+  }
+}
+
+class Wizard extends StatefulWidget{
+
+  @override
+  WizardState createState() => WizardState();
+}
+
+class WizardState extends State<Wizard>{
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Willie The Wizard'),
+      ),
+      body:  SizedBox(
+        width: 400,
+        child: Container(
+            decoration: BoxDecoration(
+                image: DecorationImage(
+                    fit: BoxFit.fitWidth,
+                    image:   AssetImage("assets/WillieTheWizard.bmp")
+                )
+            )
+        ),
+      ),
+
+      );
+
   }
 }
 
