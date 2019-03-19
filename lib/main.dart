@@ -953,16 +953,16 @@ void addTeamInfo(){
   addData(21, numberOfMatches, hatchPannelsteliop.toString());
   addData(22, numberOfMatches, cargoteliop.toString());
 
-  if (red){
-    addData(40, numberOfMatches, "1");
-  }else{
-    addData(40, numberOfMatches, "0");
-  }
-
-  if (yellow){
+  if (redCard){
     addData(41, numberOfMatches, "1");
   }else{
     addData(41, numberOfMatches, "0");
+  }
+
+  if (yellowCard){
+    addData(40, numberOfMatches, "1");
+  }else{
+    addData(40, numberOfMatches, "0");
   }
 
   addData(42, numberOfMatches, score.toString());
@@ -1563,7 +1563,7 @@ class TeamState4 extends State<Team4> {
                                   setState(() {
                                     supported--;
                                     if(supported<0){
-                                      supported=0;
+                                      supported=3;
                                     }
                                   });
                                 }
@@ -1585,6 +1585,9 @@ class TeamState4 extends State<Team4> {
                                 onPressed: (){
                                   setState(() {
                                     supported++;
+                                    if(supported>3){
+                                      supported=0;
+                                    }
                                   });
                                 }
                             ),
@@ -1605,7 +1608,7 @@ class TeamState4 extends State<Team4> {
                                   setState(() {
                                     helped--;
                                     if(helped<0){
-                                      helped=0;
+                                      helped=3;
                                     }
                                   });
                                 }
@@ -1627,6 +1630,9 @@ class TeamState4 extends State<Team4> {
                                 onPressed: (){
                                   setState(() {
                                     helped++;
+                                    if(helped>3){
+                                      helped=0;
+                                    }
                                   });
                                 }
                             ),
@@ -1687,8 +1693,7 @@ class TeamState4 extends State<Team4> {
                         },
                         ),
                       
-                      Row(
-                        children: <Widget>[
+
                           CheckboxListTile(
                             title: new Text('Yellow carded?'),
                               value: yellowCard,
@@ -1697,12 +1702,10 @@ class TeamState4 extends State<Team4> {
                                   yellowCard = changed;
                                 });
                             },
-                          )
-                        ],
-                      ),
+                          ),
 
-                      Row(
-                        children: <Widget>[
+
+
                           CheckboxListTile(
                             title: new Text('Red carded'),
                             value: redCard,
@@ -1711,9 +1714,8 @@ class TeamState4 extends State<Team4> {
                                 redCard = changed;
                               });
                             },
-                          )
-                        ],
-                      ),
+                          ),
+
                       
                       
 
