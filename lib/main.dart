@@ -63,6 +63,8 @@ bool firstMove5 = false;
 bool firstMove6 = false;
 bool firstMove7 = false;
 bool firstMove8 = false;
+bool firstMove9 = false;
+bool firstMove10 = false;
 
 bool lRocket = false;
 bool lRocket2 = false;
@@ -914,6 +916,13 @@ void addTeamInfo(){
     addData(3,numberOfMatches,'blue');
   }
 
+  if (firstMove9==true&&checkValue10==false){
+    addData(37,numberOfMatches,'L');
+  }else if(firstMove9==false&&firstMove10==true){
+    addData(37,numberOfMatches,'R');
+  }
+
+
   if (checkValue8==true){
     addData(4,numberOfMatches,'11');
   }else if(checkValue9==true){
@@ -1165,6 +1174,16 @@ class TeamState2 extends State<Team2> {
                         children: <Widget>[
 
                           Checkbox(
+                            value: firstMove9,
+                            onChanged: (bool changed) {
+                              setState(() {
+                                firstMove9 = true;
+                                firstMove10 = false;
+                              });
+                          }
+                          ),
+
+                          Checkbox(
                               value: firstMove3,
                               onChanged: (bool changed){
                                 setState(() {
@@ -1193,7 +1212,16 @@ class TeamState2 extends State<Team2> {
                                   firstMove8 = false;
                                 });
                               }
-                          )
+                          ),
+                          Checkbox(
+                            value: firstMove10,
+                            onChanged: (bool changed){
+                              setState(() {
+                                firstMove9 = false;
+                                firstMove10 = true;
+                              });
+                            },
+                          ),
                         ],
                       ),
 
@@ -2096,3 +2124,6 @@ showAlertDialog(BuildContext context) {
     },
   );
 }
+
+//save to colum 38, therefor write 37 TODO
+// two more checkboxes in row two of first move TODO
