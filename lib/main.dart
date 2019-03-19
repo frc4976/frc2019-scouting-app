@@ -1682,6 +1682,7 @@ class TeamState4 extends State<Team4> {
                         ],
                       ),
 
+                      Text('How many fouls did the team receive?'),
 
                       TextField(
                         decoration: new InputDecoration(
@@ -1704,8 +1705,8 @@ class TeamState4 extends State<Team4> {
                             },
                           ),
 
-
-
+                      Row(
+                        children: <Widget>[
                           CheckboxListTile(
                             title: new Text('Red carded'),
                             value: redCard,
@@ -1714,8 +1715,9 @@ class TeamState4 extends State<Team4> {
                                 redCard = changed;
                               });
                             },
-                          ),
-
+                          )
+                        ],
+                      ),
                       
                       
 
