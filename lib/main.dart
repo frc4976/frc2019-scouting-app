@@ -893,11 +893,11 @@ void addTeamInfo(){
 
   addData(0,numberOfMatches,text);
   addData(1,numberOfMatches, numberOfMatches.toString());
-  addData(4, numberOfMatches, hatchPannels.toString());
-  addData(5,numberOfMatches,cargo.toString());
-  addData(6, numberOfMatches,moved);
-  addData(7,numberOfMatches,crossed);
-  addData(11,numberOfMatches,success);
+  addData(11, numberOfMatches, hatchPannels.toString());
+  addData(10,numberOfMatches,cargo.toString());
+  addData(4, numberOfMatches,moved);
+  addData(5,numberOfMatches,crossed);
+  addData(9,numberOfMatches,success);
 
   addData(12,numberOfMatches,lRocketlog1);
   addData(18,numberOfMatches,lRocketlog2);
@@ -924,9 +924,9 @@ void addTeamInfo(){
 
 
   if (checkValue3==true&&checkValue4==false){
-    addData(3,numberOfMatches,'red');
+    addData(2,numberOfMatches,'red');
   }else if(checkValue4==true&&checkValue3==false){
-    addData(3,numberOfMatches,'blue');
+    addData(2,numberOfMatches,'blue');
   }
 
   if (firstMove9==true&&checkValue10==false){
@@ -937,15 +937,15 @@ void addTeamInfo(){
 
 
   if (checkValue8==true){
-    addData(4,numberOfMatches,'11');
+    addData(3,numberOfMatches,'11');
   }else if(checkValue9==true){
-    addData(4,numberOfMatches,'12');
+    addData(3,numberOfMatches,'12');
   }else if(checkValue10==true){
-    addData(4,numberOfMatches,'13');
+    addData(3,numberOfMatches,'13');
   }else if(checkValue11==true){
-    addData(4,numberOfMatches,'21');
+    addData(3,numberOfMatches,'21');
   }else if(checkValue12==true){
-    addData(4,numberOfMatches,'23');
+    addData(3,numberOfMatches,'23');
   }
 
   if (checkValue6){
@@ -969,19 +969,20 @@ void addTeamInfo(){
   addData(35, numberOfMatches, self.toString());
   addData(36, numberOfMatches, supported.toString());
   addData(37, numberOfMatches, helped.toString());
+  addData(38, numberOfMatches, helped2.toString());
   addData(39, numberOfMatches, defense.toString());
   addData(40, numberOfMatches, fouls.toString());
 
   addData(21, numberOfMatches, hatchPannelsteliop.toString());
   addData(22, numberOfMatches, cargoteliop.toString());
 
-  if (redCard){
+  if (yellowCard){
     addData(42, numberOfMatches, "1");
   }else{
     addData(42, numberOfMatches, "0");
   }
 
-  if (yellowCard){
+  if (redCard){
     addData(41, numberOfMatches, "1");
   }else{
     addData(41, numberOfMatches, "0");
@@ -990,29 +991,29 @@ void addTeamInfo(){
   addData(43, numberOfMatches, score.toString());
 
   if(firstMove==true){
-    addData(10,numberOfMatches,'D');
+    addData(8,numberOfMatches,'D');
   }else if(firstMove2==true){
-    addData(10,numberOfMatches,'E');
+    addData(8,numberOfMatches,'E');
   }else if(firstMove3==true){
-    addData(10,numberOfMatches,'C');
+    addData(8,numberOfMatches,'C');
   }else if(firstMove4==true){
-    addData(10,numberOfMatches,'F');
+    addData(8,numberOfMatches,'F');
   }else if(firstMove5==true){
-    addData(10, numberOfMatches,'B');
+    addData(8, numberOfMatches,'B');
   }else if(firstMove6==true){
-    addData(10,numberOfMatches,'G');
+    addData(8,numberOfMatches,'G');
   }else if(firstMove7==true){
-    addData(10,numberOfMatches,'A');
+    addData(8,numberOfMatches,'A');
   }else if(firstMove8==true){
-    addData(10,numberOfMatches,'H');
+    addData(8,numberOfMatches,'H');
   }
 
   if (checkValue13==true&&checkValue14==false){
-    addData(8, numberOfMatches, '1');
-    addData(9,numberOfMatches,'0');
+    addData(6, numberOfMatches, '1');
+    addData(7,numberOfMatches,'0');
   }else if (checkValue14==true&&checkValue13==false){
-    addData(8, numberOfMatches, '0');
-    addData(9,numberOfMatches,'1');
+    addData(6, numberOfMatches, '0');
+    addData(7,numberOfMatches,'1');
   }
 
 }
