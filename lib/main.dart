@@ -1792,8 +1792,8 @@ class TeamState4 extends State<Team4> {
                             },
                           ),
 
-                      Row(
-                        children: <Widget>[
+
+
                           CheckboxListTile(
                             title: new Text('Red carded'),
                             value: redCard,
@@ -1802,9 +1802,8 @@ class TeamState4 extends State<Team4> {
                                 redCard = changed;
                               });
                             },
-                          )
-                        ],
-                      ),
+                          ),
+
                       
                       
 
